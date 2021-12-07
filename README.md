@@ -2,7 +2,7 @@
 A platform for trading goods &amp; services
 
 ## Introduction
-This project was a brief 2-week sprint where our team tried to complete an MVP for an external client.
+This project was a brief 2-week sprint where our team *completed* an MVP for an external client.
 
 ## Meet the app
 What problem does it solve? Who uses it?
