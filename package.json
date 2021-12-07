@@ -1,0 +1,34 @@
+{
+  "name": "marxet",
+  "version": "1.0.0",
+  "description": "A platform for trading goods &amp; services",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --watch --mode development",
+    "start": "live-server public/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roman-marxists/marxet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roman-marxists/marxet/issues"
+  },
+  "homepage": "https://github.com/roman-marxists/marxet#readme",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-react": "^7.16.0",
+    "babel-loader": "^8.2.3",
+    "live-server": "^1.2.1",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
