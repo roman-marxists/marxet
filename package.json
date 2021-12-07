@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --watch --mode development",
-    "start": "live-server public/"
+    "start": "live-server client/dist/"
   },
   "repository": {
     "type": "git",
