@@ -28,18 +28,18 @@ Alongside these, our new technologies are:
 ## Video demos & walkthroughs of Marxet
 
 ## Application functionality
-What happens behind the scenes when the user interacts with it?
+_What happens behind the scenes when the user interacts with it?
 Where are all the places that the data travels?
 What happens to that data?
-How does the tech stack come together?
+How does the tech stack come together?_
 
 ## Research
 
 ## Workflow & key takeaways
-Describe your git workflow, style guides, commit guides, etc.
+_Describe your git workflow, style guides, commit guides, etc.
 What did you learn from the process?
 What were some key takeaways from stand-ups, code reviews, etc?
-Writing tests
+Writing tests_
 
 We chose to use **GitHub Projects** instead of Trello boards because we prefer its integrated features, such as linking code blocks to related tickets.
 You can view our ticket board [here](https://github.com/roman-marxists/marxet/projects/1).
