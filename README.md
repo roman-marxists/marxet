@@ -40,12 +40,15 @@ Describe your git workflow, style guides, commit guides, etc.
 What did you learn from the process?
 What were some key takeaways from stand-ups, code reviews, etc?
 Writing tests
-Link to your Trello board & discussion about completed tickets
+
+We chose to use **GitHub Projects** instead of Trello boards because we prefer its integrated features, such as linking code blocks to related tickets.
+You can view our ticket board [here](https://github.com/roman-marxists/marxet/projects/1).
 
 ## Any non-MVP tickets?
 
 ## Notes from your sprint retrospectives
 
 ## Additional features coming in the future
+
 
 Fin
