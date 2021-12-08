@@ -91,3 +91,5 @@ lerna-debug.log
 .DS_Store
 Thumbs.db
 jsconfig.json
+client/dist
+design.txt
