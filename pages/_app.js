@@ -1,7 +1,13 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-const App = ({ Component, pageProps }) => {
-  return <div>Hey</div>;
-};
+function MyApp({ Component, pageProps }) {
+  return (
+    <>
+      <Link href="/"><a title="Home">Home</a></Link>{' '}
+      <Link href="/user/1"><a>User 1</a></Link>
+      <Component {...pageProps} />
+    </>
+  )
+}
 
-export default App;
+export default MyApp
