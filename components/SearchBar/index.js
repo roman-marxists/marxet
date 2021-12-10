@@ -32,7 +32,6 @@ const Search = () => {
           variant="standard"
           label="Search for Products"
         />
-        {/* <Typography /> */}
         <Button type="submit" variant="contained" color="primary">
           Search
         </Button>
