@@ -8,6 +8,7 @@ import {
   TextField,
   Fab
 } from '@mui/material';
+import { GoogleIcon, FacebookIcon } from '@mui/icons-material';
 import { theme } from '../Theme.js';
 
 const AntSwitch = styled(Switch)((theme) => {
@@ -20,15 +21,25 @@ const AntSwitch = styled(Switch)((theme) => {
 const Login = () => {
   const [ signInView, setSignInView ] = useState(true);
 
+  const handleChange = () => {
+    setSignInView(!signInView);
+  }
+
   return (
     <Box
       component='form'
       // sx='?'
     >
+      <div>
+        Welcome {signInView ? 'back ' : null}to <b>Marxet</b>
+      </div>
       <Stack direction='row' spacing={1} alignItems='center' >
-        <Typography>Off</Typography>
-        <AntSwitch defaultChecked inputProps={{ 'aria-label': 'ant design' }} />
-        <Typography>On</Typography>
+        <Typography>Sign in</Typography>
+        <AntSwitch
+          onChange={handleChange}
+          defaultChecked
+          inputProps={{ 'aria-label': 'ant design' }} />
+        <Typography>Sign up</Typography>
       </ Stack>
       <br />
       <Stack direction='column' spacing={1} alignItems='center' >
@@ -40,13 +51,25 @@ const Login = () => {
           required='true'
         />
         <TextField
-          id='username-field'
+          id='password-field'
           variant='outlined'
-          type='username'
-          label='Username or E-mail'
+          type='password'
+          label='Password'
           required='true'
         />
       </ Stack>
+      <br />
+      <div>
+        Sign {signInView ? 'in' : 'up'} with
+        <Stack direction='row' spacing={1} alignItems='center' >
+          <Fab id='google-login' >
+            <GoogleIcon />
+          </Fab>
+          <Fab id='facebook-login' >
+            <FacebookIcon />
+          </Fab>
+        </ Stack>
+      </div>
     </ Box>
   )
 }
