@@ -3,5 +3,7 @@ WORKDIR /usr/src/app
 COPY ["package.json", "package-lock.json", "./"]
 RUN npm install
 COPY . .
-ENV POSTGRES_PASSWORD=mysecretpassword
-BASH []
+ENV PORT=5432
+EXPOSE 5432
+ENV PGUSER= PGPASSWORD=
+
