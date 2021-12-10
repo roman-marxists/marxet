@@ -25,19 +25,29 @@ const Search = () => {
   };
 
   return (
-    <Box>
+    <Box className="form" sx={{ minWidth: "40%" }}>
       <form onSubmit={handleSubmit}>
         <TextField
+          sx={{ verticalAlign: "baseline", width: "30%" }}
           onChange={handleChange}
           variant="standard"
           label="Search for Products"
         />
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          startIcon={<SearchIcon />}
-        ></Button>
+        <Box
+          className="TextField"
+          sx={{
+            display: "inline-flex",
+            paddingLeft: "20px",
+          }}
+        >
+          <Button
+            sx={{ justifyContent: "flex-end" }}
+            type="submit"
+            variant="contained"
+            color="primary"
+            startIcon={<SearchIcon />}
+          ></Button>
+        </Box>
       </form>
     </Box>
   );

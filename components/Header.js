@@ -13,29 +13,20 @@ import Search from "./SearchBar";
 
 const Header = () => {
   return (
-    <Box
-      sx={{
-        opacity: 0.5,
-        // display: "flex",
-        // flexdirection: "row",
-        // justifycontent: "space-evenly",
-        // alignitems: "baseline",
-        alignself: "auto",
-      }}
-    >
-      <AppBar position="static">
-        <Toolbar component="div">
-          <Typography>Welcome</Typography>
+    <AppBar classname="AppBar" position="static">
+      <Toolbar>
+        <Typography>Welcome</Typography>
+        <Box sx={{ paddingLeft: "80px", paddingRight: "20px", width: "80%" }}>
           <Search />
-          <Button color="inherit" variant="outlined">
-            Login
-          </Button>
-          <Button color="inherit" variant="outlined">
-            SignUp
-          </Button>
-        </Toolbar>
-      </AppBar>
-    </Box>
+        </Box>
+        <Button color="inherit" variant="outlined">
+          Login
+        </Button>
+        <Button color="inherit" variant="outlined">
+          SignUp
+        </Button>
+      </Toolbar>
+    </AppBar>
   );
 };
 
