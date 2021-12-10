@@ -32,9 +32,12 @@ const Search = () => {
           variant="standard"
           label="Search for Products"
         />
-        <Button type="submit" variant="contained" color="primary">
-          Search
-        </Button>
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          startIcon={<SearchIcon />}
+        ></Button>
       </form>
     </Box>
   );

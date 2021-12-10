@@ -20,12 +20,6 @@
     "url": "https://github.com/roman-marxists/marxet/issues"
   },
   "homepage": "https://github.com/roman-marxists/marxet#readme",
-  "devDependencies": {
-    "@babel/core": "^7.16.0",
-    "@babel/preset-env": "^7.16.4",
-    "@babel/preset-react": "^7.16.0",
-    "babel-loader": "^8.2.3"
-  },
   "dependencies": {
     "@emotion/react": "^11.7.0",
     "@emotion/styled": "^11.6.0",
