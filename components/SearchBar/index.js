@@ -8,12 +8,13 @@ import {
   Box,
   InputBase,
   TextField,
-} from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
-import { useState } from "react";
+} from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+import { useState } from 'react';
+// import styled from 'styled-components';
 
 const Search = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
@@ -29,13 +30,13 @@ const Search = () => {
       <form onSubmit={handleSubmit}>
         <TextField
           onChange={handleChange}
-          variant="standard"
-          label="Search for Products"
+          variant='standard'
+          label='Search for Products'
         />
         <Button
-          type="submit"
-          variant="contained"
-          color="primary"
+          type='submit'
+          variant='contained'
+          color='primary'
           startIcon={<SearchIcon />}
         ></Button>
       </form>
