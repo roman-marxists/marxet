@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material';
 
-export const Theme = createTheme({
+const Theme = createTheme({
   palette: {
     primary: {
       light: '#ffffff',
@@ -29,8 +29,13 @@ export const Theme = createTheme({
   }
 });
 
-export const Fonts = {
+const Fonts = {
   logo: 'Beth Ellen, cursive',
   heading: 'Playfair Display, serif',
-  p: 'Source Sans Pro, serif-sans'
+  p: 'Source Sans Pro, sans-serif'
 };
+
+module.exports = {
+  Theme: Theme.palette,
+  Fonts: Fonts
+}
