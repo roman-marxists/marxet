@@ -12,7 +12,7 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 
-const Search = () => {
+const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleChange = (e) => {
@@ -53,4 +53,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default SearchBar;

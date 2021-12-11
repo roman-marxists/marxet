@@ -9,15 +9,15 @@ import {
   InputBase,
 } from "@mui/material";
 
-import Search from "./SearchBar";
+import SearchBar from "../SearchBar";
 
 const Header = () => {
   return (
-    <AppBar classname="AppBar" position="static">
+    <AppBar className="AppBar" position="static" sx={{ marginBottom: "5vw" }}>
       <Toolbar>
         <Typography>Welcome</Typography>
         <Box sx={{ paddingLeft: "80px", paddingRight: "20px", width: "80%" }}>
-          <Search />
+          <SearchBar />
         </Box>
         <Button color="inherit" variant="outlined">
           Login
