@@ -5,11 +5,12 @@ import Link from "next/link";
 import SearchBar from "../components/SearchBar";
 import Header from "../components/Header.js";
 
-import { useState } from "react";
+import AddListing from "../components/modals/addListingModal.js";
 
 const App = ({ Component, pageProps }) => {
   return (
     <>
+    <AddListing />
       <Box sx={{ flexGrow: 1 }}>
         <Header />
       </Box>
@@ -18,6 +19,7 @@ const App = ({ Component, pageProps }) => {
       </Link>
       <h1>this is on every page</h1>
       <Component {...pageProps} />
+      
     </>
   );
 };

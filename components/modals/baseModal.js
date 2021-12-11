@@ -1,14 +1,18 @@
 import * as React from 'react';
-import ReactDOM from 'react-dom';
-import Button from '@mui/material/Button';
-import Modal from '@mui/material/Modal';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-
+import {Button, Modal, Box, Typography} from '@mui/material';
+import { useState } from "react";
 
 const BaseModal = () => {
-    
-    return (<div>
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+    return (<>
         <Button onClick={handleOpen}>Open modal</Button>
         <Modal
         open={open}
@@ -16,7 +20,14 @@ const BaseModal = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         >
-            <Box sx={style}>
+            <Box sx={{ 
+                    width: 600,
+                    height: 300, 
+                    border: '1px grey',
+                    backgroundColor: 'white',
+                    m: 'auto',
+                    mt: 30
+                    }}>
                 <Typography id="modal-modal-title" variant="h6" component="h2">
                     Text in a modal
                 </Typography>
@@ -25,7 +36,7 @@ const BaseModal = () => {
                 </Typography>
             </Box>
         </Modal>
-    </div>
+    </>
         )
   }
   
