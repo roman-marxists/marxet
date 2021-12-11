@@ -36,9 +36,4 @@ const Header = () => {
   );
 };
 
-// const ToolBarWrapper = styled.div`
-//   ({ theme }) => {
-//   }
-// `;
-
 export default Header;
