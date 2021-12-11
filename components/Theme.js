@@ -29,4 +29,8 @@ export const Theme = createTheme({
   }
 });
 
-// export default Theme;
+export const Fonts = {
+  logo: 'Beth Ellen, cursive',
+  heading: 'Playfair Display, serif',
+  p: 'Source Sans Pro, serif-sans'
+};
