@@ -12,7 +12,7 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 
-const SearchBar = () => {
+const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleChange = (e) => {
@@ -31,7 +31,7 @@ const SearchBar = () => {
           sx={{ verticalAlign: "baseline", width: "70%" }}
           onChange={handleChange}
           variant="standard"
-          label="Search for Products"
+          placeholder="Search for listings..."
         />
         <Box
           className="TextField"
@@ -53,4 +53,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default Search;
