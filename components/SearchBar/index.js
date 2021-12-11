@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { useState } from 'react';
-// import styled from 'styled-components';
+
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -31,7 +31,7 @@ const Search = () => {
         <TextField
           onChange={handleChange}
           variant='standard'
-          label='Search for Products'
+          placeholder='Search for listings...'
         />
         <Button
           type='submit'
