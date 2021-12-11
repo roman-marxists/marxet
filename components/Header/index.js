@@ -10,21 +10,27 @@ import {
 } from "@mui/material";
 
 import SearchBar from "../SearchBar";
+import Dropdown from "../Dropdown";
 
 const Header = () => {
   return (
     <AppBar className="AppBar" position="static" sx={{ marginBottom: "5vw" }}>
       <Toolbar>
         <Typography>Welcome</Typography>
-        <Box sx={{ paddingLeft: "80px", paddingRight: "20px", width: "80%" }}>
+        <Box
+          className="SearchBar"
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            paddingLeft: "8vw",
+            paddingRight: "5vw",
+            width: "30%",
+          }}
+        >
           <SearchBar />
+          <Dropdown />
         </Box>
-        <Button color="inherit" variant="outlined">
-          Login
-        </Button>
-        <Button color="inherit" variant="outlined">
-          SignUp
-        </Button>
       </Toolbar>
     </AppBar>
   );

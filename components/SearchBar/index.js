@@ -25,10 +25,10 @@ const SearchBar = () => {
   };
 
   return (
-    <Box className="form" sx={{ minWidth: "40%" }}>
+    <Box className="form" sx={{ minWidth: "30%", width: "100%" }}>
       <form onSubmit={handleSubmit}>
         <TextField
-          sx={{ verticalAlign: "baseline", width: "30%" }}
+          sx={{ verticalAlign: "baseline", width: "70%" }}
           onChange={handleChange}
           variant="standard"
           label="Search for Products"
