@@ -5,6 +5,7 @@ import Link from "next/link";
 import '../public/styles.css';
 import SearchBar from "../components/SearchBar";
 import Header from "../components/Header.js";
+import AddListing from "../components/modals/addListingModal.js";
 
 const Theme = createTheme({
   palette: {
@@ -38,6 +39,7 @@ const Theme = createTheme({
 const App = ({ Component, pageProps }) => {
   return (
     <ThemeProvider theme={Theme}>
+      <AddListing />
       <Box sx={{ flexGrow: 1 }}>
         <Header />
       </Box>
