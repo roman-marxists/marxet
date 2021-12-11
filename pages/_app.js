@@ -1,11 +1,11 @@
+import { useState } from "react";
 import { Box } from "@mui/material";
-
 import Link from "next/link";
 
+import '../public/styles.css';
 import SearchBar from "../components/SearchBar";
 import Header from "../components/Header.js";
 
-import { useState } from "react";
 
 const App = ({ Component, pageProps }) => {
   return (
@@ -16,7 +16,6 @@ const App = ({ Component, pageProps }) => {
       <Link href="/">
         <a>Home</a>
       </Link>
-      <h1>this is on every page</h1>
       <Component {...pageProps} />
     </>
   );
