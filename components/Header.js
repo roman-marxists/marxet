@@ -8,31 +8,30 @@ import {
   alpha,
   InputBase,
 } from "@mui/material";
-
+import Link from 'next/link';
 import Search from "./SearchBar";
 
 const Header = () => {
   return (
     <Box
       sx={{
-        opacity: 0.5,
         // display: "flex",
         // flexdirection: "row",
         // justifycontent: "space-evenly",
         // alignitems: "baseline",
-        alignself: "auto",
+        alignSelf: "auto",
+        color: '#c7d6d5'
       }}
     >
       <AppBar position="static">
         <Toolbar component="div">
-          <Typography>Welcome</Typography>
+          <div className='logo' style={{color: '#801f12'}}>Marxet</div>
           <Search />
-          <Button color="inherit" variant="outlined">
-            Login
-          </Button>
-          <Button color="inherit" variant="outlined">
-            SignUp
-          </Button>
+          <Link href="/login">
+            <Button color="inherit" variant="outlined">
+              Login
+            </Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </Box>
