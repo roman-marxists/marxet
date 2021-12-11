@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Image from 'next/image'
-import profilePic from '../../public/images/placeholder-propic.png'
+import profilePic from '@images/placeholder-propic.png'
 import {
   Stack,
   Divider,
@@ -14,16 +14,17 @@ import EditIcon from '@mui/icons-material/Edit'
 const UserInfo = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(true);
   const [username, setUsername] = useState('username');
-  const [bio, setBio] = useState('some text');
+  const [bio, setBio] = useState('');
   const [isEditing, setIsEditing] = useState(false);
 
   const isOwnerAndAuthenticated = isAuthenticated && username === 'username'
+  console.log("🚀 ~ file: UserInfo.js ~ line 62 ~ UserInfo ~ username", username)
 
   // useEffect hook to fetch the user profile info. only fetch transaction history if
   // user is authenticated and is the owner of the page.
 
   return (
-    <Stack>
+    <Stack spacing={{xs: 0, md: 1}}>
       <div>
         UserInfo
       </div>
@@ -47,12 +48,11 @@ const UserInfo = () => {
       <Typography>
         Bio:
       </Typography>
-      <br />
       <Typography variant='body1' align='center'>
-        {bio}
+        {bio || 'Hi, my name is ' + username + ' and I love redistributing my wealth.'}
       </Typography>
       {isOwnerAndAuthenticated && <Typography>Transactions</Typography>}
-      <Box>
+      <Box textAlign='center'>
         {isOwnerAndAuthenticated && !isEditing && <Button variant='contained' startIcon={<EditIcon />} size='large' onClick={() => setIsEditing(!isEditing)}>Edit</Button>}
         {isOwnerAndAuthenticated && isEditing && <Button variant='contained' startIcon={<SaveIcon />} size='large' onClick={() => setIsEditing(!isEditing)}>Save</Button>}
       </Box>

@@ -7,29 +7,31 @@ import Grid from '@mui/material/Grid';
 
 const UserProfile = ({ userId }) => {
   return (
-    <Grid container direction='row' spacing={3}>
-      <Grid item md={3}>
-        <UserInfo
-          // sx={{
-          //   minHeight: 500,
-          //   minWidth: 300,
-          // }}
-        />
-      </Grid>
-      <Grid item container md={9} direction='column' spacing={3}>
-        <Grid item>
-          <UserInventory />
+    <Container>
+      <Grid container direction='row' spacing={3}>
+        <Grid item md={3}>
+          <UserInfo
+            // sx={{
+            //   minHeight: 500,
+            //   minWidth: 300,
+            // }}
+          />
         </Grid>
-        <Grid item container direction={{ sm: 'column', md:'row'}} spacing={3}>
-          <Grid item md={6}>
-            <UserWishlist />
+        <Grid item container md={9} direction='column' spacing={3}>
+          <Grid item>
+            <UserInventory />
           </Grid>
-          <Grid item md={6}>
-            <UserReviews />
+          <Grid item container direction={{ xs:'column', md:'row'}} spacing={3}>
+            <Grid item md={6}>
+              <UserWishlist />
+            </Grid>
+            <Grid item md={6}>
+              <UserReviews />
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
-    </Grid>
+    </Container>
   );
 };
 
