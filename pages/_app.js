@@ -1,7 +1,5 @@
-import Link from "next/link";
-
 const App = ({ Component, pageProps }) => {
-  return <div>Hey</div>;
+  return <Component {...pageProps} />;
 };
 
 export default App;
