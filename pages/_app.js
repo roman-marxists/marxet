@@ -6,6 +6,7 @@ import "../public/styles.css";
 import Header from "../components/Header";
 import SearchPage from "../features/Search/SearchPage.js";
 import AddListing from "../components/modals/addListingModal.js";
+// import Search from "./search.js";
 
 const Theme = createTheme({
   palette: {
@@ -42,16 +43,18 @@ const App = ({ Component, pageProps }) => {
       <Box sx={{ flexGrow: 1 }}>
         <Header />
       </Box>
-      <Link href="/search">
+      <Link href="/products/1">
         <a>Search</a>
       </Link>
       <Link href="/">
         <a>Home</a>
-      </Link>{' '}
-      <Link href="/user/1"><a>User 1</a></Link>
+      </Link>{" "}
+      <Link href="/user/1">
+        <a>User 1</a>
+      </Link>
       <Component {...pageProps} />
     </ThemeProvider>
   );
 };
 
-export default App
+export default App;
