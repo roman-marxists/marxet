@@ -43,7 +43,9 @@ const App = ({ Component, pageProps }) => {
       <Box sx={{ flexGrow: 1 }}>
         <Header />
       </Box>
-      <SearchPage />
+      <Link href="/search">
+        <a>Search</a>
+      </Link>
       <Link href="/">
         <a>Home</a>
       </Link>
