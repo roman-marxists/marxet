@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Box, createTheme, ThemeProvider } from "@mui/material";
 import Link from "next/link";
 
@@ -48,10 +47,11 @@ const App = ({ Component, pageProps }) => {
       </Link>
       <Link href="/">
         <a>Home</a>
-      </Link>
+      </Link>{' '}
+      <Link href="/user/1"><a>User 1</a></Link>
       <Component {...pageProps} />
     </ThemeProvider>
   );
 };
 
-export default App;
+export default App
