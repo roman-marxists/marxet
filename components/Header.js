@@ -8,8 +8,9 @@ import {
   alpha,
   InputBase,
 } from "@mui/material";
-import Link from 'next/link';
+import Link from "next/link";
 import Search from "./SearchBar";
+import Dropdown from "./Dropdown";
 
 const Header = () => {
   return (
@@ -20,13 +21,16 @@ const Header = () => {
         // justifycontent: "space-evenly",
         // alignitems: "baseline",
         alignSelf: "auto",
-        color: '#c7d6d5'
+        color: "#c7d6d5",
       }}
     >
       <AppBar position="static">
         <Toolbar component="div">
-          <div className='logo' style={{color: '#801f12'}}>Marxet</div>
+          <div className="logo" style={{ color: "#801f12" }}>
+            Marxet
+          </div>
           <Search />
+          <Dropdown />
           <Link href="/login">
             <Button color="inherit" variant="outlined">
               Login
