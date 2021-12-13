@@ -1,6 +1,10 @@
 import React from 'react'
 import Head from 'next/head'
 
+/*
+File to be deleted.
+*/
+
 const AddCounter = OriginalComponent => {
   class NewComponent extends React.Component {
     constructor(props) {

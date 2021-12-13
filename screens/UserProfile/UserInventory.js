@@ -1,13 +1,14 @@
 import {useState} from 'react'
+import { Box } from '@mui/material';
 
 const UserInventory = () => {
   const [inventory, setInventory] = useState([])
 
   return (
-    <div>
+    <Box>
       UserInventory
 
-    </div>
+    </Box>
   )
 }
 
