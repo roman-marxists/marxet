@@ -8,10 +8,10 @@ import CardDescription from "./CardDescription.js";
 import UsernameButton from "./UsernameButton.js";
 
 const ItemCard = () => {
-  const [isFavClicked, setFavClicked] = useState(false);
+  const [isFavorited, setFavorited] = useState(false);
 
   const handleFavoritedItem = () => {
-    setFavClicked(() => !isFavClicked);
+    setFavorited(() => !isFavorited);
   };
 
   return (
@@ -22,7 +22,7 @@ const ItemCard = () => {
             aria-label="add to favorites"
             onClick={handleFavoritedItem}
           >
-            {!isFavClicked ? (
+            {!isFavorited ? (
               <FavoriteBorderIcon />
             ) : (
               <FavoriteIcon sx={{ color: "red" }} />

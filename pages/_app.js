@@ -40,7 +40,6 @@ const Theme = createTheme({
 const App = ({ Component, pageProps }) => {
   return (
     <ThemeProvider theme={Theme}>
-      <AddListing />
       <Box sx={{ flexGrow: 1 }}>
         <Header />
       </Box>
