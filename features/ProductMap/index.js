@@ -1,6 +1,8 @@
 import { GoogleMap, useJsApiLoader, Circle } from "@react-google-maps/api";
 import { useState, useCallback, LoadScript } from "react";
 
+const API_KEY = process.env.REACT_APP_API_KEY;
+
 const containerStyle = {
   width: "30vw",
   height: "20vh",
@@ -14,7 +16,7 @@ const center = {
 const ProductMap = () => {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "AIzaSyCR5D6KpBrrkBvx3xifNbDB1P1zJ5iuuB8",
+    googleMapsApiKey: API_KEY,
   });
 
   const [map, setMap] = useState(null);
