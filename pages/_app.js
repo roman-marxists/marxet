@@ -1,13 +1,14 @@
 import { Box, createTheme, ThemeProvider } from "@mui/material";
 import Link from "next/link";
 
+import { useEffect } from "react";
+
 import "../public/styles.css";
 // import SearchBar from "../components/SearchBar";
 import Header from "../components/Header";
 import SearchPage from "../features/Search/SearchPage.js";
 import AddListing from "../components/modals/addListingModal.js";
-// import Search from "./search.js";
-import ProductMap from "../features/ProductMap";
+
 const Theme = createTheme({
   palette: {
     primary: {
@@ -43,7 +44,6 @@ const App = ({ Component, pageProps }) => {
       <Box sx={{ flexGrow: 1 }}>
         <Header />
       </Box>
-      <ProductMap />
       <Link href="/products/1">
         <a>Search</a>
       </Link>
