@@ -91,7 +91,6 @@ lerna-debug.log
 # System Files
 .DS_Store
 Thumbs.db
-jsconfig.json
 client/dist
 client/.env.local
 client/.next
