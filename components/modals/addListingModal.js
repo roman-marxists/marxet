@@ -1,7 +1,9 @@
 import * as React from 'react';
-import {Button, Modal, Box, Typography, TextField} from '@mui/material';
+import {Button, Modal, Box, Typography, TextField, FormGroup, FormControlLabel, Checkbox} from '@mui/material';
 import { useState } from "react";
 import styled from "styled-components";
+import _ from "underscore";
+import CategoryCheckbox from './checkbox.js';
 
 const AddListing = () => {
   const [open, setOpen] = useState(false);
@@ -23,15 +25,21 @@ const AddListing = () => {
         >
             <Box sx={{ 
                     width: 600,
-                    height: 300, 
+                    height: 500, 
                     border: '1px grey',
                     backgroundColor: 'white',
                     m: 'auto',
                     mt: 30
                     }}>
                 <TextDiv>
-                  <TextField id="listing-name" sx={{ width: 100, m: 1 }} label="Name" variant="outlined" />
+                  <TextField id="listing-name" sx={{ width: 500, m: 1 }} label="Item/Service" variant="outlined" />
                   <TextField id="listing-description" sx={{ width: 500, m: 1 }} label="Description" variant="outlined" multiline />
+                  <FormGroup sx={{ m: 1 }}>
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Category A" />
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Category B" />
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Category C" />
+                  </FormGroup>
+                  <TextField id="listing-name" sx={{ width: 500, m: 1 }} label="Looking to trade for..." variant="outlined" />
                   <Button sx={{ m: 1 }}>Add Listing</Button>
                 </TextDiv>
                 
