@@ -17,10 +17,6 @@ const SearchPage = () => {
 
   return (
     <>
-      {/* <TrendingUpIcon
-        fontSize="large"
-        color="primary"
-      /> */}
       <Box
         className="Search"
         sx={{
@@ -53,7 +49,7 @@ const SearchPage = () => {
                   lg={3}
                   style={{ background: "inherit" }}
                 >
-                  <ItemCard />
+                  <ItemCard id={d} />
                 </Grid>
               );
             })}

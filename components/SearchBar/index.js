@@ -1,9 +1,9 @@
-import { Box, Input } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
-import { useState } from 'react';
+import { Box, Input } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+import { useState } from "react";
 
 const Search = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
@@ -15,13 +15,12 @@ const Search = () => {
   };
 
   return (
-    <Box className='form' sx={{ minWidth: '30%', width: '100%' }}>
+    <Box className="form" sx={{ minWidth: "30%", width: "100%" }}>
       <form onSubmit={handleSubmit}>
         <Input
-          sx={{ verticalAlign: 'baseline', width: '70%', color: 'black' }}
+          sx={{ verticalAlign: "baseline", width: "70%", color: "black" }}
           onChange={handleChange}
-          // variant='standard'
-          placeholder='Search for listings...'
+          placeholder="Search for listings..."
           endAdornment={<SearchIcon />}
         />
       </form>
