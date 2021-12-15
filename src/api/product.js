@@ -29,3 +29,13 @@ export const doCreateProduct = async (data) => {
     console.log(err);
   }
 };
+
+export const getProducts = async () => {
+  try {
+    const { data } = await axiosClient.get("/products");
+    console.log("searched products", data);
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+};

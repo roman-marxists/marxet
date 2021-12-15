@@ -1,4 +1,4 @@
-import { Box, Input } from "@mui/material";
+import { Box, Input, Button } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 
@@ -23,6 +23,7 @@ const Search = () => {
           placeholder="Search for listings..."
           endAdornment={<SearchIcon />}
         />
+        <Button onClick={handleSubmit}>Button</Button>
       </form>
     </Box>
   );

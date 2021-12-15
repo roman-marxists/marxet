@@ -2,6 +2,7 @@ import { createTheme, ThemeProvider } from "@mui/material";
 import { ProvideAuth } from "@context/auth";
 import Head from "next/head";
 import "../public/styles.css";
+import app from "@services/firebase";
 
 import Layout from "@components/Layout";
 

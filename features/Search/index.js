@@ -11,9 +11,18 @@ import {
 } from "@mui/material";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import ItemCard from "../../components/ItemCard";
+import { getProducts } from "@api/product";
+import { useState, useEffect } from "react";
 
 const SearchPage = () => {
   const dummy = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+  const [products, setProducts] = useState([]);
+
+  useEffect(async () => {
+    const getProductData = await getProducts();
+    console.log(getProductData);
+    setProducts(getProductData);
+  }, []);
 
   return (
     <>
@@ -40,7 +49,7 @@ const SearchPage = () => {
           }}
         >
           <Grid container spacing={8}>
-            {dummy.map((d) => {
+            {products.map((d) => {
               return (
                 <Grid
                   item
