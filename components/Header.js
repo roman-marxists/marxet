@@ -11,6 +11,7 @@ import {
 import Link from "next/link";
 import Search from "./SearchBar";
 import Dropdown from "./Dropdown";
+import HeaderMenu from "./HeaderMenu";
 
 const Header = () => {
   return (
@@ -31,11 +32,12 @@ const Header = () => {
           </div>
           <Search />
           <Dropdown />
-          <Link href="/login">
+          {/* <Link href="/login">
             <Button color="inherit" variant="outlined">
               Login
             </Button>
-          </Link>
+          </Link> */}
+          <HeaderMenu />
         </Toolbar>
       </AppBar>
     </Box>
