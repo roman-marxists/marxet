@@ -15,13 +15,24 @@ const AddListing = () => {
   const handleClose = () => {
     setOpen(false);
   };
-    return (<>
-        <Button onClick={handleOpen}>Open modal</Button>
-        <Modal
+  return (
+    <>
+      <Button onClick={handleOpen}>Open modal</Button>
+      <Modal
         open={open}
         onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+        aria-labelledby='modal-modal-title'
+        aria-describedby='modal-modal-description'
+      >
+        <Box
+          sx={{
+            width: 600,
+            height: 300,
+            border: '1px grey',
+            backgroundColor: 'white',
+            m: 'auto',
+            mt: 30,
+          }}
         >
             <Box sx={{ 
                     width: 600,
@@ -59,4 +70,4 @@ const TextDiv = styled.div`
 `
 
 
-  export default AddListing;
+export default AddListing;
