@@ -1,8 +1,8 @@
 import { Box, createTheme, ThemeProvider } from '@mui/material';
 import Link from 'next/link';
 import '../public/styles.css';
-import Header from '../components/Header';
-import firebase from '@services/firebase';
+
+import Layout from '@components/Layout';
 
 const Theme = createTheme({
   palette: {
@@ -36,19 +36,11 @@ const Theme = createTheme({
 const App = ({ Component, pageProps }) => {
   return (
     <ThemeProvider theme={Theme}>
-      <Box sx={{ flexGrow: 1 }}>
-        <Header />
-      </Box>
-      <Link href='/products/1'>
-        <a>Search</a>
-      </Link>
-      <Link href='/'>
-        <a>Home</a>
-      </Link>{' '}
-      <Link href='/user/1'>
-        <a>User 1</a>
-      </Link>
-      <Component {...pageProps} />
+      <title>Marxet</title>
+
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </ThemeProvider>
   );
 };

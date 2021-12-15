@@ -1,38 +1,38 @@
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  styled,
-  Box,
-  alpha,
-  InputBase,
-} from "@mui/material";
-
-import SearchBar from "../SearchBar";
-import Dropdown from "../Dropdown";
+import { AppBar, Toolbar, Button, Box } from '@mui/material';
+import Link from 'next/link';
+import Search from '@components/SearchBar';
+import Dropdown from '@components/Dropdown';
 
 const Header = () => {
   return (
-    <AppBar className="AppBar" position="static" sx={{ marginBottom: "5vw" }}>
-      <Toolbar>
-        <Typography>Welcome</Typography>
-        <Box
-          className="SearchBar"
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            paddingLeft: "8vw",
-            paddingRight: "5vw",
-            width: "30%",
-          }}
-        >
-          <SearchBar />
+    <Box
+      alignSelf='auto'
+      sx={{
+        color: '#c7d6d5',
+      }}
+    >
+      <AppBar position='static'>
+        <Toolbar component='div' sx={{ cursor: 'pointer' }}>
+          <Link href='/'>
+            <Box
+              className='logo'
+              style={{ color: '#801f12' }}
+              mr={5}
+              fontSize={24}
+            >
+              Marxet
+            </Box>
+          </Link>
+          <Search />
           <Dropdown />
-        </Box>
-      </Toolbar>
-    </AppBar>
+          <Link href='/login'>
+            <Button color='inherit' variant='outlined'>
+              Login
+            </Button>
+          </Link>
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
 };
 
