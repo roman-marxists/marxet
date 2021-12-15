@@ -9,3 +9,11 @@ export async function getPokemon() {
     console.log("🚀 ~ file: user.js ~ line 8 ~ getPokemon ~ err", err);
   }
 }
+
+export const doCreateUser = (data) => {
+  try {
+    console.log(data);
+  } catch (err) {
+    console.log(err);
+  }
+};

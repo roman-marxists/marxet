@@ -13,6 +13,9 @@ import {
 import { Google, Facebook, Visibility } from "@mui/icons-material";
 import { Theme, Fonts } from "../components/Theme.js";
 import { register, signIn, getUserInfo } from "../src/helper.js";
+import Router from "next/router";
+
+import { useAuth } from "@context/auth";
 
 const LoginContainer = styled.div`
   display: flex;
@@ -46,6 +49,7 @@ const FabContainer = styled.span`
 `;
 
 const Login = () => {
+  const { signin, signup } = useAuth();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -74,24 +78,24 @@ const Login = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
-
     if (password !== confirmPassword) {
       alert("Your passwords do not match. Please try again.");
       setPassword("");
       setConfirmPassword("");
     } else {
-      register(username, password);
+      signup(username, password);
       setPassword("");
       setConfirmPassword("");
       handleSwitchChange();
+      Router.push("/");
     }
   };
 
   const handleSignIn = (e) => {
     e.preventDefault();
-
-    signIn(username, password);
+    signin(username, password);
     setPassword("");
+    Router.push("/");
   };
 
   return (

@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Box, Typography, TextField, Button } from "@mui/material";
 import { doCreateProduct } from "@api/product";
+import { useAuth } from "@context/auth";
 
 const style = {
   position: "absolute",
@@ -15,6 +16,7 @@ const style = {
 };
 
 export default function ProductForm({ handleClose }) {
+  const { user } = useAuth();
   const {
     register,
     handleSubmit,
@@ -22,10 +24,10 @@ export default function ProductForm({ handleClose }) {
   } = useForm();
 
   const onSubmit = async (data) => {
-    await doCreateProduct(data);
+    await doCreateProduct({ ...data, createdBy: user.uid });
     handleClose();
   };
-  console.log("🚀 ~ file: Form.js ~ line 28 ~ ProductForm ~ errors", errors);
+  // console.log("🚀 ~ file: Form.js ~ line 28 ~ ProductForm ~ errors", errors);
 
   return (
     <Box sx={style}>
