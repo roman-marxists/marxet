@@ -1,11 +1,13 @@
 import React from 'react'
 import Link from "next/link";
+import ProductForm from '../components/Product/Form';
 
-
-export default function Home() {
+const Home = () => {
   return (
     <div>
-        <h1>Home</h1>
+      <ProductForm />
     </div>
   )
-}
+};
+
+export default Home;

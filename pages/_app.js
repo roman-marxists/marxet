@@ -1,13 +1,12 @@
-import { Box, createTheme, ThemeProvider } from "@mui/material";
 import Link from "next/link";
-
+import firebase from "@services/firebase";
 import { useEffect } from "react";
-
+import { Box, createTheme, ThemeProvider } from "@mui/material";
 import "../public/styles.css";
-// import SearchBar from "../components/SearchBar";
 import Header from "../components/Header";
-import SearchPage from "../features/Search/SearchPage.js";
+import SearchBar from "../components/SearchBar";
 import AddListing from "../components/modals/addListingModal.js";
+import SearchPage from "../features/Search/SearchPage.js";
 
 const Theme = createTheme({
   palette: {
