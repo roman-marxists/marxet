@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@screens/*": ["./screens/*"],
+      "@images/*": ["./public/images/*"],
+      "@services/*": ["./src/services/*"]
+    }
+  },
+  "exclude": ["node_modules"],
+  "include": ["./"]
+}

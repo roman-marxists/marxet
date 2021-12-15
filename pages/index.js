@@ -1,9 +1,11 @@
-import { getPokemon } from '../src/api/user';
+import React from 'react';
 
-export default function Index() {
-  const doGetPokemon = async () => {
-    const t = await getPokemon();
-    console.log('🚀 ~ file: index.js ~ line 9 ~ doGetPokemon ~ t', t);
-  };
-  return <div onClick={doGetPokemon}>hello</div>;
+import ProductForm from '../components/Product/Form';
+
+export default function Home() {
+  return (
+    <div>
+      <ProductForm />
+    </div>
+  );
 }
