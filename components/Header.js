@@ -32,11 +32,6 @@ const Header = () => {
           </div>
           <Search />
           <Dropdown />
-          {/* <Link href="/login">
-            <Button color="inherit" variant="outlined">
-              Login
-            </Button>
-          </Link> */}
           <HeaderMenu />
         </Toolbar>
       </AppBar>
