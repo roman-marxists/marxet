@@ -80,7 +80,7 @@ const Login = () => {
           <TextField
             id='username-field'
             variant='outlined'
-            label='Username or E-mail'
+            label='Username or e-mail'
             required
             color='secondary'
             onChange={handleUsernameChange}
