@@ -68,6 +68,15 @@ export default function ProductForm({ handleClose }) {
           type="number"
           {...register("zipCode", { required: true })}
         />
+        <TextField
+          error={errors.zipCode}
+          id="outlined-number"
+          margin="normal"
+          label="Category"
+          fullWidth
+          type="text"
+          {...register("category", { required: true })}
+        />
         <Box my={1}></Box>
         <TextField
           margin="normal"

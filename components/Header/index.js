@@ -16,6 +16,8 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import IconButton from "@mui/material/IconButton";
 import { useState } from "react";
 
+import { useAuth } from "@context/auth";
+
 const Header = () => {
   return (
     <Box

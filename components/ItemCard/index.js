@@ -17,7 +17,7 @@ const ItemCard = ({ id }) => {
 
   return (
     <Link href={`/products/${id}`}>
-      <Card raised sx={{ width: "15vw", height: "15vw", cursor: "pointer" }}>
+      <Card raised sx={{ width: "15vw", cursor: "pointer" }}>
         <CardHeader
           sx={{ zIndex: 9999 }}
           action={
