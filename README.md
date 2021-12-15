@@ -37,22 +37,16 @@ How does the tech stack come together?_
 ## Research
 
 ## Workflow & key takeaways
-_Describe your git workflow, style guides, commit guides, etc._
 Our workflow is very simple-Each person works on at a time with their main tasks outlined by their tickets/issues.
-Any time they've done something that noticeably changes the way the application works or looks, they _must_ commit their work thus far and describe how the application has changed.
 
+Any time they've done something that noticeably changes the way the application works or looks, they _must_ commit their work thus far and describe how the application has changed.
 When a significant feature / piece of functionality is completed, a pull request is made and at least 2 other collaborators will review and sign off on it before it is merged into the main `development` branch.
 
 As for our linter configuration, we agreed early on that we would use semicolons as necessary and that our JSX files will use double quotes instead of single quotes.
 
-
-_What did you learn from the process?_
-
-_What were some key takeaways from stand-ups, code reviews, etc?_
 This project has taught us that constant and concise communication is the key to efficiently building something.
 We had many components and features where at least two people were working on it in tandem, which made everything from conceptualization to styling a collaborative effort.
-
-We chose to use **GitHub Projects** instead of Trello boards because we prefer its integrated features, such as linking code blocks to related tickets.
+In order to streamline this workflow, we chose to use **GitHub Projects** instead of Trello boards because we prefer its integrated features, such as linking code blocks to related tickets.
 You can view our ticket board [here](https://github.com/roman-marxists/marxet/projects/1).
 
 ## Any non-MVP tickets?
