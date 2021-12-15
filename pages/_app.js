@@ -1,5 +1,6 @@
 import { createTheme, ThemeProvider } from "@mui/material";
 import { ProvideAuth } from "@context/auth";
+import Head from "next/head";
 import "../public/styles.css";
 
 import Layout from "@components/Layout";
@@ -36,10 +37,15 @@ const Theme = createTheme({
 const App = ({ Component, pageProps }) => {
   return (
     <ThemeProvider theme={Theme}>
-      <title>Marxet</title>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <Head>
+        <title>Marxet</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <ProvideAuth>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ProvideAuth>
     </ThemeProvider>
   );
 };

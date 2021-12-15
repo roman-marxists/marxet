@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Box, Typography, TextField, Button } from "@mui/material";
+import { doCreateProduct } from "@api/product";
 
 const style = {
   position: "absolute",
@@ -13,15 +14,18 @@ const style = {
   p: 4,
 };
 
-export default function ProductForm() {
+export default function ProductForm({ handleClose }) {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => doUploadBytes(data.image[0]);
-  console.log(errors);
+  const onSubmit = async (data) => {
+    await doCreateProduct(data);
+    handleClose();
+  };
+  console.log("🚀 ~ file: Form.js ~ line 28 ~ ProductForm ~ errors", errors);
 
   return (
     <Box sx={style}>
@@ -43,8 +47,7 @@ export default function ProductForm() {
           name="title"
           autoComplete="title"
           autoFocus
-          helperText={errors.title && errors.title.message}
-          {...register("title", { required: true })}
+          {...register("name", { required: true })}
         />
         <TextField
           error={errors.description}
@@ -55,10 +58,23 @@ export default function ProductForm() {
           type="description"
           id="description"
           autoComplete="current-description"
-          helperText={errors.description && errors.description.message}
           {...register("description", { required: true })}
         />
-        <TextField name="photo" type="file" {...register("photo")} />
+        <TextField
+          error={errors.zipCode}
+          id="outlined-number"
+          margin="normal"
+          label="Zip Code"
+          type="number"
+          {...register("zipCode", { required: true })}
+        />
+        <Box my={1}></Box>
+        <TextField
+          margin="normal"
+          name="photo"
+          type="file"
+          {...register("photo")}
+        />
         <Button
           type="submit"
           fullWidth

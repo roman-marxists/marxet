@@ -8,7 +8,7 @@ import {
   TextField,
   InputAdornment,
   IconButton,
-  Fab
+  Fab,
 } from "@mui/material";
 import { Google, Facebook, Visibility } from "@mui/icons-material";
 import { Theme, Fonts } from "../components/Theme.js";
@@ -109,7 +109,7 @@ const Login = () => {
           Marxet
         </span>
       </div>
-      <SwitchContainer style={{marginBottom: "30px"}} >
+      <SwitchContainer style={{ marginBottom: "30px" }}>
         <span style={{ marginTop: "7px" }}>Sign in</span>
         <Switch
           onChange={handleSwitchChange}
@@ -120,7 +120,7 @@ const Login = () => {
         />
         <span style={{ marginTop: "7px" }}>Sign up</span>
       </SwitchContainer>
-      <InputContainer >
+      <InputContainer>
         <TextField
           id="username-field"
           variant="outlined"
@@ -151,21 +151,23 @@ const Login = () => {
                   <Visibility />
                 </IconButton>
               </InputAdornment>
-            )
+            ),
           }}
         />
-        { !signUpView ? <TextField
-          id="confirm-password-field"
-          type={passwordVisible ? "text" : "password"}
-          variant="outlined"
-          label="Confirm your password"
-          value={confirmPassword}
-          color="secondary"
-          required
-          onChange={handleConfirmPasswordChange}
-          value={confirmPassword}
-          sx={{ paddingBottom: "5px" }}
-        /> : null }
+        {!signUpView ? (
+          <TextField
+            id="confirm-password-field"
+            type={passwordVisible ? "text" : "password"}
+            variant="outlined"
+            label="Confirm your password"
+            value={confirmPassword}
+            color="secondary"
+            required
+            onChange={handleConfirmPasswordChange}
+            value={confirmPassword}
+            sx={{ paddingBottom: "5px" }}
+          />
+        ) : null}
         <Button
           variant="outlined"
           color="secondary"
@@ -176,14 +178,10 @@ const Login = () => {
           Go
         </Button>
       </InputContainer>
-      <div style={{ marginBottom: "15px", marginTop: "50px"}}>
+      <div style={{ marginBottom: "15px", marginTop: "50px" }}>
         Sign {signUpView ? "in" : "up"} with
         <br />
-        <Fab
-          id="google-login"
-          color="secondary"
-          style={{marginTop: "10px"}}
-        >
+        <Fab id="google-login" color="secondary" style={{ marginTop: "10px" }}>
           <Google />
         </Fab>
       </div>

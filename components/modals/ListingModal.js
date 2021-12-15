@@ -29,7 +29,7 @@ const AddListing = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <ProductForm />
+        <ProductForm handleClose={handleClose} />
       </Modal>
     </>
   );
