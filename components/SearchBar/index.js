@@ -1,14 +1,4 @@
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  styled,
-  alpha,
-  Box,
-  InputBase,
-  TextField,
-} from "@mui/material";
+import { Box, Input } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 
@@ -27,27 +17,12 @@ const Search = () => {
   return (
     <Box className="form" sx={{ minWidth: "30%", width: "100%" }}>
       <form onSubmit={handleSubmit}>
-        <TextField
-          sx={{ verticalAlign: "baseline", width: "70%" }}
+        <Input
+          sx={{ verticalAlign: "baseline", width: "70%", color: "black" }}
           onChange={handleChange}
-          variant="standard"
           placeholder="Search for listings..."
+          endAdornment={<SearchIcon />}
         />
-        <Box
-          className="TextField"
-          sx={{
-            display: "inline-flex",
-            paddingLeft: "20px",
-          }}
-        >
-          <Button
-            sx={{ justifyContent: "flex-end" }}
-            type="submit"
-            variant="contained"
-            color="primary"
-            startIcon={<SearchIcon />}
-          ></Button>
-        </Box>
       </form>
     </Box>
   );

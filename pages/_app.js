@@ -1,11 +1,8 @@
-import { Box, createTheme, ThemeProvider } from "@mui/material";
-import Link from "next/link";
-
+import { createTheme, ThemeProvider } from "@mui/material";
+import { ProvideAuth } from "@context/auth";
 import "../public/styles.css";
-// import SearchBar from "../components/SearchBar";
-import Header from "../components/Header";
-import SearchPage from "../features/Search/SearchPage.js";
-import AddListing from "../components/modals/addListingModal.js";
+
+import Layout from "@components/Layout";
 
 const Theme = createTheme({
   palette: {
@@ -39,17 +36,12 @@ const Theme = createTheme({
 const App = ({ Component, pageProps }) => {
   return (
     <ThemeProvider theme={Theme}>
-      <Box sx={{ flexGrow: 1 }}>
-        <Header />
-      </Box>
-      <SearchPage />
-      <Link href="/">
-        <a>Home</a>
-      </Link>{' '}
-      <Link href="/user/1"><a>User 1</a></Link>
-      <Component {...pageProps} />
+      <title>Marxet</title>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </ThemeProvider>
   );
 };
 
-export default App
+export default App;

@@ -4,6 +4,10 @@
     "paths": {
       "@screens/*": ["./screens/*"],
       "@images/*": ["./public/images/*"],
+      "@services/*": ["./src/services/*"],
+      "@components/*": ["./components/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@context/*": ["./src/context/*"]
     }
   },
   "exclude": ["node_modules"],
