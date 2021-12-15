@@ -5,7 +5,6 @@ import { Box, createTheme, ThemeProvider } from "@mui/material";
 import "../public/styles.css";
 import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
-import Header from "../components/Header";
 import AddListing from "../components/modals/addListingModal.js";
 import SearchPage from "../features/Search/SearchPage.js";
 
