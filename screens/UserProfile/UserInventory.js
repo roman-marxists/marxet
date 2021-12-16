@@ -21,10 +21,10 @@ const UserInventory = () => {
         <Header />
         <Grid container direction="row" spacing={2}>
           {
-            inventory.map(listing => {
+            inventory.map((listing, i) => {
               return (
                 <Grid item>
-                  <ItemCard />
+                  <ItemCard key={i}/>
                 </Grid>
               )
             })
