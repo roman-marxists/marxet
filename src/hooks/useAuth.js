@@ -8,6 +8,7 @@ export default function useProvideAuth() {
 
   const signin = async (email, password) => {
     const response = await signInWithEmailAndPassword(auth, email, password);
+    console.log("🚀 ~ file: useAuth.js ~ line 11 ~ signin ~ response", response)
     setUser(response.user);
     return response;
   };
@@ -41,7 +42,7 @@ export default function useProvideAuth() {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
-        debugger;
+
         setUser(user);
       } else {
         setUser(false);

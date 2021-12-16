@@ -23,13 +23,8 @@ const UserInventory = () => {
           {
             inventory.map((listing, i) => {
               return (
-<<<<<<< HEAD
-                <Grid item>
-                  <ItemCard key={i}/>
-=======
                 <Grid item xs={12} sm={6} md={3}>
                   <ItemCard />
->>>>>>> b7ff3d93b79aee77b8b2f575d11bd230c04c77c0
                 </Grid>
               )
             })

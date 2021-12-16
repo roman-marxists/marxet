@@ -126,7 +126,7 @@ const Login = () => {
         <Switch
           onChange={handleSwitchChange}
           classes={{
-            track: Theme.primary.main,
+            // track: Theme.primary.main,
           }}
           inputProps={{ "aria-label": "ant design" }}
         />
