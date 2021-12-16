@@ -1,11 +1,3 @@
-import React from "react";
-import { Box } from "@mui/material";
-import Link from "next/link";
-import ProductForm from "../components/Product/Form";
-import SearchPage from "../features/Search";
+import Products from "@screens/ProductList";
 
-const Home = () => {
-  return <SearchPage />;
-};
-
-export default Home;
+export default Products;

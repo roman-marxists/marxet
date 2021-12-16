@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { app } from "@services/firebase";
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import app from "@services/firebase";
 
 const auth = getAuth();
 
@@ -16,6 +16,7 @@ export default function useProvideAuth() {
     setUser(response.user);
     return response;
   };
+
   const signup = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password).then(
       (response) => {

@@ -15,8 +15,11 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import IconButton from "@mui/material/IconButton";
 import { useState } from "react";
-
+import { useAuth } from "@context/auth";
+import Router from "next/router";
 const Header = () => {
+  const { user } = useAuth();
+  console.log("🚀 ~ file: index.js ~ line 21 ~ Header ~ user", user);
   return (
     <Box
       alignSelf="auto"
@@ -38,15 +41,20 @@ const Header = () => {
           </Link>
           <Search />
           {/* <Dropdown /> */}
-          <Box mr={5}>
-            <ListingModal />
-          </Box>
-          {/* <Link href="/login">
-            <Button color="inherit" variant="outlined">
-              Login
-            </Button>
-          </Link> */}
-          <UserMenu />
+          {user ? (
+            <>
+              <Box mr={5}>
+                <ListingModal />
+              </Box>
+              <UserMenu />
+            </>
+          ) : (
+            <Link href="/login">
+              <Button color="inherit" variant="outlined">
+                Login
+              </Button>
+            </Link>
+          )}
         </Toolbar>
       </AppBar>
     </Box>
@@ -54,7 +62,18 @@ const Header = () => {
 };
 
 const UserMenu = () => {
+  const { signout, user } = useAuth();
   const [showAccount, setShowAccount] = useState(false);
+
+  const doSignOut = async () => {
+    await signout();
+    setShowAccount(false);
+  };
+
+  const doRouteToAccount = () => {
+    Router.push(`/users/${user.uid}`);
+    setShowAccount(false);
+  };
   return (
     <>
       <IconButton
@@ -82,10 +101,8 @@ const UserMenu = () => {
         onClose={() => setShowAccount(false)}
         open={showAccount}
       >
-        <Link href="/users/1234234234">
-          <MenuItem>Account</MenuItem>
-        </Link>
-        <MenuItem>Logout</MenuItem>
+        <MenuItem onClick={doRouteToAccount}>Account</MenuItem>
+        <MenuItem onClick={doSignOut}>Logout</MenuItem>
       </Menu>
     </>
   );

@@ -1,19 +1,11 @@
 import axiosClient from "./apiClient";
 
-export async function getPokemon() {
+export async function getCategories() {
   try {
-    const { data } = await axiosClient.get("/users");
+    const { data } = await axiosClient.get("/categories");
     console.log("🚀 ~ file: user.js ~ line 6 ~ getPokemon ~ data", data);
     return data;
   } catch (err) {
     console.log("🚀 ~ file: user.js ~ line 8 ~ getPokemon ~ err", err);
   }
 }
-
-export const doCreateUser = (data) => {
-  try {
-    console.log(data);
-  } catch (err) {
-    console.log(err);
-  }
-};

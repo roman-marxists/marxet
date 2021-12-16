@@ -8,11 +8,14 @@ import {
   TextField,
   InputAdornment,
   IconButton,
-  Fab
+  Fab,
 } from "@mui/material";
 import { Google, Facebook, Visibility } from "@mui/icons-material";
 import { Theme, Fonts } from "../components/Theme.js";
 import { register, signIn, getUserInfo } from "../src/helper.js";
+import Router from "next/router";
+
+import { useAuth } from "@context/auth";
 
 const LoginContainer = styled.div`
   display: flex;
@@ -46,10 +49,11 @@ const FabContainer = styled.span`
 `;
 
 const Login = () => {
+  const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [passwordVisible, setPasswordVisible] = useState(true);
   const [signUpView, setSignUpView] = useState(true);
 
   const handleSwitchChange = () => {
@@ -58,6 +62,10 @@ const Login = () => {
 
   const handleVisibleClick = () => {
     setPasswordVisible(!passwordVisible);
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
   };
 
   const handleUsernameChange = (e) => {
@@ -74,24 +82,25 @@ const Login = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
-
     if (password !== confirmPassword) {
       alert("Your passwords do not match. Please try again.");
       setPassword("");
       setConfirmPassword("");
     } else {
-      register(username, password);
+      register(email, password);
       setPassword("");
       setConfirmPassword("");
       handleSwitchChange();
+      Router.push("/");
     }
   };
 
   const handleSignIn = (e) => {
     e.preventDefault();
 
-    signIn(username, password);
+    signIn(email, password);
     setPassword("");
+    Router.push("/");
   };
 
   return (
@@ -109,7 +118,9 @@ const Login = () => {
           Marxet
         </span>
       </div>
-      <SwitchContainer style={{marginBottom: "30px"}} >
+      <SwitchContainer
+        style={signUpView ? { marginBottom: "10px" } : { marginBottom: "70px" }}
+      >
         <span style={{ marginTop: "7px" }}>Sign in</span>
         <Switch
           onChange={handleSwitchChange}
@@ -120,16 +131,27 @@ const Login = () => {
         />
         <span style={{ marginTop: "7px" }}>Sign up</span>
       </SwitchContainer>
-      <InputContainer >
+      <InputContainer>
         <TextField
-          id="username-field"
+          id="email-field"
           variant="outlined"
-          label="Username or e-mail"
+          label="E-mail"
           color="secondary"
           required
-          onChange={handleUsernameChange}
+          onChange={handleEmailChange}
           sx={{ paddingBottom: "5px" }}
         />
+        {!signUpView ? (
+          <TextField
+            id="username-field"
+            variant="outlined"
+            label="Username"
+            color="secondary"
+            required
+            onChange={handleUsernameChange}
+            sx={{ paddingBottom: "5px" }}
+          />
+        ) : null}
         <TextField
           id="password-field"
           type={passwordVisible ? "text" : "password"}
@@ -151,21 +173,35 @@ const Login = () => {
                   <Visibility />
                 </IconButton>
               </InputAdornment>
-            )
+            ),
           }}
         />
-        { !signUpView ? <TextField
-          id="confirm-password-field"
-          type={passwordVisible ? "text" : "password"}
-          variant="outlined"
-          label="Confirm your password"
-          value={confirmPassword}
-          color="secondary"
-          required
-          onChange={handleConfirmPasswordChange}
-          value={confirmPassword}
-          sx={{ paddingBottom: "5px" }}
-        /> : null }
+        {!signUpView ? (
+          <TextField
+            id="confirm-password-field"
+            type={passwordVisible ? "text" : "password"}
+            variant="outlined"
+            label="Confirm your password"
+            value={confirmPassword}
+            color="secondary"
+            required
+            onChange={handleConfirmPasswordChange}
+            value={confirmPassword}
+            sx={{ paddingBottom: "5px" }}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle-password-visible"
+                    onClick={handleVisibleClick}
+                  >
+                    <Visibility />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+          />
+        ) : null}
         <Button
           variant="outlined"
           color="secondary"
@@ -176,14 +212,10 @@ const Login = () => {
           Go
         </Button>
       </InputContainer>
-      <div style={{ marginBottom: "15px", marginTop: "50px"}}>
+      <div style={{ marginBottom: "15px", marginTop: "100px" }}>
         Sign {signUpView ? "in" : "up"} with
         <br />
-        <Fab
-          id="google-login"
-          color="secondary"
-          style={{marginTop: "10px"}}
-        >
+        <Fab id="google-login" color="secondary" style={{ marginTop: "10px" }}>
           <Google />
         </Fab>
       </div>

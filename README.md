@@ -3,8 +3,12 @@
 A platform for trading goods &amp; services
 
 ## Introduction
+<<<<<<< HEAD
 
 This project was a brief 2-week sprint during which our team built an MVP for an external client.
+=======
+This is the front-end for our 2-week sprint during which our team has built an MVP for an external client.
+>>>>>>> development
 
 ## Meet _Marxet_
 
@@ -16,8 +20,14 @@ On Marxet, users can create postings for the goods or services that they are wil
 
 Because we only have ten days to build Marxet, we chose to use a mix of simple dependencies we've worked with for weeks and new technologies that are easy to use and come ready to use out of the box.
 
-We'll be using **React** to build the client, **Express** for our server, and **PostgreSQL** for our database.
+We'll be using **React** to build the client, **Express** for our server, and **MongoDB** for our database (located in another repository).
 Alongside these, our new technologies are:
+  - **Firebase** for our login and authentication process
+  - **MaterialUI** in conjunction with **styled-components**
+    MUI is an easy-to-use styling library that has produced beautiful, modern websites- the kind of website our client has specifically requested.
+  - **Next.js** for its React server-side rendering capabilities and its ability to serve static websites. It's a simple and well-documented tool for routing, as well.
+  - **Docker** to keep our database environment consistent across all of our developers' local machines
+  - Lastly, we plan to use **AWS**'s EC2 instances to deploy our Dockerized application & database
 
 - **Firebase** or **Auth0** (TBD) for our login and authentication process
 - **MaterialUI** in conjunction with **styled-components**
@@ -42,13 +52,8 @@ How does the tech stack come together?_
 ## Research
 
 ## Workflow & key takeaways
-
-_Describe your git workflow, style guides, commit guides, etc.
-What did you learn from the process?
-What were some key takeaways from stand-ups, code reviews, etc?
-Writing tests_
-
-We chose to use **GitHub Projects** instead of Trello boards because we prefer its integrated features, such as linking code blocks to related tickets.
+This project has taught us that constant and concise communication is the key to efficiently building something.
+In order to streamline this workflow, we chose to use **GitHub Projects** instead of Trello boards because we prefer its integrated features, such as linking code blocks to related tickets.
 You can view our ticket board [here](https://github.com/roman-marxists/marxet/projects/1).
 
 ## Any non-MVP tickets?
