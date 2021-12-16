@@ -1,0 +1,48 @@
+[
+  {
+    "_id": 1,
+    "username": "johnsmith",
+    "wishlist": [
+      {
+        "name": "item1",
+        "description": "test item 1"
+      },
+      {
+        "name": "item2",
+        "description": "test item 2"
+      },
+      {
+        "name": "item3",
+        "description": "test item 3"
+      }
+    ],
+    "watchlist": [
+      {
+        "21354": "item1"
+      }
+    ]
+  },
+  {
+    "_id": 1,
+    "username": "justjohn",
+    "wishlist": [
+      {
+        "name": "item1",
+        "description": "test item 1"
+      },
+      {
+        "name": "item2",
+        "description": "test item 2"
+      },
+      {
+        "name": "item3",
+        "description": "test item 3"
+      }
+    ],
+    "watchlist": [
+      {
+        "21354": "item1"
+      }
+    ]
+  }
+]

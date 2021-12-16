@@ -4,7 +4,11 @@
     "paths": {
       "@screens/*": ["./screens/*"],
       "@images/*": ["./public/images/*"],
-      "@services/*": ["./src/services/*"]
+      "@services/*": ["./src/services/*"],
+      "@components/*": ["./components/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@context/*": ["./src/context/*"],
+      "@api/*": ["./src/api/*"]
     }
   },
   "exclude": ["node_modules"],

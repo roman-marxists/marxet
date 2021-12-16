@@ -1,39 +1,29 @@
-import { Card, CardHeader, IconButton } from "@mui/material";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import { useState } from "react";
+import { Card, CardHeader, CardActions, CardActionArea, IconButton } from '@mui/material';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { useState } from 'react';
+import Link from 'next/link';
 
-import CardImage from "./CardImage.js";
-import CardDescription from "./CardDescription.js";
-import UsernameButton from "./UsernameButton.js";
+import CardImage from './CardImage.js';
+import CardDescription from './CardDescription.js';
+import UsernameButton from './UsernameButton.js';
 
-const ItemCard = () => {
-  const [isFavorited, setFavorited] = useState(false);
-
-  const handleFavoritedItem = () => {
-    setFavorited(() => !isFavorited);
-  };
-
+const ItemCard = ({ children, id, product }) => {
   return (
-    <Card raised sx={{ width: "15vw", height: "15vw" }}>
-      <CardHeader
-        action={
-          <IconButton
-            aria-label="add to favorites"
-            onClick={handleFavoritedItem}
-          >
-            {!isFavorited ? (
-              <FavoriteBorderIcon />
-            ) : (
-              <FavoriteIcon sx={{ color: "red" }} />
-            )}
-          </IconButton>
-        }
-      />
-      <CardImage />
-      <CardDescription />
-      <UsernameButton />
-    </Card>
+    <Link href={`/products/${id}`}>
+      <Card raised sx={{ width: '15vw', cursor: 'pointer' }}>
+        {children}
+        <CardActionArea>
+          <CardImage />
+          <CardDescription />
+        </CardActionArea>
+        {/* <Link href={`/products/${id}`}>link</Link>
+        {product?.createdBy?.email} */}
+        <CardActions>
+          <UsernameButton />
+        </CardActions>
+      </Card>
+    </Link>
   );
 };
 
