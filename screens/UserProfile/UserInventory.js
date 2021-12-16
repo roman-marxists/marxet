@@ -1,16 +1,16 @@
-import {useState} from 'react'
+import { useState } from 'react';
 import { Box } from '@mui/material';
 import ItemCard from '../../components/ItemCard/index';
 
 const UserInventory = () => {
-  const [inventory, setInventory] = useState([])
+  const [inventory, setInventory] = useState([]);
 
   return (
     <Box>
       UserInventory
-      <ItemCard/>
+      <ItemCard />
     </Box>
-  )
-}
+  );
+};
 
-export default UserInventory
+export default UserInventory;

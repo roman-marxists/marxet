@@ -1,12 +1,11 @@
-import Link from "next/link";
-import firebase from "@services/firebase";
-import { useEffect } from "react";
-import { Box, createTheme, ThemeProvider } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material";
+import { ProvideAuth } from "@context/auth";
+import Head from "next/head";
 import "../public/styles.css";
-import Header from "../components/Header";
-import SearchBar from "../components/SearchBar";
-import AddListing from "../components/modals/addListingModal.js";
-import SearchPage from "../features/Search/SearchPage.js";
+import app from "@services/firebase";
+import { ProvideSearch } from "@context/productSearch";
+
+import Layout from "@components/Layout";
 
 const Theme = createTheme({
   palette: {
@@ -40,19 +39,17 @@ const Theme = createTheme({
 const App = ({ Component, pageProps }) => {
   return (
     <ThemeProvider theme={Theme}>
-      <Box sx={{ flexGrow: 1 }}>
-        <Header />
-      </Box>
-      <Link href="/products/1">
-        <a>Search</a>
-      </Link>
-      <Link href="/">
-        <a>Home</a>
-      </Link>{" "}
-      <Link href="/user/1">
-        <a>User 1</a>
-      </Link>
-      <Component {...pageProps} />
+      <Head>
+        <title>Marxet</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <ProvideAuth>
+        <ProvideSearch>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ProvideSearch>
+      </ProvideAuth>
     </ThemeProvider>
   );
 };
