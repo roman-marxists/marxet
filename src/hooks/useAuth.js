@@ -1,10 +1,7 @@
-import { useState, useEffect } from "react";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
-import { auth } from "@services/firebase";
-import { doCreateUser } from "@api/user";
+import { useState, useEffect } from 'react';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '@services/firebase';
+import { doCreateUser } from '@api/user';
 
 export default function useProvideAuth() {
   const [user, setUser] = useState(null);
@@ -16,24 +13,25 @@ export default function useProvideAuth() {
   };
 
   const signup = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password).then(
-      (response) => {
-        setUser(response.user);
-        doCreateUser(response.user);
-        return response.user;
-      }
-    );
+    return createUserWithEmailAndPassword(auth, email, password).then(response => {
+      setUser(response.user);
+      doCreateUser(response.user);
+      return response.user;
+    });
   };
+
   const signout = () => {
     return auth.signOut().then(() => {
       setUser(false);
     });
   };
-  const sendPasswordResetEmail = (email) => {
+
+  const sendPasswordResetEmail = email => {
     return auth.sendPasswordResetEmail(email).then(() => {
       return true;
     });
   };
+
   const confirmPasswordReset = (code, password) => {
     return auth.confirmPasswordReset(code, password).then(() => {
       return true;
@@ -41,7 +39,7 @@ export default function useProvideAuth() {
   };
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
         setUser(user);
       } else {
