@@ -10,7 +10,7 @@ const ProductPage = () => {
 
   const fetchProducts = async () => {
     try {
-      const data = await doGetProducts();
+      const data = await doGetProducts() || [];
       console.log("🚀 ~ file: index.js ~ line 13 ~ fetchProducts ~ data", data);
       setProducts(data);
     } catch (err) {
@@ -46,8 +46,8 @@ const ProductPage = () => {
           }}
         >
           <Grid container spacing={8}>
-            {searchedProducts.length
-              ? searchedProducts.map((d) => {
+            {searchedProducts.length > 0 &&
+              searchedProducts.map((d) => {
                   return (
                     <Grid
                       item
@@ -59,8 +59,8 @@ const ProductPage = () => {
                       <ItemCard id={d._id} />
                     </Grid>
                   );
-                })
-              : products.map((d) => {
+                })}
+            {!searchedProducts && products.map((d) => {
                   return (
                     <Grid
                       item
