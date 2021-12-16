@@ -11,9 +11,8 @@ import UsernameButton from "./UsernameButton.js";
 // name, description, photos,
 const ItemCard = ({ children, id, product }) => {
   return (
-    // TODO: STYLE: Create flexbox container
     <Link href={`/products/${id}`}>
-      <Card raised sx={{ width: "30vw", height: "30vw", cursor: "pointer" }}>
+      <Card raised>
         {product.name}
         {children}
         <CardActionArea>

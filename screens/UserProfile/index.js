@@ -4,8 +4,13 @@ import UserReviews from './UserReviews';
 import UserWishlist from './UserWishlist';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import useProvideAuth from '@hooks/useAuth';
 
 const UserProfile = ({ userId }) => {
+  const { user } = useProvideAuth();
+  console.log({user: user});
+  const userId = user.uid;
+
   return (
     <Container>
       <Grid container direction='row' spacing={3}>
