@@ -49,6 +49,8 @@ export const signUserOut = () => {
   signOut(auth)
     .then(() => {
       // TODO: Redirect them to Search
+      // TODO: this doesn't work
+      Router.push('/search')
     }).catch((error) => {
       // TODO: Alert
       alert('Unable to sign you out - ', error.message)

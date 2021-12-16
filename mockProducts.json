@@ -1,0 +1,7 @@
+[
+  {
+    name: 'Toy',
+    description: "a basic toy",
+    zipCode: "10003",
+  }
+]
