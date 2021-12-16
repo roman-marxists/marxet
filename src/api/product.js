@@ -30,10 +30,32 @@ export const doCreateProduct = async (data) => {
   }
 };
 
-export const getProducts = async () => {
+export const doGetProducts = async () => {
   try {
     const { data } = await axiosClient.get("/products");
-    console.log("searched products", data);
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const doGetProductById = async (id) => {
+  try {
+    const { data } = await axiosClient.get(`/products/${id}`);
+    console.log(
+      "🚀 ~ file: product.js ~ line 45 ~ doGetProductById ~ data",
+      data
+    );
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const doGetSearchedProducts = async (searchTerm) => {
+  try {
+    const { data } = await axiosClient.get(`products/search/${searchText}`);
+    console.log("data from searched products", data);
     return data;
   } catch (err) {
     console.log(err);

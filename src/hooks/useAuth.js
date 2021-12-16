@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import app from "@services/firebase";
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import app from "@services/firebase";
 
 const auth = getAuth();
 

@@ -3,6 +3,7 @@ import { ProvideAuth } from "@context/auth";
 import Head from "next/head";
 import "../public/styles.css";
 import app from "@services/firebase";
+import { ProvideSearch } from "@context/productSearch";
 
 import Layout from "@components/Layout";
 
@@ -43,9 +44,11 @@ const App = ({ Component, pageProps }) => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <ProvideAuth>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <ProvideSearch>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ProvideSearch>
       </ProvideAuth>
     </ThemeProvider>
   );

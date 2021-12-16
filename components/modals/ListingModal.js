@@ -26,8 +26,8 @@ const AddListing = () => {
       <Modal
         open={open}
         onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+        aria-labelledby="product-form"
+        aria-describedby="product-form-description"
       >
         <ProductForm handleClose={handleClose} />
       </Modal>
