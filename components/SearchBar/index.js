@@ -9,11 +9,16 @@ const Search = () => {
   const { setSearchedProducts } = useSearchContext();
 
   const handleChange = async (e) => {
+    if (e.target.value.length === 0) {
+      setSearchedProducts([]);
+    }
+    setSearchTerm(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-      if (e.target.value.length === 0) {
-        setSearchedProducts([]);
-      }
-      const getSearchedProducts = await doGetSearched(e.target.value);
+      const getSearchedProducts = await doGetSearched(searchTerm);
       setSearchedProducts(getSearchedProducts);
     } catch (err) {
       console.log(err);
@@ -22,7 +27,7 @@ const Search = () => {
 
   return (
     <Box className="form" sx={{ minWidth: "30%", width: "100%" }}>
-      <form>
+      <form onSubmit={handleSubmit}>
         <Input
           sx={{ verticalAlign: "baseline", width: "70%", color: "black" }}
           onChange={handleChange}

@@ -21,7 +21,7 @@ const Product = () => {
     fetchProduct();
   }, []);
 
-  return <div>{product.name}</div>;
+  return <div style={{ marginTop: "80px" }}>{product.name}</div>;
 };
 
 export default Product;
