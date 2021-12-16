@@ -8,6 +8,8 @@ export const register = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
+      // console.log(userCredential)
+      // console.log(user)
       Router.push(`/user/${user}`);
     })
     .catch((error) => {
@@ -22,7 +24,7 @@ export const signIn = (email, password) => {
     .then((userCredential) => {
       // User successfully signed in
       const user = userCredential.user;
-      Router.push('/products/1');
+      Router.push('/products');
     })
     .catch((error) => {
       console.error(error.code);
