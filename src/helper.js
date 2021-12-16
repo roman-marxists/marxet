@@ -22,7 +22,7 @@ export const signIn = (email, password) => {
     .then((userCredential) => {
       // User successfully signed in
       const user = userCredential.user;
-      Router.push('/products/1');
+      Router.push('/products');
     })
     .catch((error) => {
       console.error(error.code);

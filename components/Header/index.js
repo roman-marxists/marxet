@@ -26,6 +26,7 @@ const Header = () => {
       alignSelf="auto"
       sx={{
         color: "#c7d6d5",
+        marginBottom: 5,
       }}
     >
       <AppBar position="static">

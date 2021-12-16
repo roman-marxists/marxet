@@ -21,7 +21,7 @@ const AddListing = () => {
 
   const fetchProducts = async () => {
     const products = await doGetUserProducts(user.uid);
-    setProducts(products);
+    setProducts(products ? products : []);
   };
 
   useEffect(() => {
