@@ -17,13 +17,13 @@ const UserInventory = () => {
 
   return (
     <Box>
-      <StyledBox>
+      <StyledBox sx={{ maxHeight: '30%' }}>
         <Header />
-        <Grid container direction="row" spacing={2}>
+        <Grid container direction={{ md:'row'}} spacing={2}>
           {
             inventory.map(listing => {
               return (
-                <Grid item>
+                <Grid item xs={12} sm={6} md={3}>
                   <ItemCard />
                 </Grid>
               )
@@ -52,8 +52,10 @@ const StyledBox = styled(Box)`
   padding: 10px;
   background: #F8F8F8;
   border-radius: 5px;
-  max-height: 60%;
+  max-height: 20%;
   overflow-y: auto;
+  width: auto;
+  max-width: 100%;
   box-shadow: 0 3px 10px #888888;
 `
 
