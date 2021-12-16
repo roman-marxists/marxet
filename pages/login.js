@@ -113,7 +113,7 @@ const Login = () => {
         Welcome {signUpView ? "back " : null}to
         <span
           className="logo"
-          style={{ fontFamily: Fonts.logo, color: Theme.secondary.main }}
+          style={{ fontFamily: Fonts.logo, color: Theme.secondary }}
         >
           {" "}
           Marxet
