@@ -7,6 +7,7 @@ import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 import AddListing from "../components/modals/addListingModal.js";
 import SearchPage from "../features/Search/SearchPage.js";
+import ProductMap from "../features/ProductMap/index.js";
 
 const Theme = createTheme({
   palette: {
@@ -39,21 +40,9 @@ const Theme = createTheme({
 
 const App = ({ Component, pageProps }) => {
   return (
-    <ThemeProvider theme={Theme}>
-      <Box sx={{ flexGrow: 1 }}>
-        <Header />
-      </Box>
-      <Link href="/products/1">
-        <a>Search</a>
-      </Link>
-      <Link href="/">
-        <a>Home</a>
-      </Link>{" "}
-      <Link href="/user/1">
-        <a>User 1</a>
-      </Link>
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <>
+    <AddListing />
+    </>
   );
 };
 
