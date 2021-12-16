@@ -12,7 +12,6 @@ import {
 } from "@mui/material";
 import { Google, Facebook, Visibility } from "@mui/icons-material";
 import { Theme, Fonts } from "../components/Theme.js";
-import { register, signIn, getUserInfo } from "../src/helper.js";
 import Router from "next/router";
 
 import { useAuth } from "@context/auth";
@@ -50,6 +49,7 @@ const FabContainer = styled.span`
 `;
 
 const Login = () => {
+  const { signin, signup } = useAuth();
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -88,7 +88,7 @@ const Login = () => {
       setPassword("");
       setConfirmPassword("");
     } else {
-      register(email, password);
+      signup(email, password);
       setPassword("");
       setConfirmPassword("");
       handleSwitchChange();
@@ -99,7 +99,7 @@ const Login = () => {
   const handleSignIn = (e) => {
     e.preventDefault();
 
-    signIn(email, password);
+    signin(email, password);
     setPassword("");
     Router.push("/");
   };
