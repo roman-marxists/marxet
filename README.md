@@ -3,12 +3,8 @@
 A platform for trading goods &amp; services
 
 ## Introduction
-<<<<<<< HEAD
 
-This project was a brief 2-week sprint during which our team built an MVP for an external client.
-=======
 This is the front-end for our 2-week sprint during which our team has built an MVP for an external client.
->>>>>>> development
 
 ## Meet _Marxet_
 
@@ -22,12 +18,13 @@ Because we only have ten days to build Marxet, we chose to use a mix of simple d
 
 We'll be using **React** to build the client, **Express** for our server, and **MongoDB** for our database (located in another repository).
 Alongside these, our new technologies are:
-  - **Firebase** for our login and authentication process
-  - **MaterialUI** in conjunction with **styled-components**
-    MUI is an easy-to-use styling library that has produced beautiful, modern websites- the kind of website our client has specifically requested.
-  - **Next.js** for its React server-side rendering capabilities and its ability to serve static websites. It's a simple and well-documented tool for routing, as well.
-  - **Docker** to keep our database environment consistent across all of our developers' local machines
-  - Lastly, we plan to use **AWS**'s EC2 instances to deploy our Dockerized application & database
+
+- **Firebase** for our login and authentication process
+- **MaterialUI** in conjunction with **styled-components**
+  MUI is an easy-to-use styling library that has produced beautiful, modern websites- the kind of website our client has specifically requested.
+- **Next.js** for its React server-side rendering capabilities and its ability to serve static websites. It's a simple and well-documented tool for routing, as well.
+- **Docker** to keep our database environment consistent across all of our developers' local machines
+- Lastly, we plan to use **AWS**'s EC2 instances to deploy our Dockerized application & database
 
 - **Firebase** or **Auth0** (TBD) for our login and authentication process
 - **MaterialUI** in conjunction with **styled-components**
@@ -52,6 +49,7 @@ How does the tech stack come together?_
 ## Research
 
 ## Workflow & key takeaways
+
 This project has taught us that constant and concise communication is the key to efficiently building something.
 In order to streamline this workflow, we chose to use **GitHub Projects** instead of Trello boards because we prefer its integrated features, such as linking code blocks to related tickets.
 You can view our ticket board [here](https://github.com/roman-marxists/marxet/projects/1).
@@ -68,13 +66,12 @@ You can view our ticket board [here](https://github.com/roman-marxists/marxet/pr
 
 1. Create file `.env.local` in root directory. You can copy and rename from the `.env.local.example` file
 2. Add the following variable to the`.env.local` file
-  `NEXT_PUBLIC_FIREBASE_API_KEY=<your api key>`
-  `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=<your firebase app domain>`
-  `NEXT_PUBLIC_FIREBASE_APP_ID=<firebase app id>`
-  `NEXT_PUBLIC_FIREBASE_PROJECT_ID=<firebase project id>`
-  `NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=<firebase storage bucket>`
-  `NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=<firebase messaging id>`
-  `NEXT_PUBLIC_API_URL=<api server endpoint>`
-
+   `NEXT_PUBLIC_FIREBASE_API_KEY=<your api key>`
+   `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=<your firebase app domain>`
+   `NEXT_PUBLIC_FIREBASE_APP_ID=<firebase app id>`
+   `NEXT_PUBLIC_FIREBASE_PROJECT_ID=<firebase project id>`
+   `NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=<firebase storage bucket>`
+   `NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=<firebase messaging id>`
+   `NEXT_PUBLIC_API_URL=<api server endpoint>`
 
 Fin
