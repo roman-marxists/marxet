@@ -22,16 +22,7 @@ const Header = () => {
   const { user } = useAuth();
 
   return (
-    <Box
-      alignSelf="auto"
-<<<<<<< HEAD
-=======
-      sx={{
-        color: "#c7d6d5",
-        marginBottom: 5,
-      }}
->>>>>>> 6eab45c51863526fe9b2844cbef83aadeeb8ff77
-    >
+    <Box alignSelf="auto" >
       <AppBar position="static" sx={{background: "#667574"}}>
         <Toolbar component="div" sx={{ cursor: "pointer" }}>
           <Link href="/">
