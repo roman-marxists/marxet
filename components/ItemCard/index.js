@@ -1,7 +1,6 @@
-import { Card, CardHeader, IconButton } from "@mui/material";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useState } from "react";
+import { Card, CardHeader, CardActionArea, IconButton } from "@mui/material";
+import { FavoriteBorderIcon, FavoriteIcon } from "@mui/icons-material";
 
 import CardImage from "./CardImage.js";
 import CardDescription from "./CardDescription.js";
@@ -11,22 +10,20 @@ const ItemCard = () => {
   const [isFavorited, setFavorited] = useState(false);
 
   const handleFavoritedItem = () => {
-    setFavorited(() => !isFavorited);
+    setFavorited(!isFavorited);
   };
 
   return (
-    <Card raised sx={{ width: "15vw", height: "15vw" }}>
+    // TODO: STYLE: Create flexbox container
+    <Card raised sx={{ width: "30vw", height: "30vw" }}>
+      {/* TODO: Wrap Card contents in CardActionArea component */}
       <CardHeader
         action={
           <IconButton
-            aria-label="add to favorites"
+            aria-label="add-to-favorites"
             onClick={handleFavoritedItem}
           >
-            {!isFavorited ? (
-              <FavoriteBorderIcon />
-            ) : (
-              <FavoriteIcon sx={{ color: "red" }} />
-            )}
+            { !isFavorited ? <FavoriteBorderIcon /> : <FavoriteIcon sx={{ color: "red" }} /> }
           </IconButton>
         }
       />

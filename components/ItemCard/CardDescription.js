@@ -1,10 +1,16 @@
 import { CardContent, Typography } from "@mui/material";
 
-const CardDescription = () => {
+// TODO: Eventually, CardDescription will take a string `Description` as its prop
+const CardDescription = (props) => {
+
+  const shortenDescription = (description) => {
+    return description.substring(0, 19) + '...';
+  }
+
   return (
     <CardContent>
       <Typography variant="body2" color="text.secondary">
-        This is where the description of the item goes
+        shortenDescription(description) goes here...
       </Typography>
     </CardContent>
   );

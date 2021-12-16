@@ -12,6 +12,7 @@ import {
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import ItemCard from "../../components/ItemCard";
 
+// wtf is happening here
 const SearchPage = () => {
   const dummy = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
@@ -26,10 +27,9 @@ const SearchPage = () => {
         sx={{
           display: "flex",
           flexDirection: "row",
-          justifyContent: "center",
+          justifyContent: "space-evenly",
           width: "90%",
           margin: "auto",
-          marginRight: "20%",
         }}
       >
         <Box
