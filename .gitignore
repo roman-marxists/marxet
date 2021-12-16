@@ -95,3 +95,4 @@ client/dist
 client/.env.local
 client/.next
 design.txt
+*.babelrc
