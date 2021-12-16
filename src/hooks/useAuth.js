@@ -4,9 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import app from "@services/firebase";
-
-const auth = getAuth();
+import { auth } from "@services/firebase";
 
 export default function useProvideAuth() {
   const [user, setUser] = useState(null);

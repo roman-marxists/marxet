@@ -1,13 +1,7 @@
-import { app } from "@services/firebase";
 import axiosClient from "./apiClient";
-const {
-  getStorage,
-  ref,
-  uploadBytes,
-  getDownloadURL,
-} = require("firebase/storage");
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
-const storage = getStorage(app);
+import { storage } from "@services/firebase";
 
 const storageRef = ref(storage, "images");
 
@@ -42,6 +36,15 @@ export const doCreateProduct = async (data) => {
 export const doGetProducts = async () => {
   try {
     const { data } = await axiosClient.get("/products");
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const doGetProductById = async (id) => {
+  try {
+    const { data } = await axiosClient.get(`/products/${id}`);
     return data;
   } catch (err) {
     console.log(err);
