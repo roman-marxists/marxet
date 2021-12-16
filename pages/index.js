@@ -1,13 +1,3 @@
-import React from 'react'
-import Link from "next/link";
-import ProductForm from '../components/Product/Form';
+import Products from "@screens/ProductList";
 
-const Home = () => {
-  return (
-    <div>
-      <ProductForm />
-    </div>
-  )
-};
-
-export default Home;
+export default Products;

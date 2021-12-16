@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { Card, CardHeader, CardActionArea, IconButton } from "@mui/material";
 import { FavoriteBorderIcon, FavoriteIcon } from "@mui/icons-material";
+import Link from "next/link";
 
 import CardImage from "./CardImage.js";
 import CardDescription from "./CardDescription.js";
 import UsernameButton from "./UsernameButton.js";
 
-const ItemCard = () => {
+
+const ItemCard = ({ product }) => {
+  console.log("🚀 ~ file: index.js ~ line 12 ~ ItemCard ~ product", product);
   const [isFavorited, setFavorited] = useState(false);
 
   const handleFavoritedItem = () => {
@@ -15,9 +18,10 @@ const ItemCard = () => {
 
   return (
     // TODO: STYLE: Create flexbox container
-    <Card raised sx={{ width: "30vw", height: "30vw" }}>
-      {/* TODO: Wrap Card contents in CardActionArea component */}
+    // TODO: Wrap Card contents in CardActionArea component
+    <Card raised sx={{ width: "30vw", height: "30vw", cursor: "pointer" }}>
       <CardHeader
+        sx={{zIndex: 9999}}
         action={
           <IconButton
             aria-label="add-to-favorites"
@@ -29,7 +33,14 @@ const ItemCard = () => {
       />
       <CardImage />
       <CardDescription />
+      <Link href={`/products/${product._id}`}>link</Link>
+      {product?.createdBy?.email}
       <UsernameButton />
+      {/* {product?.createdBy && (
+        <Link href={`/users/${product?.createdBy?._id}`}>
+          {product?.createdBy?.email}
+        </Link>
+      )} */}
     </Card>
   );
 };

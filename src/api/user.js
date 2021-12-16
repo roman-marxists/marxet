@@ -1,12 +1,22 @@
-import axiosClient from './apiClient';
+import axiosClient from "./apiClient";
 
 export async function getPokemon() {
   try {
-    debugger;
-    const { data } = await axiosClient.get('/users');
-    console.log('🚀 ~ file: user.js ~ line 6 ~ getPokemon ~ data', data);
+    const { data } = await axiosClient.get("/users");
     return data;
   } catch (err) {
-    console.log('🚀 ~ file: user.js ~ line 8 ~ getPokemon ~ err', err);
+    console.log("🚀 ~ file: user.js ~ line 8 ~ getPokemon ~ err", err);
   }
 }
+
+export const doCreateUser = async (data) => {
+  try {
+    const res = await axiosClient.post("/users", {
+      email: data.email,
+      id: data.uid,
+    });
+    return res;
+  } catch (err) {
+    console.log(err);
+  }
+};
