@@ -11,7 +11,7 @@ import UsernameButton from './UsernameButton.js';
 const ItemCard = ({ children, id, product }) => {
   return (
     <Link href={`/products/${id}`}>
-      <Card raised sx={{ width: '15vw', cursor: 'pointer' }}>
+      <Card raised>
         {children}
         <CardActionArea>
           <CardImage />
