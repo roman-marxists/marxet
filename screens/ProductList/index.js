@@ -3,6 +3,7 @@ import ItemCard from "@components/ItemCard";
 import { useState, useEffect } from "react";
 import { doGetProducts } from "@api/product";
 import { useSearchContext } from "@context/productSearch";
+import FavoriteHeader from "@components/ItemCard/FavoriteHeader";
 
 const ProductPage = () => {
   const [products, setProducts] = useState([]);
@@ -69,7 +70,9 @@ const ProductPage = () => {
                       lg={3}
                       style={{ background: "inherit" }}
                     >
-                      <ItemCard id={d._id} />
+                      <ItemCard id={d._id}>
+                        <FavoriteHeader />
+                      </ItemCard>
                     </Grid>
                   );
                 })}
