@@ -17,6 +17,7 @@ import IconButton from "@mui/material/IconButton";
 import { useState } from "react";
 import { useAuth } from "@context/auth";
 import Router from "next/router";
+
 const Header = () => {
   const { user } = useAuth();
   console.log("🚀 ~ file: index.js ~ line 21 ~ Header ~ user", user);
