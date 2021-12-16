@@ -12,6 +12,7 @@ const ProductPage = () => {
   const fetchProducts = async () => {
     try {
       const data = await doGetProducts();
+      console.log("🚀 ~ file: index.js ~ line 15 ~ fetchProducts ~ data", data)
       setProducts(data ? data : []);
     } catch (err) {
       // setProducts([]);
@@ -61,7 +62,7 @@ const ProductPage = () => {
                     </Grid>
                   );
                 })}
-            {!searchedProducts && products.map((d) => {
+            {products.map((d) => {
                   return (
                     <Grid
                       item

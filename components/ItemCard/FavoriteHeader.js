@@ -1,4 +1,8 @@
 import { useState } from 'react';
+import { CardHeader, IconButton } from '@mui/material';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+
 
 const FavoriteHeader = () => {
   const [isFavorited, setFavorited] = useState(false);
