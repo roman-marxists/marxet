@@ -4,11 +4,6 @@ import { useState, useEffect } from "react";
 import { doGetProducts } from "@api/product";
 import { useSearchContext } from "@context/productSearch";
 
-<<<<<<< HEAD:features/Search/SearchPage.js
-// wtf is happening here
-const SearchPage = () => {
-  const dummy = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-=======
 const ProductPage = () => {
   const [products, setProducts] = useState([]);
   const { searchedProducts, setSearchedProducts } = useSearchContext();
@@ -24,7 +19,6 @@ const ProductPage = () => {
   useEffect(() => {
     fetchProducts();
   }, []);
->>>>>>> 42d50367f04f735a5883338d6d3b86572d4dec6f:screens/ProductList/index.js
 
   return (
     <>
