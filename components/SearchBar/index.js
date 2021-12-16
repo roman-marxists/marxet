@@ -1,37 +1,19 @@
-import { Box, Input, Button } from "@mui/material";
+import { Box, Input } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState, useContext } from "react";
 import { useSearchContext } from "@context/productSearch";
-import { doGetSearchedProducts } from "@api/product";
+import { doGetSearched } from "@api/product";
 
 const Search = () => {
-  // console.log("use search context", useSearchContext);
   const [searchTerm, setSearchTerm] = useState("");
-  // const [searchedProducts, setSearchedProducts] = useState(useSearchContext);
-  // console.log(searchedProducts);
-  // const getSearched = doGetSearchedProducts();
-  console.log(doGetSearchedProducts);
+  const { setSearchedProducts } = useSearchContext();
 
-  console.log("useSearchContext is undefined?", useSearchContext());
-
-  const {
-    handleSearch,
-    searchedProducts,
-    setSearchedProducts,
-  } = useSearchContext();
-
-  const handleChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
-
-  const handleSubmit = async (event) => {
-    // handleSearch(searchTerm);
+  const handleChange = async (e) => {
     try {
-      const getSearchedProducts = await doGetSearchedProducts(searchTerm);
-      console.log(
-        "this is the resolved promise of getsearchedproducts",
-        getSearchedProducts
-      );
+      if (e.target.value.length === 0) {
+        setSearchedProducts([]);
+      }
+      const getSearchedProducts = await doGetSearched(e.target.value);
       setSearchedProducts(getSearchedProducts);
     } catch (err) {
       console.log(err);
@@ -40,14 +22,13 @@ const Search = () => {
 
   return (
     <Box className="form" sx={{ minWidth: "30%", width: "100%" }}>
-      <form onSubmit={handleSubmit}>
+      <form>
         <Input
           sx={{ verticalAlign: "baseline", width: "70%", color: "black" }}
           onChange={handleChange}
           placeholder="Search for listings..."
           endAdornment={<SearchIcon />}
         />
-        <Button onClick={handleSubmit}>Button</Button>
       </form>
     </Box>
   );

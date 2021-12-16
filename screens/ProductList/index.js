@@ -2,9 +2,11 @@ import { Box, Grid } from "@mui/material";
 import ItemCard from "@components/ItemCard";
 import { useState, useEffect } from "react";
 import { doGetProducts } from "@api/product";
+import { useSearchContext } from "@context/productSearch";
 
 const ProductPage = () => {
   const [products, setProducts] = useState([]);
+  const { searchedProducts, setSearchedProducts } = useSearchContext();
 
   const fetchProducts = async () => {
     try {
@@ -15,7 +17,6 @@ const ProductPage = () => {
       console.error(err);
     }
   };
-
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -45,19 +46,33 @@ const ProductPage = () => {
           }}
         >
           <Grid container spacing={8}>
-            {products.map((d) => {
-              return (
-                <Grid
-                  item
-                  xs={12}
-                  md={6}
-                  lg={3}
-                  style={{ background: "inherit" }}
-                >
-                  <ItemCard id={d._id} />
-                </Grid>
-              );
-            })}
+            {searchedProducts.length
+              ? searchedProducts.map((d) => {
+                  return (
+                    <Grid
+                      item
+                      xs={12}
+                      md={6}
+                      lg={3}
+                      style={{ background: "inherit" }}
+                    >
+                      <ItemCard id={d._id} />
+                    </Grid>
+                  );
+                })
+              : products.map((d) => {
+                  return (
+                    <Grid
+                      item
+                      xs={12}
+                      md={6}
+                      lg={3}
+                      style={{ background: "inherit" }}
+                    >
+                      <ItemCard id={d._id} />
+                    </Grid>
+                  );
+                })}
           </Grid>
         </Box>
       </Box>
