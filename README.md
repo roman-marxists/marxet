@@ -3,12 +3,7 @@
 A platform for trading goods &amp; services
 
 ## Introduction
-<<<<<<< HEAD
-
-This project was a brief 2-week sprint during which our team built an MVP for an external client.
-=======
 This is the front-end for our 2-week sprint during which our team has built an MVP for an external client.
->>>>>>> development
 
 ## Meet _Marxet_
 
