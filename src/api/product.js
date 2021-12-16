@@ -21,6 +21,7 @@ export const doUploadBytes = (file) =>
   });
 
 export const doCreateProduct = async (data) => {
+  console.log("🚀 ~ file: product.js ~ line 15 ~ doCreateProduct ~ data", data);
   try {
     const photoURL = await doUploadBytes(data?.photo[0]);
     const res = await axiosClient.post("/products", {
@@ -45,6 +46,16 @@ export const doGetProducts = async () => {
 export const doGetProductById = async (id) => {
   try {
     const { data } = await axiosClient.get(`/products/${id}`);
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const doGetUserProducts = async (id) => {
+  try {
+    const { data } = await axiosClient.get(`/products/user/${id}`);
+    console.log("hit");
     return data;
   } catch (err) {
     console.log(err);

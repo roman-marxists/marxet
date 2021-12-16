@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import {
-  getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "@services/firebase";
+import { doCreateUser } from "@api/user";
 
 export default function useProvideAuth() {
   const [user, setUser] = useState(null);
@@ -19,6 +19,7 @@ export default function useProvideAuth() {
     return createUserWithEmailAndPassword(auth, email, password).then(
       (response) => {
         setUser(response.user);
+        doCreateUser(response.user);
         return response.user;
       }
     );

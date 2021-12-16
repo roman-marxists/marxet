@@ -27,7 +27,6 @@ export default function ProductForm({ handleClose }) {
     await doCreateProduct({ ...data, createdBy: user.uid });
     handleClose();
   };
-  // console.log("🚀 ~ file: Form.js ~ line 28 ~ ProductForm ~ errors", errors);
 
   return (
     <Box sx={style}>

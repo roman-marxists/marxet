@@ -11,9 +11,14 @@ const ProductPage = () => {
 
   const fetchProducts = async () => {
     try {
+<<<<<<< HEAD
       const data = await doGetProducts() || [];
       console.log("🚀 ~ file: index.js ~ line 13 ~ fetchProducts ~ data", data);
       setProducts(data);
+=======
+      const data = await doGetProducts();
+      setProducts(data ? data : []);
+>>>>>>> development
     } catch (err) {
       console.error(err);
     }
@@ -47,6 +52,7 @@ const ProductPage = () => {
           }}
         >
           <Grid container spacing={8}>
+<<<<<<< HEAD
             {searchedProducts.length > 0 &&
               searchedProducts.map((d) => {
                   return (
@@ -76,6 +82,22 @@ const ProductPage = () => {
                     </Grid>
                   );
                 })}
+=======
+            {products.map((p, i) => {
+              return (
+                <Grid
+                  key={i}
+                  item
+                  xs={12}
+                  md={6}
+                  lg={3}
+                  style={{ background: "inherit" }}
+                >
+                  <ItemCard product={p} />
+                </Grid>
+              );
+            })}
+>>>>>>> development
           </Grid>
         </Box>
       </Box>
