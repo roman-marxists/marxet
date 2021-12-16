@@ -63,11 +63,13 @@ You can view our ticket board [here](https://github.com/roman-marxists/marxet/pr
 
 1. Create file `.env.local` in root directory. You can copy and rename from the `.env.local.example` file
 2. Add the following variable to the`.env.local` file
-   `NEXT_PUBLIC_FIREBASE_API_KEY=<your api key>`
-   `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=<your firebase app domain>`
-   `NEXT_PUBLIC_FIREBASE_APP_ID=<firebase app id>`
-   `NEXT_PUBLIC_FIREBASE_PROJECT_ID=<firebase project id>`
-   `NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=<firebase storage bucket>`
-   `NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=<firebase messaging id>`
+  `NEXT_PUBLIC_FIREBASE_API_KEY=<your api key>`
+  `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=<your firebase app domain>`
+  `NEXT_PUBLIC_FIREBASE_APP_ID=<firebase app id>`
+  `NEXT_PUBLIC_FIREBASE_PROJECT_ID=<firebase project id>`
+  `NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=<firebase storage bucket>`
+  `NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=<firebase messaging id>`
+  `NEXT_PUBLIC_API_URL=<api server endpoint>`
+
 
 Fin
