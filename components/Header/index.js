@@ -24,9 +24,6 @@ const Header = () => {
   return (
     <Box
       alignSelf="auto"
-      sx={{
-        color: "#667574",
-      }}
     >
       <AppBar position="static" sx={{background: "#667574"}}>
         <Toolbar component="div" sx={{ cursor: "pointer" }}>
@@ -51,7 +48,7 @@ const Header = () => {
             </>
           ) : (
             <Link href="/login">
-              <Button color="inherit" variant="outlined" sx={{color: "white", width: "30px"}}>
+              <Button variant="outlined" sx={{color: "#ffffff", width: "30px"}}>
                 Login
               </Button>
             </Link>

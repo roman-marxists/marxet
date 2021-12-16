@@ -43,6 +43,7 @@ export default function useProvideAuth() {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
+        debugger;
         setUser(user);
       } else {
         setUser(false);

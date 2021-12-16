@@ -17,7 +17,7 @@ const AddListing = () => {
     <>
       <Button
         onClick={handleOpen}
-        color="inherit"
+        color="#ffffff"
         variant="outlined"
         sx={{ width: 250 }}
       >
