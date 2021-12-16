@@ -1,24 +1,27 @@
-import { Card, CardHeader, IconButton } from "@mui/material";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import { useState } from "react";
-import Link from "next/link";
+import { Card, CardHeader, CardActions, CardActionArea, IconButton } from '@mui/material';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { useState } from 'react';
+import Link from 'next/link';
 
-import CardImage from "./CardImage.js";
-import CardDescription from "./CardDescription.js";
-import UsernameButton from "./UsernameButton.js";
+import CardImage from './CardImage.js';
+import CardDescription from './CardDescription.js';
+import UsernameButton from './UsernameButton.js';
 
-const ItemCard = ({ children, product }) => {
-
+const ItemCard = ({ children, id, product }) => {
   return (
-    <Link href={`/products/${product._id}`}>
-      <Card raised sx={{ width: "15vw", cursor: "pointer" }}>
+    <Link href={`/products/${id}`}>
+      <Card raised sx={{ width: '15vw', cursor: 'pointer' }}>
         {children}
-        <CardImage />
-        <CardDescription />
-        <Link href={`/products/${product._id}`}>link</Link>
-        {product?.createdBy?.email}
-        <UsernameButton />
+        <CardActionArea>
+          <CardImage />
+          <CardDescription />
+        </CardActionArea>
+        {/* <Link href={`/products/${id}`}>link</Link>
+        {product?.createdBy?.email} */}
+        <CardActions>
+          <UsernameButton />
+        </CardActions>
       </Card>
     </Link>
   );

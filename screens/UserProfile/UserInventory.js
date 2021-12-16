@@ -13,7 +13,7 @@ import { useTheme } from '@mui/system';
 // })
 
 const UserInventory = () => {
-  const [inventory, setInventory] = useState([1, 2, 3, 4, 5, 6]);
+  const [inventory, setInventory] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
   return (
     <Box>
@@ -43,17 +43,17 @@ const Header = () => {
   )
 }
 
-const StyledHeader = styled(Header)`
-  position: sticky;
-`
+// const StyledHeader = styled(Header)`
+//   position: sticky;
+// `
 
 const StyledBox = styled(Box)`
   /* outline: 1px solid blue; */
   padding: 10px;
   background: #F8F8F8;
   border-radius: 5px;
-  max-height: 50%;
-  overflow: auto;
+  max-height: 60%;
+  overflow-y: auto;
   box-shadow: 0 3px 10px #888888;
 `
 
