@@ -20,20 +20,20 @@ import Router from "next/router";
 
 const Header = () => {
   const { user } = useAuth();
-  console.log("🚀 ~ file: index.js ~ line 21 ~ Header ~ user", user);
+
   return (
     <Box
       alignSelf="auto"
       sx={{
-        color: "#c7d6d5",
+        color: "#667574",
       }}
     >
-      <AppBar position="static">
+      <AppBar position="static" sx={{background: "#667574"}}>
         <Toolbar component="div" sx={{ cursor: "pointer" }}>
           <Link href="/">
             <Box
               className="logo"
-              style={{ color: "#801f12" }}
+              style={{ color: "#ffffff" }}
               mr={5}
               fontSize={24}
             >
@@ -51,7 +51,7 @@ const Header = () => {
             </>
           ) : (
             <Link href="/login">
-              <Button color="inherit" variant="outlined">
+              <Button color="inherit" variant="outlined" sx={{color: "white", width: "30px"}}>
                 Login
               </Button>
             </Link>
@@ -75,6 +75,8 @@ const UserMenu = () => {
     Router.push(`/users/${user.uid}`);
     setShowAccount(false);
   };
+
+
   return (
     <>
       <IconButton
@@ -101,6 +103,7 @@ const UserMenu = () => {
         }}
         onClose={() => setShowAccount(false)}
         open={showAccount}
+        sx={{width: "30px"}}
       >
         <MenuItem onClick={doRouteToAccount}>Account</MenuItem>
         <MenuItem onClick={doSignOut}>Logout</MenuItem>
