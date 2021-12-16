@@ -5,6 +5,15 @@ import { storage } from "@services/firebase";
 
 const storageRef = ref(storage, "images");
 
+export const doGetSearched = async (searchTerm) => {
+  try {
+    const { data } = await axiosClient.get(`/products/search/${searchTerm}`);
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export const doUploadBytes = (file) =>
   uploadBytes(storageRef, file).then(async (snapshot) => {
     const url = await getDownloadURL(snapshot.ref);

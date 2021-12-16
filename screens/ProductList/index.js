@@ -2,9 +2,11 @@ import { Box, Grid } from "@mui/material";
 import ItemCard from "@components/ItemCard";
 import { useState, useEffect } from "react";
 import { doGetProducts } from "@api/product";
+import { useSearchContext } from "@context/productSearch";
 
 const ProductPage = () => {
   const [products, setProducts] = useState([]);
+  const { searchedProducts, setSearchedProducts } = useSearchContext();
 
   const fetchProducts = async () => {
     try {
@@ -14,7 +16,6 @@ const ProductPage = () => {
       console.error(err);
     }
   };
-
   useEffect(() => {
     fetchProducts();
   }, []);
