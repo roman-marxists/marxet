@@ -1,8 +1,8 @@
 import { CardActions, Button } from "@mui/material";
 
-const UsernameButton = () => {
+const UsernameButton = ({ username }) => {
   return (
-      <Button size="small">Username</Button>
+      <Button size="small">{username}</Button>
   );
 };
 
