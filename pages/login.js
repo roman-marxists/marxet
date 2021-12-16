@@ -25,6 +25,7 @@ const LoginContainer = styled.div`
   height: 80%;
   border: #343a40 5px solid;
   padding: 10px;
+  margin: 10px;
 `;
 
 const SwitchContainer = styled.div`
@@ -108,7 +109,7 @@ const Login = () => {
       className="login-container"
       style={{ fontFamily: Fonts.heading }}
     >
-      <div style={{ fontSize: "40px" }}>
+      <div id="welcome-message" style={{ fontSize: "40px", marginTop: "30px" }}>
         Welcome {signUpView ? "back " : null}to
         <span
           className="logo"
@@ -119,7 +120,7 @@ const Login = () => {
         </span>
       </div>
       <SwitchContainer
-        style={signUpView ? { marginBottom: "10px" } : { marginBottom: "70px" }}
+        style={{ marginBottom: "40px", marginTop: "25px"}}
       >
         <span style={{ marginTop: "7px" }}>Sign in</span>
         <Switch
@@ -212,13 +213,12 @@ const Login = () => {
           Go
         </Button>
       </InputContainer>
-      <div style={{ marginBottom: "15px", marginTop: "100px" }}>
+      <Stack sx={{ marginBottom: "20px", marginTop: "50px", alignItems: "center" }}>
         Sign {signUpView ? "in" : "up"} with
-        <br />
         <Fab id="google-login" color="secondary" style={{ marginTop: "10px" }}>
           <Google />
         </Fab>
-      </div>
+      </Stack>
     </LoginContainer>
   );
 };
