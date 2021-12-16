@@ -1,13 +1,3 @@
-import { useRouter } from "next/router";
-import SearchPage from "../../features/Search/SearchPage.js";
+import Product from "@screens/Product/index.js";
 
-export default function Search() {
-  const router = useRouter();
-  const { productId } = router.query;
-
-  return (
-    <div>
-      <SearchPage productId={productId} />
-    </div>
-  );
-}
+export default Product;

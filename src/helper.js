@@ -1,4 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import Link from 'next/link';
 import Router from 'next/router';
 
@@ -22,7 +22,7 @@ export const signIn = (email, password) => {
     .then((userCredential) => {
       // User successfully signed in
       const user = userCredential.user;
-      Router.push('/products/1');
+      Router.push('/products');
     })
     .catch((error) => {
       console.error(error.code);
@@ -38,6 +38,7 @@ export const getUserInfo = () => {
       // https://firebase.google.com/docs/reference/js/firebase.User
       const uid = user.uid;
       // ...
+      Router.push('/search');
     } else {
       console.error('No user is currently signed in');
     }

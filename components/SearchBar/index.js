@@ -1,53 +1,34 @@
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  styled,
-  alpha,
-  Box,
-  InputBase,
-  TextField,
-} from "@mui/material";
+import { Box, Input } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useSearchContext } from "@context/productSearch";
+import { doGetSearched } from "@api/product";
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const { setSearchedProducts } = useSearchContext();
 
-  const handleChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(searchTerm);
+  const handleChange = async (e) => {
+    try {
+      if (e.target.value.length === 0) {
+        setSearchedProducts([]);
+      }
+      const getSearchedProducts = await doGetSearched(e.target.value);
+      setSearchedProducts(getSearchedProducts);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
     <Box className="form" sx={{ minWidth: "30%", width: "100%" }}>
-      <form onSubmit={handleSubmit}>
-        <TextField
-          sx={{ verticalAlign: "baseline", width: "70%" }}
+      <form>
+        <Input
+          sx={{ verticalAlign: "baseline", width: "70%", color: "black" }}
           onChange={handleChange}
-          variant="standard"
           placeholder="Search for listings..."
+          endAdornment={<SearchIcon />}
         />
-        <Box
-          className="TextField"
-          sx={{
-            display: "inline-flex",
-            paddingLeft: "20px",
-          }}
-        >
-          <Button
-            sx={{ justifyContent: "flex-end" }}
-            type="submit"
-            variant="contained"
-            color="primary"
-            startIcon={<SearchIcon />}
-          ></Button>
-        </Box>
       </form>
     </Box>
   );
