@@ -25,6 +25,7 @@ export default function useProvideAuth() {
     return createUserWithEmailAndPassword(auth, email, password)
       .then(response => {
         setUser(response.user);
+        debugger;
         doCreateUser(response.user);
         Router.push('/products');
         return response.user;

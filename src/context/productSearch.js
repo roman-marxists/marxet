@@ -1,16 +1,18 @@
 import { useState, createContext, useContext } from "react";
-import useSearch from "@hooks/useSearch";
+import useProducts from "@hooks/useProducts";
 
-const searchContext = createContext();
+const productContext = createContext();
 
 export function ProvideSearch({ children }) {
-  const search = useSearch();
-  console.log("this is the search context", search);
+  const products = useProducts();
+
   return (
-    <searchContext.Provider value={search}>{children}</searchContext.Provider>
+    <productContext.Provider value={products}>
+      {children}
+    </productContext.Provider>
   );
 }
 
-export const useSearchContext = () => {
-  return useContext(searchContext);
+export const useProductsContext = () => {
+  return useContext(productContext);
 };
