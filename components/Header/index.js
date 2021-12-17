@@ -21,20 +21,15 @@ import { ProductProvider } from "@context/product";
 
 const Header = () => {
   const { user } = useAuth();
+
   return (
-    <Box
-      alignSelf="auto"
-      sx={{
-        color: "#c7d6d5",
-        marginBottom: 5,
-      }}
-    >
-      <AppBar position="static">
+    <Box alignSelf="auto" >
+      <AppBar position="static" sx={{background: "#667574"}}>
         <Toolbar component="div" sx={{ cursor: "pointer" }}>
           <Link href="/">
             <Box
               className="logo"
-              style={{ color: "#801f12" }}
+              style={{ color: "#ffffff" }}
               mr={5}
               fontSize={24}
             >
@@ -53,7 +48,7 @@ const Header = () => {
           )}
           {!user && (
             <Link href="/login">
-              <Button color="inherit" variant="outlined">
+              <Button variant="outlined" sx={{color: "#ffffff", width: "30px"}}>
                 Login
               </Button>
             </Link>
@@ -77,15 +72,21 @@ const UserMenu = () => {
     Router.push(`/users/${user.uid}`);
     setShowAccount(false);
   };
+
+  const handleIconClick = (e) => {
+    setShowAccount(e.target);
+  }
+
+
   return (
     <>
       <IconButton
         size="large"
-        aria-label="account of current user"
+        aria-label="current-user-account"
         aria-controls="menu-appbar"
         aria-haspopup="true"
-        onClick={(e) => setShowAccount(e.target)}
-        color="inherit"
+        onClick={handleIconClick}
+        color="primary"
       >
         <AccountCircle />
       </IconButton>
@@ -103,6 +104,7 @@ const UserMenu = () => {
         }}
         onClose={() => setShowAccount(false)}
         open={showAccount}
+        sx={{width: "30px"}}
       >
         <MenuItem onClick={doRouteToAccount}>Account</MenuItem>
         <MenuItem onClick={doSignOut}>Logout</MenuItem>

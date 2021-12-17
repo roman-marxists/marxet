@@ -31,10 +31,10 @@ const Search = () => {
     <Box className="form" sx={{ minWidth: "30%", width: "100%" }}>
       <form onSubmit={handleSubmit}>
         <Input
-          sx={{ verticalAlign: "baseline", width: "70%", color: "black" }}
+          sx={{ verticalAlign: "baseline", width: "70%", color: "#ffffff" }}
           onChange={handleChange}
           placeholder="Search for listings..."
-          endAdornment={<SearchIcon />}
+          endAdornment={<SearchIcon style={{ marginBottom: "5px" }}/>}
         />
       </form>
     </Box>
