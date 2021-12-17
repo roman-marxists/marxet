@@ -24,15 +24,7 @@ const AddListing = () => {
   const { user } = useAuth();
   const [open, setOpen] = useState(false);
   const [products, setProducts] = useState([]);
-<<<<<<< HEAD
-
-  const fetchProducts = async () => {
-    const products = await doGetUserProducts(user.id);
-    setProducts(products ? products : []);
-  };
-=======
   const [offerSent, setOfferSent] = useState(false);
->>>>>>> development
 
   useEffect(() => {
     const fetchProducts = async () => {
