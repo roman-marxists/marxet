@@ -21,9 +21,9 @@ const UserInventory = () => {
         <Header />
         <Grid container direction={{ md:'row'}} spacing={2}>
           {
-            inventory.map(listing => {
+            inventory.map((listing, idx) => {
               return (
-                <Grid item xs={12} sm={6} md={3}>
+                <Grid item key={idx} xs={12} sm={6} md={3}>
                   <ItemCard />
                 </Grid>
               )

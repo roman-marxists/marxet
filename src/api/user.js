@@ -11,9 +11,10 @@ export async function getPokemon() {
 
 export const doCreateUser = async (data) => {
   try {
+    console.log({doCreateUser: data})
     const res = await axiosClient.post("/users", {
-      email: data.email,
       id: data.uid,
+      email: data.email,
     });
     return res;
   } catch (err) {

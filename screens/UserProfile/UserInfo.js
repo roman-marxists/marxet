@@ -12,10 +12,6 @@ const UserInfo = () => {
   const [isEditing, setIsEditing] = useState(false);
 
   const isOwnerAndAuthenticated = isAuthenticated && username === "username";
-  console.log(
-    "🚀 ~ file: UserInfo.js ~ line 62 ~ UserInfo ~ username",
-    username
-  );
 
   // useEffect hook to fetch the user profile info. only fetch transaction history if
   // user is authenticated and is the owner of the page.

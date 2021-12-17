@@ -9,7 +9,7 @@ import useProvideAuth from '@hooks/useAuth';
 const UserProfile = ({ userId }) => {
   const { user } = useProvideAuth();
   console.log({user: user});
-  const userId = user.uid;
+  console.log({userId})
 
   return (
     <Container>

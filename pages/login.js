@@ -55,6 +55,7 @@ const Login = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(true);
   const [signUpView, setSignUpView] = useState(true);
+  const { user, signin, signup } = useAuth();
 
   const handleSwitchChange = () => {
     setSignUpView(!signUpView);
@@ -87,20 +88,18 @@ const Login = () => {
       setPassword("");
       setConfirmPassword("");
     } else {
-      register(email, password);
+      signup(email, password);
       setPassword("");
       setConfirmPassword("");
       handleSwitchChange();
-      Router.push("/");
     }
   };
 
   const handleSignIn = (e) => {
     e.preventDefault();
 
-    signIn(email, password);
+    signin(email, password);
     setPassword("");
-    Router.push("/");
   };
 
   return (
@@ -154,7 +153,7 @@ const Login = () => {
         ) : null}
         <TextField
           id="password-field"
-          type={passwordVisible ? "text" : "password"}
+          type={passwordVisible ? "password" : "text"}
           variant="outlined"
           label="Password"
           value={password}
@@ -179,7 +178,7 @@ const Login = () => {
         {!signUpView ? (
           <TextField
             id="confirm-password-field"
-            type={passwordVisible ? "text" : "password"}
+            type={passwordVisible ? "password" : "text"}
             variant="outlined"
             label="Confirm your password"
             value={confirmPassword}
