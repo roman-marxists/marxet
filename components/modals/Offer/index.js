@@ -19,14 +19,13 @@ const AddListing = () => {
   const [open, setOpen] = useState(false);
   const [products, setProducts] = useState([]);
 
-  const fetchProducts = async () => {
-    const products = await doGetUserProducts(user.uid);
-    setProducts(products ? products : []);
-  };
-
   useEffect(() => {
+    const fetchProducts = async () => {
+      const products = await doGetUserProducts(user.uid);
+      setProducts(products ? products : []);
+    };
     fetchProducts();
-  }, []);
+  }, [user]);
 
   const handleOpen = () => {
     setOpen(true);
@@ -54,8 +53,8 @@ const AddListing = () => {
         <Box sx={style}>
           <h3>my listing</h3>
           <ul>
-            {products.map((p) => (
-              <li>{p.name}</li>
+            {products.map((p, i) => (
+              <li key={i}>{p.name}</li>
             ))}
           </ul>
         </Box>

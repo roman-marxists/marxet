@@ -9,7 +9,7 @@ const ItemCard = ({ children, id, product }) => {
   return (
     <Card raised>
       {children}
-      <Link href={`/products/${product._id}`} passHref>
+      <Link href={`/products/${product?._id}`} passHref>
         <CardActionArea>
           <CardImage imageUrl={product?.photos} />
           <CardDescription description={product?.description} />

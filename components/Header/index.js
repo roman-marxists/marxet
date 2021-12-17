@@ -31,7 +31,7 @@ const Header = () => {
     >
       <AppBar position="static">
         <Toolbar component="div" sx={{ cursor: "pointer" }}>
-          <Link href="/">
+          <Link href="/" passHref>
             <Box
               className="logo"
               style={{ color: "#801f12" }}
