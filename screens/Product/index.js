@@ -96,11 +96,6 @@ const Product = () => {
                 </ Button>
               </Link>
             }
-            { user ?
-              <OfferModal />
-              :
-              null
-            }
             <Button variant="contained" color="secondary" sx={{width: "30%", marginTop: "5px"}}>View seller</Button>
           </ Stack>
         </ Stack>
