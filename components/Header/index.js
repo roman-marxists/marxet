@@ -41,10 +41,7 @@ const Header = () => {
               Marxet
             </Box>
           </Link>
-          <ProductProvider>
-            <Search />
-          </ProductProvider>
-
+          <Search />
           {/* <Dropdown /> */}
           {user && (
             <>

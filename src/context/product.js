@@ -10,11 +10,7 @@ export function ProductProvider({ children }) {
     products,
     searchedProducts,
     setProducts,
-<<<<<<< HEAD
     setSearchedProducts
-=======
-    setSearchedProducts,
->>>>>>> development
   };
 
   return (
