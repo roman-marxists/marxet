@@ -24,6 +24,7 @@ const AddListing = () => {
   const { user } = useAuth();
   const [open, setOpen] = useState(false);
   const [products, setProducts] = useState([]);
+  const [offerSent, setOfferSent] = useState(false);
 
   const fetchProducts = async () => {
     const products = await doGetUserProducts(user.uid);
@@ -41,6 +42,10 @@ const AddListing = () => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleSendOffer = async () => {
+    await setOfferSent(true);
+  }
 
 
   return (
@@ -66,6 +71,25 @@ const AddListing = () => {
               <ListingOption key={i} id={product.id} name={product.name} />
             )) : "You currently have no listings to offer" }
           </ Grid>
+          { offerSent ?
+            <Button id="send-offer-btn"
+              variant="contained"
+              color="primary"
+              disabled
+              sx={{marginTop: '10px'}}
+            >
+            Offer sent!
+            </Button>
+            :
+            <Button id="send-offer-btn"
+              variant="contained"
+              color="primary"
+              sx={{marginTop: '10px'}}
+              onClick={handleSendOffer}
+            >
+              Send offer
+            </Button>
+          }
         </Stack>
       </Modal>
     </>
