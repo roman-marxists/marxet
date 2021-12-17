@@ -24,6 +24,7 @@ const Product = () => {
   const fetchProduct = async () => {
     try {
       const data = await doGetProductById(productId);
+      console.log('CURRENT LISTING: ', data);
       setListing(data);
     } catch (err) {
       console.error(err);
@@ -32,6 +33,7 @@ const Product = () => {
 
   useEffect(() => {
     fetchProduct();
+    console.log('FETCHING PRODUCT');
   }, []);
 
   if (listing !== {}) {
