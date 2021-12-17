@@ -1,33 +1,34 @@
 import { useState, useEffect } from 'react';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@services/firebase';
-import { doCreateUser } from '@api/user';
+import { doCreateUser, doGetUserData } from '@api/user';
 import Router from 'next/router';
 
 export default function useProvideAuth() {
   const [user, setUser] = useState(null);
 
+
   const signin = async (email, password) => {
     try {
       const response = await signInWithEmailAndPassword(auth, email, password);
-      setUser(response.user);
-      Router.push('/products');
+      setUser({...response.user, ...doGetUserData(response.user.uid)});
+      console.log({user})
+      Router.push('/');
+      return response;
     } catch (e) {
       console.error(e.code);
       console.error(e.message);
       alert(e.message);
       Router.push('/login');
     }
-    return response;
   };
 
   const signup = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password)
       .then(response => {
-        setUser(response.user);
-        debugger;
+        setUser({...response.user, ...doGetUserData(response.user.uid)});
         doCreateUser(response.user);
-        Router.push('/products');
+        Router.push('/');
         return response.user;
       })
       .catch((err) => {

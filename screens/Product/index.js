@@ -44,7 +44,6 @@ const Product = () => {
   }, []);
 
   if (listing !== {}) {
-    console.log("LISTING: ", listing);
     return (
       <Stack className="listing" id={listingID} direction="row" sx={{margin: "15px", height: "85vh"}} >
         <ImageList
@@ -61,7 +60,7 @@ const Product = () => {
         >
           { listing.photos ? listing.photos.map( (photo, i) => (
             <ImageListItem key={i}>
-              <img src={"https://source.unsplash.com/random/?melons"} />
+              <img src={"https://source.unsplash.com/random/"} />
             </ImageListItem>
           )) : <ImageListItem>Lister has not uploaded any photos</ImageListItem>}
         </ImageList>

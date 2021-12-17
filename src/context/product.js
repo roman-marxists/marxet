@@ -10,7 +10,7 @@ export function ProductProvider({ children }) {
     products,
     searchedProducts,
     setProducts,
-    setSearchedProducts,
+    setSearchedProducts
   };
 
   return (

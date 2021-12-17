@@ -10,22 +10,14 @@ import { ProductProvider } from "@context/product";
 
 
 const ProductList = () => {
-  const {
-    products,
-    setProducts,
-    searchedProducts,
-    setSearchedProducts,
-  } = useProducts();
-
-  console.log("productList", searchedProducts);
+  const { products, setProducts, searchedProducts } = useProducts();
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const data = await doGetProducts();
-        setProducts(data);
+        setProducts(data ? data : []);
       } catch (err) {
-        setProducts([]);
         console.error(err);
       }
     };
@@ -37,52 +29,48 @@ const ProductList = () => {
       <Box
         className="Search"
         sx={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          width: "90%",
-          margin: "auto",
-          marginRight: "20%",
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'center',
+          width: '90%',
+          margin: 'auto',
+          marginRight: '20%',
         }}
       >
         <Box
           className="Grid"
           sx={{
-            display: "flex",
-            alignItems: "flex-start",
-            justifyContent: "center",
-            width: "100vw",
-            padding: "50px",
-            marginLeft: "10vw",
+            display: 'flex',
+            alignItems: 'flex-start',
+            justifyContent: 'center',
+            width: '100vw',
+            padding: '50px',
+            marginLeft: '10vw',
           }}
         >
           <Grid container spacing={8}>
+            {console.log({ searchedProducts })}
             {searchedProducts.length > 0 &&
-              searchedProducts.map((d) => {
+              searchedProducts.map(product => {
                 return (
-                  <Grid
-                    item
-                    xs={12}
-                    md={6}
-                    lg={3}
-                    style={{ background: "inherit" }}
-                  >
-                    <ItemCard id={d._id} />
+                  <Grid item xs={12} md={6} lg={3} style={{ background: 'inherit' }}>
+                    <ItemCard id={product._id}>
+                      <HeaderWithIcons
+                        product={product}
+                        showFavoriteIcon={true}
+                        showWatchesIcon={true}
+                      />
+                    </ItemCard>
                   </Grid>
                 );
               })}
             {!searchedProducts.length &&
-              products.map((d) => {
+              products.map((product, idx) => {
                 return (
-                  <Grid
-                    item
-                    xs={12}
-                    md={6}
-                    lg={3}
-                    style={{ background: "inherit" }}
-                  >
-                    <ItemCard id={d._id}>
+                  <Grid key={idx} item xs={12} md={6} lg={3} style={{ background: 'inherit' }}>
+                    <ItemCard id={product._id}>
                       <HeaderWithIcons
+                        product={product}
                         showFavoriteIcon={true}
                         showWatchesIcon={true}
                       />

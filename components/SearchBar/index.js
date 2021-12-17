@@ -1,17 +1,18 @@
 import { Box, Input } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState, useContext } from "react";
-import { useProductsContext } from "@context/productSearch";
 import { doGetSearched } from "@api/product";
-import { doGetProducts } from "@api/product";
 import { useProducts } from "@context/product";
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const { setProducts, searchedProducts, setSearchedProducts } = useProducts();
+  const { setSearchedProducts } = useProducts();
 
   const handleChange = async (e) => {
-    setSearchTerm(e.target.value);
+    setSearchTerm(e.target.value)
+    if (searchTerm.length === 0) {
+      setSearchedProducts([]);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -21,6 +22,8 @@ const Search = () => {
       setSearchedProducts(getSearchedProducts);
     } catch (err) {
       console.log(err);
+    } finally {
+      setSearchTerm("");
     }
   };
 

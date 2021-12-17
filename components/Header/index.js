@@ -36,19 +36,17 @@ const Header = () => {
               Marxet
             </Box>
           </Link>
-          <ProductProvider>
-            <Search />
-          </ProductProvider>
-
+          <Search />
           {/* <Dropdown /> */}
-          {user ? (
+          {user && (
             <>
               <Box mr={5}>
                 <ListingModal />
               </Box>
               <UserMenu />
             </>
-          ) : (
+          )}
+          {!user && (
             <Link href="/login">
               <Button variant="outlined" sx={{color: "#ffffff", width: "30px"}}>
                 Login
