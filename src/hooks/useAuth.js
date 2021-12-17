@@ -26,7 +26,12 @@ export default function useProvideAuth() {
   const signup = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password)
       .then(response => {
+<<<<<<< HEAD
         setUser({...response.user, ...doGetUserData(response.user.uid)});
+=======
+        setUser(response.user);
+        debugger;
+>>>>>>> development
         doCreateUser(response.user);
         Router.push('/');
         return response.user;

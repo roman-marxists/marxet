@@ -7,7 +7,7 @@ import {
   Box,
 } from "@mui/material";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Dropdown = () => {
   const [selectedCategory, setSelectedCategory] = useState("");

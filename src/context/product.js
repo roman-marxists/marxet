@@ -10,10 +10,16 @@ export function ProductProvider({ children }) {
     products,
     searchedProducts,
     setProducts,
+<<<<<<< HEAD
     setSearchedProducts
+=======
+    setSearchedProducts,
+>>>>>>> development
   };
 
-  return <productContext.Provider value={value}>{children}</productContext.Provider>;
+  return (
+    <productContext.Provider value={value}>{children}</productContext.Provider>
+  );
 }
 
 export const useProducts = () => {

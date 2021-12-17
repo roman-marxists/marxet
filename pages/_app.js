@@ -3,7 +3,12 @@ import { ProvideAuth } from "@context/auth";
 import Head from "next/head";
 import "../public/styles.css";
 import app from "@services/firebase";
+<<<<<<< HEAD
 import { ProductProvider } from "@context/product";
+=======
+import { ProvideSearch } from "@context/productSearch";
+import AddListing from "../components/modals/addListingModal.js";
+>>>>>>> development
 
 import Layout from "@components/Layout";
 

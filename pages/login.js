@@ -49,6 +49,7 @@ const FabContainer = styled.span`
 `;
 
 const Login = () => {
+  const { signin, signup } = useAuth();
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -97,7 +98,6 @@ const Login = () => {
 
   const handleSignIn = (e) => {
     e.preventDefault();
-
     signin(email, password);
     setPassword("");
   };

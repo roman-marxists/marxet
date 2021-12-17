@@ -1,6 +1,6 @@
 import axiosClient from "./apiClient";
 
-export async function getCategories() {
+export async function doGetCategories() {
   try {
     const { data } = await axiosClient.get("/categories");
     console.log("🚀 ~ file: user.js ~ line 6 ~ getPokemon ~ data", data);
