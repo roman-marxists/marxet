@@ -3,6 +3,7 @@ import {Button, Modal, Box, Typography, TextField, FormControl, InputLabel, Sele
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { doGetCategories } from '@api/category';
+import { doCreateProduct } from '@api/product';
 
 const AddListing = () => {
   const [open, setOpen] = useState(false);
@@ -113,10 +114,12 @@ const AddListing = () => {
             <Button sx={{ m: 1 }} onClick={() => {let listingData = {
                 name: name,
                 description: description,
-                categories: [selectedCategory],
-                zipcode: Number(zip),
-                createdBy: { type: Schema.Types.ObjectId, ref: "User" },
+                categories: selectedCategory,
+                zipCode: Number(zip),
+                image: "https://encyclopediavirginia.org/wp-content/uploads/2020/11/668hpr_d3200319c6a456f-1200x1631.jpg",
+                createdBy: "64hjkhgjvdxoouw"
               }; 
+              doCreateProduct(listingData);
               handleClose();}} >Add Listing</Button>
           </TextDiv>
           <Button onClick={handleClose} s={{float: "right"}} >X</Button>
@@ -145,4 +148,3 @@ const SimpleDiv = styled.div`
 export default AddListing;
 
 
-// Make a x-out button instead of click-outside close
