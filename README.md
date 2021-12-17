@@ -3,7 +3,6 @@
 A platform for trading goods &amp; services
 
 ## Introduction
-
 This is the front-end for our 2-week sprint during which our team has built an MVP for an external client.
 
 ## Meet _Marxet_

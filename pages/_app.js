@@ -4,6 +4,7 @@ import Head from "next/head";
 import "../public/styles.css";
 import app from "@services/firebase";
 import { ProvideSearch } from "@context/productSearch";
+import AddListing from "../components/modals/addListingModal.js";
 
 import Layout from "@components/Layout";
 
