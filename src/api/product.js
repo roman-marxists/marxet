@@ -56,7 +56,6 @@ export const doGetProductById = async (id) => {
 export const doGetUserProducts = async (id) => {
   try {
     const { data } = await axiosClient.get(`/products/user/${id}`);
-    console.log("hit");
     return data;
   } catch (err) {
     console.log(err);
