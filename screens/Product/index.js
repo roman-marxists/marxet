@@ -27,7 +27,7 @@ const Product = () => {
 
   return (
     <div>
-      {product.name}
+      {product?.name}
       {user && <OfferModal />}
     </div>
   );

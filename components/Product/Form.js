@@ -17,6 +17,7 @@ const style = {
 
 export default function ProductForm({ handleClose }) {
   const { user } = useAuth();
+
   const {
     register,
     handleSubmit,
@@ -24,7 +25,7 @@ export default function ProductForm({ handleClose }) {
   } = useForm();
 
   const onSubmit = async (data) => {
-    await doCreateProduct({ ...data, createdBy: user.uid });
+    const newProduct = await doCreateProduct({ ...data, createdBy: user });
     handleClose();
   };
 

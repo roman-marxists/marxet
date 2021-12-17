@@ -13,7 +13,7 @@ export default function useProvideAuth() {
   const signin = async (email, password) => {
     try {
       const response = await signInWithEmailAndPassword(auth, email, password);
-      const dbUser = await doGetUserData(user.uid);
+      const dbUser = await doGetUserData(response.user.uid);
       setUser(dbUser);
       return response;
     } catch (e) {

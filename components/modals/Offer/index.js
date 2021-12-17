@@ -20,7 +20,7 @@ const AddListing = () => {
   const [products, setProducts] = useState([]);
 
   const fetchProducts = async () => {
-    const products = await doGetUserProducts(user.uid);
+    const products = await doGetUserProducts(user.id);
     setProducts(products ? products : []);
   };
 

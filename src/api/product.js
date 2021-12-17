@@ -22,14 +22,13 @@ export const doUploadBytes = (file) =>
   });
 
 export const doCreateProduct = async (data) => {
-  console.log("🚀 ~ file: product.js ~ line 15 ~ doCreateProduct ~ data", data);
   try {
     const photoURL = await doUploadBytes(data?.photo[0]);
-    const res = await axiosClient.post("/products", {
+    const {data} = await axiosClient.post("/products", {
       image: photoURL,
       ...data,
     });
-    return res;
+    return data;
   } catch (err) {
     console.log(err);
   }
@@ -61,3 +60,14 @@ export const doGetUserProducts = async (id) => {
     console.log(err);
   }
 };
+
+export const doUpdateProductWatchCount = async({ product, watchCount }) => {
+  try {
+    const {data} = await axiosClient.put(`/products/${product._id}`, {
+      watchCount
+    })
+    return data;
+  } catch (e) {
+    console.log(e);
+  }
+}

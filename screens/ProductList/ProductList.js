@@ -46,6 +46,8 @@ const ProductList = () => {
             marginLeft: '10vw',
           }}
         >
+          {console.log({searchedProducts})}
+          {console.log({products})}
           <Grid container spacing={8}>
             {searchedProducts.length > 0 &&
               searchedProducts.map(product => {
