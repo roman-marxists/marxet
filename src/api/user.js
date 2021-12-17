@@ -2,13 +2,24 @@ import axiosClient from "./apiClient";
 
 export const doCreateUser = async (data) => {
   try {
-    console.log({doCreateUser: data})
     const res = await axiosClient.post("/users", {
       id: data.uid,
       email: data.email,
     });
-    return res;
-  } catch (err) {
-    console.log(err);
+  } catch (e) {
+    console.log(e);
+    console.log('Unable to create user.');
   }
 };
+
+export const doUpdateUserWatchList = async ({userId, productId, action}) => {
+  try {
+    await axiosClient.put(`/users/${userId}`, {
+      productId,
+      action,
+    })
+  } catch (e) {
+    console.log(e);
+    console.log('Unable to update watchlist of user.');
+  }
+}

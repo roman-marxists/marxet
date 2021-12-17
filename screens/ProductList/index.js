@@ -1,86 +1,12 @@
-import { Box, Grid } from "@mui/material";
-import ItemCard from "@components/ItemCard";
-import { useState, useEffect } from "react";
-import { doGetProducts } from "@api/product";
-import { useSearchContext } from "@context/productSearch";
-import FavoriteHeader from "@components/ItemCard/FavoriteHeader";
+import ProductList from './ProductList'
+import { ProductProvider } from '@context/product';
 
-const ProductPage = () => {
-  const [products, setProducts] = useState([]);
-  const { searchedProducts, setSearchedProducts } = useSearchContext();
-
-  const fetchProducts = async () => {
-    try {
-      const data = await doGetProducts();
-      setProducts(data ? data : []);
-    } catch (err) {
-      // setProducts([]);
-      console.error(err);
-    }
-  };
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-
+const Products = () => {
   return (
-    <>
-      <Box
-        className="Search"
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          width: "90%",
-          margin: "auto",
-          marginRight: "20%",
-        }}
-      >
-        <Box
-          className="Grid"
-          sx={{
-            display: "flex",
-            alignItems: "flex-start",
-            justifyContent: "center",
-            width: "100vw",
-            padding: "50px",
-            marginLeft: "10vw",
-          }}
-        >
-          <Grid container spacing={8}>
-            {searchedProducts.length > 0 &&
-              searchedProducts.map((d) => {
-                  return (
-                    <Grid
-                      item
-                      xs={12}
-                      md={6}
-                      lg={3}
-                      style={{ background: "inherit" }}
-                    >
-                      <ItemCard id={d._id} />
-                    </Grid>
-                  );
-                })}
-            {!searchedProducts && products.map((d) => {
-                  return (
-                    <Grid
-                      item
-                      xs={12}
-                      md={6}
-                      lg={3}
-                      style={{ background: "inherit" }}
-                    >
-                      <ItemCard id={d._id}>
-                        <FavoriteHeader />
-                      </ItemCard>
-                    </Grid>
-                  );
-                })}
-          </Grid>
-        </Box>
-      </Box>
-    </>
-  );
-};
+    <ProductProvider>
+      <ProductList />
+    </ProductProvider>
+  )
+}
 
-export default ProductPage;
+export default Products;

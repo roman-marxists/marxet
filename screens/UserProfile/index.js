@@ -24,7 +24,7 @@ const UserProfile = ({ userId }) => {
         </Grid>
         <Grid item container md={9} direction='column' spacing={3}>
           <Grid item>
-            <UserInventory />
+            <UserInventory userId={userId}/>
           </Grid>
           <Grid item container direction={{ xs:'column', md:'row'}} spacing={3}>
             <Grid item md={6}>
