@@ -31,22 +31,20 @@ const WatchCountHeader = ({product, clickable}) => {
       setWatchCount(prev => prev + 1);
       setIsWatched(prev => !prev);
       // PUT user
-      // doUpdateUserWatchList({
-      //   id: user.username,
-      //   product, //TODO: add userContext
-      //   action: "add"
-      // });
+      doUpdateUserWatchList({
+        user,
+        watchList: [...user.watchList, product]
+      });
 
       // PUT Product
     } else if (clickable && isWatched) {
       setWatchCount(prev => prev - 1);
       setIsWatched(prev => !prev);
       // PUT user
-      // doUpdateUserWatchList({
-      //   userId,
-      //   productId,
-      //   action: "delete"
-      // });
+      doUpdateUserWatchList({
+        user,
+        watchList: [...user.watchList, product]
+      });
 
       // PUT Product
     }

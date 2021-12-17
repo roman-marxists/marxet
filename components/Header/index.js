@@ -74,7 +74,7 @@ const UserMenu = () => {
   };
 
   const doRouteToAccount = () => {
-    Router.push(`/users/${user.username}`);
+    Router.push(`/users/${user._id}`);
     setShowAccount(false);
   };
   return (
