@@ -1,4 +1,4 @@
-import { useState, useContext, createContext, useEffect } from "react";
+import { useState, useContext, useEffect, createContext } from "react";
 import { doGetProducts } from "@api/product";
 
 const productContext = createContext();
@@ -11,7 +11,7 @@ export function ProductProvider({ children }) {
     const fetchProducts = async () => {
       try {
         const data = await doGetProducts();
-        setProducts(data);
+        setProducts(data ? data : []);
       } catch (err) {
         console.error(err);
       }

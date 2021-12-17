@@ -30,7 +30,7 @@ const UserInventory = ({ user }) => {
             inventory.map((listing, idx) => {
               return (
                 <Grid item key={idx} xs={12} sm={6} md={3}>
-                  <ItemCard>
+                  <ItemCard product={listing}>
                     <HeaderWithIcons product={listing} showWatchesIcon clickable={!isOwner} product/>
                   </ItemCard>
                 </Grid>

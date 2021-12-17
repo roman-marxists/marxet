@@ -6,22 +6,22 @@ import CardImage from "./CardImage.js";
 import CardDescription from "./CardDescription.js";
 import UsernameButton from "./UsernameButton.js";
 
-const ItemCard = ({ children, id, product }) => {
+const ItemCard = ({ children, product }) => {
   return (
     <Card raised>
-      {children}
-      <Link href={`/products/${id}`}>
+        {children}
+        <Link href={`/products/${product?._id}`}>
         <CardActionArea>
-          <CardImage />
-          <CardDescription />
+          <CardImage photos={product?.photos}/>
+          <CardDescription description={product?.description}/>
         </CardActionArea>
       </Link>
       {/* <Link href={`/products/${id}`}>link</Link>
         {product?.createdBy?.email} */}
-      <CardActions>
-        <UsernameButton />
-      </CardActions>
-    </Card>
+        <CardActions>
+          <UsernameButton createdBy={product?.createdBy} />
+        </CardActions>
+      </Card>
   );
 };
 

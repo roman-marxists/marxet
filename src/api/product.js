@@ -62,3 +62,14 @@ export const doGetUserProducts = async (id) => {
     console.log(err);
   }
 };
+
+export const doUpdateProductWatchCount = async({ product, watchCount }) => {
+  try {
+    const {data} = await axiosClient.put(`/products/${product._id}`, {
+      watchCount
+    })
+    return data;
+  } catch (e) {
+    console.log(e);
+  }
+}

@@ -9,10 +9,14 @@ import { useAuth } from "@context/auth";
 const UserInfo = ({user}) => {
   const [username, setUsername] = useState("username");
   const [bio, setBio] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
+    console.log({user})
+
   const { user : dbUser} = useAuth();
   const isAuthenticated = (dbUser) ? true : false;
-  const isOwnerAndAuthenticated = isAuthenticated && user?.username === dbUser.username;
+  console.log("🚀 ~ file: UserInfo.js ~ line 15 ~ UserInfo ~ dbUser", dbUser)
+  const isOwnerAndAuthenticated = isAuthenticated && user?.username === dbUser?.username;
 
   console.log({user})
 
