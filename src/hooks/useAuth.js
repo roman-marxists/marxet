@@ -1,41 +1,41 @@
-import { useState, useEffect } from 'react';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '@services/firebase';
-import { doCreateUser, doGetUserData } from '@api/user';
-import Router from 'next/router';
+import { useState, useEffect } from "react";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "@services/firebase";
+import { doCreateUser, doGetUserData } from "@api/user";
+import Router from "next/router";
 
 export default function useProvideAuth() {
   const [user, setUser] = useState(null);
 
-
   const signin = async (email, password) => {
     try {
       const response = await signInWithEmailAndPassword(auth, email, password);
-      setUser({...response.user, ...doGetUserData(response.user.uid)});
-      console.log({user})
-      Router.push('/');
+      const dbUser = await doGetUserData(user.uid);
+      setUser(dbUser);
       return response;
     } catch (e) {
       console.error(e.code);
       console.error(e.message);
       alert(e.message);
-      Router.push('/login');
+      Router.push("/login");
     }
   };
 
-  const signup = (email, password) => {
+  const signup = (email, password, username) => {
     return createUserWithEmailAndPassword(auth, email, password)
-      .then(response => {
-        setUser({...response.user, ...doGetUserData(response.user.uid)});
-        doCreateUser(response.user);
-        Router.push('/');
+      .then(async (response) => {
+        const dbUser = await doCreateUser({ ...response.user, username });
+        setUser(dbUser);
         return response.user;
       })
       .catch((err) => {
         console.error(err.code);
         console.error(err.message);
         alert(err.message);
-        Router.push('/login');
+        Router.push("/login");
       });
   };
 
@@ -45,7 +45,7 @@ export default function useProvideAuth() {
     });
   };
 
-  const sendPasswordResetEmail = email => {
+  const sendPasswordResetEmail = (email) => {
     return auth.sendPasswordResetEmail(email).then(() => {
       return true;
     });
@@ -58,9 +58,11 @@ export default function useProvideAuth() {
   };
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
+    // Any time user log in or out, this fires
+    const unsubscribe = auth.onAuthStateChanged(async (user) => {
       if (user) {
-        setUser(user);
+        const dbUser = await doGetUserData(user.uid);
+        setUser(dbUser);
       } else {
         setUser(false);
       }

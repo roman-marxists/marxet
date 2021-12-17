@@ -1,9 +1,6 @@
 import axiosClient from "./apiClient";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-
 import { storage } from "@services/firebase";
-
-const storageRef = ref(storage, "images");
 
 export const doGetSearched = async (searchTerm) => {
   try {
@@ -16,20 +13,24 @@ export const doGetSearched = async (searchTerm) => {
 };
 
 export const doUploadBytes = (file) =>
-  uploadBytes(storageRef, file).then(async (snapshot) => {
-    const url = await getDownloadURL(snapshot.ref);
-    return url;
-  });
+  uploadBytes(ref(storage, `images/${file.name}`), file).then(
+    async (snapshot) => {
+      const url = await getDownloadURL(snapshot.ref);
+      return url;
+    }
+  );
 
 export const doCreateProduct = async (data) => {
-  console.log("🚀 ~ file: product.js ~ line 15 ~ doCreateProduct ~ data", data);
   try {
-    const photoURL = await doUploadBytes(data?.photo[0]);
+    let photoURL;
+    if (data?.photo[0]) {
+      photoURL = await doUploadBytes(data?.photo[0]);
+    }
     const res = await axiosClient.post("/products", {
       image: photoURL,
       ...data,
     });
-    return res;
+    return res.data;
   } catch (err) {
     console.log(err);
   }

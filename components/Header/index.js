@@ -23,10 +23,10 @@ const Header = () => {
   const { user } = useAuth();
 
   return (
-    <Box alignSelf="auto" >
-      <AppBar position="static" sx={{background: "#667574"}}>
+    <Box alignSelf="auto">
+      <AppBar position="static" sx={{ background: "#667574" }}>
         <Toolbar component="div" sx={{ cursor: "pointer" }}>
-          <Link href="/">
+          <Link href="/" passHref>
             <Box
               className="logo"
               style={{ color: "#ffffff" }}
@@ -37,10 +37,9 @@ const Header = () => {
             </Box>
           </Link>
           <Search />
-          {/* <Dropdown /> */}
           {user && (
             <>
-              <Box mr={5}>
+              <Box mr={3}>
                 <ListingModal />
               </Box>
               <UserMenu />
@@ -48,7 +47,10 @@ const Header = () => {
           )}
           {!user && (
             <Link href="/login">
-              <Button variant="outlined" sx={{color: "#ffffff", width: "30px"}}>
+              <Button
+                variant="outlined"
+                sx={{ color: "#ffffff", width: "30px" }}
+              >
                 Login
               </Button>
             </Link>
@@ -69,14 +71,13 @@ const UserMenu = () => {
   };
 
   const doRouteToAccount = () => {
-    Router.push(`/users/${user.uid}`);
+    Router.push(`/users/${user?._id}`);
     setShowAccount(false);
   };
 
   const handleIconClick = (e) => {
     setShowAccount(e.target);
-  }
-
+  };
 
   return (
     <>
@@ -88,7 +89,7 @@ const UserMenu = () => {
         onClick={handleIconClick}
         color="primary"
       >
-        <AccountCircle />
+        <AccountCircle fontSize="large" />
       </IconButton>
       <Menu
         id="menu-appbar"
@@ -104,7 +105,7 @@ const UserMenu = () => {
         }}
         onClose={() => setShowAccount(false)}
         open={showAccount}
-        sx={{width: "30px"}}
+        sx={{ width: "30px" }}
       >
         <MenuItem onClick={doRouteToAccount}>Account</MenuItem>
         <MenuItem onClick={doSignOut}>Logout</MenuItem>
