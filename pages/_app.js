@@ -4,6 +4,7 @@ import Head from "next/head";
 import "../public/styles.css";
 import app from "@services/firebase";
 import { ProvideSearch } from "@context/productSearch";
+import AddListing from "../components/modals/addListingModal.js";
 
 import Layout from "@components/Layout";
 
@@ -43,13 +44,8 @@ const App = ({ Component, pageProps }) => {
         <title>Marxet</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <ProvideAuth>
-        <ProvideSearch>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </ProvideSearch>
-      </ProvideAuth>
+      <AddListing />
+      
     </ThemeProvider>
   );
 };

@@ -1,11 +1,16 @@
 import * as React from 'react';
-import {Button, Modal, Box, Typography, TextField, FormGroup, FormControlLabel, Checkbox} from '@mui/material';
+import {Button, Modal, Box, Typography, TextField, FormControl, InputLabel, Select, MenuItem} from '@mui/material';
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import Dropdown from "../Dropdown/index.js";
+import { doGetCategories } from '@api/category';
 
 const AddListing = () => {
   const [open, setOpen] = useState(false);
+  const [categories, setCategories] = useState(["Yeezy", "KSubi", "Mike", "Kelly", "Kyle"]);
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [zip, setZip] = useState("");
 
   const handleOpen = () => {
     setOpen(true);
@@ -15,33 +20,26 @@ const AddListing = () => {
     setOpen(false);
   };
 
-  useEffect(() => {
-    
-  }, [])
+  // useEffect(async () => {
+  //   const data = await doGetCategories();
+  //   console.log("categories here", data);
+  //   setCategories(data);
+  // }, [])
 
-  // const [open, dropdownOpen] = useState(false);
+  const [dropped, dropdownOpen] = useState(false);
 
-  // const categories = ["Yeezy", "KSubi", "Mike", "Kelly", "Kyle"];
+  const handleDropdownOpen = () => {
+    dropdownOpen(true);
+  };
 
-  // const handleOpen = () => {
-  //   dropdownOpen(true);
-  // };
-
-  // const handleClose = () => {
-  //   dropdownOpen(false);
-  // };
+  const handleDropdownClose = () => {
+    dropdownOpen(false);
+  };
 
 
-  const handleListing = () => {
+  // const handleListing = () => {
 
-  }
-
-  let listing = {
-    name: "",
-    description: "",
-    category: "",
-    zipcode: ""
-  }
+  // }
 
   return (
     <>
@@ -68,8 +66,8 @@ const AddListing = () => {
               label="Item/Service" 
               variant="outlined" 
               onChange={(e) => {
-                listing.name = e.target.value; 
-                console.log(listing.name);}} 
+                setName(e.target.value); 
+                console.log(name);}} 
             />
             <TextField 
               id="listing-description" 
@@ -79,9 +77,10 @@ const AddListing = () => {
               variant="outlined" 
               multiline 
               onChange={(e) => {
-                listing.description = e.target.value; 
-                console.log(listing.description);}} 
+                setDescription(e.target.value); 
+                console.log(description);}} 
             />
+
             <FormControl sx={{ m: 1, minWidth: 120 }}>
               <InputLabel id="demo-controlled-open-select-label">
                 Categories
@@ -89,12 +88,14 @@ const AddListing = () => {
               <Select
                 labelId="demo-controlled-open-select-label"
                 id="demo-controlled-open-select"
-                open={open}
-                onClose={handleClose}
-                onOpen={handleOpen}
+                open={dropped}
+                onClose={handleDropdownClose}
+                onOpen={handleDropdownOpen}
                 value={selectedCategory}
                 label="category"
-                onChange={handleChange}
+                onChange={(e) => {
+                  setSelectedCategory(e.target.value); 
+                  console.log(selectedCategory);}}
                 variant="outlined"
               >
                 {categories.map((c) => {
@@ -102,6 +103,7 @@ const AddListing = () => {
                 })}
               </Select>
             </FormControl>
+
             <TextField 
               id="zip" 
               sx={{ width: 200, m: 1 }} 
@@ -109,10 +111,17 @@ const AddListing = () => {
               label="Zipcode" 
               variant="outlined" 
               onChange={(e) => {
-                listing.zipcode = e.target.value; 
-                console.log(listing.zipcode);}} 
+                setZip(e.target.value); 
+                console.log(zip);}} 
             />
-            <Button sx={{ m: 1 }} onClick={() => {console.log(listing); handleClose();}} >Add Listing</Button>
+            <Button sx={{ m: 1 }} onClick={() => {let listingData = {
+                name: name,
+                description: description,
+                categories: [selectedCategory],
+                zipcode: Number(zip),
+                createdBy: { type: Schema.Types.ObjectId, ref: "User" },
+              }; 
+              handleClose();}} >Add Listing</Button>
           </TextDiv>
           <Button onClick={handleClose} s={{float: "right"}} >X</Button>
         </Box>
