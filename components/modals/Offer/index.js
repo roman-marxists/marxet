@@ -35,15 +35,17 @@ const AddListing = () => {
   const handleClose = () => {
     setOpen(false);
   };
+
+
   return (
     <>
       <Button
         onClick={handleOpen}
-        color="inherit"
+        color="secondary"
         variant="outlined"
-        sx={{ width: 250 }}
+        sx={{ width: '50%' }}
       >
-        Offer Trade
+        Make an offer
       </Button>
       <Modal
         open={open}
@@ -54,8 +56,8 @@ const AddListing = () => {
         <Box sx={style}>
           <h3>my listing</h3>
           <ul>
-            {products.map((p) => (
-              <li>{p.name}</li>
+            {products.map( (product, i) => (
+              <li key={i}>{product.name}</li>
             ))}
           </ul>
         </Box>
