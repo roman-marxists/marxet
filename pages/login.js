@@ -12,7 +12,6 @@ import {
 } from "@mui/material";
 import { Google, Facebook, Visibility } from "@mui/icons-material";
 import { Theme, Fonts } from "../components/Theme.js";
-import { register, signIn, getUserInfo } from "../src/helper.js";
 import Router from "next/router";
 
 import { useAuth } from "@context/auth";
@@ -49,6 +48,7 @@ const FabContainer = styled.span`
 `;
 
 const Login = () => {
+  const { signin, signup } = useAuth();
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -97,7 +97,6 @@ const Login = () => {
 
   const handleSignIn = (e) => {
     e.preventDefault();
-
     signin(email, password);
     setPassword("");
   };
@@ -105,20 +104,20 @@ const Login = () => {
   return (
     <LoginContainer
       className="login-container"
-      style={{ fontFamily: Fonts.heading }}
+      style={{ fontFamily: Fonts.heading, marginTop: "15px" }}
     >
-      <div style={{ fontSize: "40px" }}>
-        Welcome {signUpView ? "back " : null}to
+      <div id="welcome-message" style={{ fontSize: "40px", marginTop: "30px" }}>
+       Welcome {signUpView ? "back " : null}to
         <span
           className="logo"
-          style={{ fontFamily: Fonts.logo, color: Theme.secondary.main }}
+          style={{ fontFamily: Fonts.logo, color: Theme.secondary }}
         >
           {" "}
           Marxet
         </span>
       </div>
       <SwitchContainer
-        style={signUpView ? { marginBottom: "10px" } : { marginBottom: "70px" }}
+        style={{ marginBottom: "40px", marginTop: "25px"}}
       >
         <span style={{ marginTop: "7px" }}>Sign in</span>
         <Switch

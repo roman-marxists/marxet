@@ -25,7 +25,7 @@ export const signIn = (email, password) => {
     .then((userCredential) => {
       // User successfully signed in
       const user = userCredential.user;
-      Router.push('/products');
+      Router.push('/');
     })
     .catch((error) => {
       console.error(error.code);

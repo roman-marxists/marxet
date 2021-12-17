@@ -1,12 +1,9 @@
-import ProductList from './ProductList'
-import { ProductProvider } from '@context/product';
+import ProductList from "./ProductList";
 
 const Products = () => {
   return (
-    <ProductProvider>
-      <ProductList />
-    </ProductProvider>
-  )
-}
+    <ProductList />
+  );
+};
 
 export default Products;

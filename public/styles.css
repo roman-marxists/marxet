@@ -8,6 +8,10 @@ h1 {
   font-family: 'Playfair Display', serif;
 }
 
+.plain-text {
+  font-family: 'Source Sans Pro', serif;
+}
+
 .logo {
   font-family: 'Beth Ellen', cursive;
   color: '#801f12';

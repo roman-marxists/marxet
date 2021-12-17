@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardActions, CardActionArea } from '@mui/material';
+import { Card, CardActions, CardActionArea } from '@mui/material';
 import { useState } from 'react';
 import Link from 'next/link';
 
@@ -11,10 +11,10 @@ const ItemCard = ({ children, id, product }) => {
     <Card raised>
         {children}
         <Link href={`/products/${id}`}>
-        <CardActionArea>
-          <CardImage />
-          <CardDescription />
-        </CardActionArea>
+          <CardActionArea>
+            <CardImage />
+            <CardDescription />
+          </CardActionArea>
         </Link>
         {/* <Link href={`/products/${id}`}>link</Link>
         {product?.createdBy?.email} */}

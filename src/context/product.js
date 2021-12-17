@@ -4,13 +4,18 @@ const productContext = createContext();
 
 export function ProductProvider({ children }) {
   const [products, setProducts] = useState([]);
+  const [searchedProducts, setSearchedProducts] = useState([]);
 
   const value = {
     products,
-    setProducts
-  }
+    searchedProducts,
+    setProducts,
+    setSearchedProducts
+  };
 
-  return <productContext.Provider value={value}>{children}</productContext.Provider>;
+  return (
+    <productContext.Provider value={value}>{children}</productContext.Provider>
+  );
 }
 
 export const useProducts = () => {

@@ -3,8 +3,7 @@ import { ProvideAuth } from "@context/auth";
 import Head from "next/head";
 import "../public/styles.css";
 import app from "@services/firebase";
-import { ProvideSearch } from "@context/productSearch";
-import AddListing from "../components/modals/addListingModal.js";
+import { ProductProvider } from "@context/product";
 
 import Layout from "@components/Layout";
 
@@ -35,6 +34,20 @@ const Theme = createTheme({
       main: "#801f12",
     },
   },
+  typography: {
+    fontFamily: [
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
+  }
 });
 
 const App = ({ Component, pageProps }) => {
@@ -46,11 +59,11 @@ const App = ({ Component, pageProps }) => {
       </Head>
       <AddListing />
       <ProvideAuth>
-        <ProvideSearch>
+        <ProductProvider>
           <Layout>
             <Component {...pageProps} />
           </Layout>
-        </ProvideSearch>
+        </ProductProvider>
       </ProvideAuth>
     </ThemeProvider>
   );

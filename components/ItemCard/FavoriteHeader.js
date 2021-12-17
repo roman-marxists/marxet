@@ -4,7 +4,7 @@ import { IconButton } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
-const FavoriteHeader = () => {
+const FavoriteHeader = ({product}) => {
   const [isFavorited, setFavorited] = useState(false);
 
   const handleFavoritedItem = () => {

@@ -1,20 +1,27 @@
 import FavoriteHeader from '@components/ItemCard/FavoriteHeader';
 import WatchCountHeader from '@components/ItemCard/WatchCountHeader';
 import { CardHeader } from '@mui/material';
+import { useAuth } from '@context/auth';
 
-const HeaderWithIcons = ({ showFavoriteIcon, showWatchesIcon, clickable, productId }) => {
+const HeaderWithIcons = ({ showFavoriteIcon, showWatchesIcon, clickable, product }) => {
+  const { user } = useAuth();
+
   return (
-    <CardHeader
-      sx={{ zIndex: 9999 }}
-      action={
-        <>
-          {showWatchesIcon && (
-            <WatchCountHeader productId={productId} clickable={true} /> //TODO: populate watchesCount
-          )}
-          {showFavoriteIcon && <FavoriteHeader productId={productId}/>}
-        </>
-      }
-    />
+    <>
+      {user && (
+        <CardHeader
+          sx={{ zIndex: 9999 }}
+          action={
+            <>
+              {showWatchesIcon && (
+                <WatchCountHeader product={product} clickable={true} /> //TODO: populate watchesCount
+              )}
+              {showFavoriteIcon && <FavoriteHeader product={product} />}
+            </>
+          }
+        />
+      )}
+    </>
   );
 };
 
