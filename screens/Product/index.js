@@ -67,7 +67,7 @@ const Product = () => {
         }}
       >
         <Stack className="listing-text-container plain-text" sx={{justifyContent: "space-between", marginLeft: "25px", marginRight: "25px"}}>
-          <div style={{fontSize: "40px"}}><b>{listing.name}</b></div>
+          <div className='display' style={{fontSize: "40px"}}><b>{listing.name}</b></div>
           <div style={{marginLeft: "2px"}}>Listed by {listing?.createdBy?.username ? listing.createdBy.username : "an anonymous user"} on {listing?.createdAt?.substring(0,10)}</div>
           { listing.createdAt !== listing?.updatedAt ?
             <div>Last updated on {listing?.updatedAt?.substring(0,10)}</div>
