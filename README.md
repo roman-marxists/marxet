@@ -13,7 +13,7 @@ On _Marxet_, users can create postings for the goods or services that they are w
 
 
 ## Tech stack
-Because we only had ten days to build _Marxet_, we chose to use a mix of familiar dependencies we've worked with for weeks and new technologies that are easy to use and come ready to use out of the box.
+Because we only had eight days to build _Marxet_, we chose to use a mix of familiar dependencies we've worked with for weeks and new technologies that are easy to use and come ready to use out of the box.
 
 We'll be using **React** to build the client, **Express** for our server, and **MongoDB** for our database (located in another repository).
 Alongside these, our new technologies are:
@@ -28,13 +28,23 @@ Alongside these, our new technologies are:
 ### Firebase environment
 1. Create file `.env.local` in root directory. You can copy and rename from the `.env.local.example` file
 2. Add the following variables to the `.env.local` file
+
    `NEXT_PUBLIC_FIREBASE_API_KEY=<your api key>`
+   
    `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=<your firebase app domain>`
+   
    `NEXT_PUBLIC_FIREBASE_APP_ID=<firebase app id>`
+   
    `NEXT_PUBLIC_FIREBASE_PROJECT_ID=<firebase project id>`
+   
    `NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=<firebase storage bucket>`
+   
    `NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=<firebase messaging id>`
+   
    `NEXT_PUBLIC_API_URL=<api server endpoint>`
+
+3. Double and triple check that **`.env.local` is included in your `.gitignore`**. This is very important.
+
 
 ## Technical challenges
 ### Truly starting from scratch
@@ -47,6 +57,11 @@ It was a very tedious process of accounting for varying future circumstances, an
 Here's an example of one such wireframe:
 
 <img width="1177" alt="Screen Shot 2021-12-17 at 4 13 01 PM" src="https://user-images.githubusercontent.com/47910950/146608698-27f42e86-9899-4294-9443-b750bbcb0810.png">
+
+These wireframes greatly assisted us in developing these pages, as evidenced by how the login / signup page eventually turned out:
+
+<img width="1440" alt="Screen Shot 2021-12-17 at 4 28 49 PM" src="https://user-images.githubusercontent.com/47910950/146610131-73d9d107-a353-42da-9478-6586a4ecf67e.png">
+
 
 ### Free reign of design
 Designing our website's color scheme also took a while, but we ultimately decided on this:
@@ -63,19 +78,23 @@ Firebase might be simpler to pick up, but there's still a learning curve. We use
 ### Secure log-in
 Thanks to Firebase, users can log in and sign up using their e-mail address or Google account. Once logged in, they'll immediately have access to all features that _Marxet_ has to offer.
 
-<img width="1440" alt="Screen Shot 2021-12-17 at 4 28 49 PM" src="https://user-images.githubusercontent.com/47910950/146610131-73d9d107-a353-42da-9478-6586a4ecf67e.png">
+A capture of the login / signup page is available above.
 
 
 ### A personalized user profile
 Each user has their own customizable user profile. They can create their biography, view their listings, add goods and services to their wishlist, and show off any reviews that other users have left for them.
 
 ### A Search page for browsing local listings, filtered by location
+The user may _Favorite_ a listing, which adds it to their personal Favorites list, or _Watch_ the item in case the lister updates it or supplies more items that they would be willing to trade for.
 
-<img width="1421" alt="Screen Shot 2021-12-17 at 4 24 16 PM" src="https://user-images.githubusercontent.com/47910950/146609704-9e91a795-33f6-4c4f-b7a9-41f69ce88c72.png">
+<img width="1083" alt="Screen Shot 2021-12-17 at 6 40 54 PM" src="https://user-images.githubusercontent.com/47910950/146619902-278d38c3-b284-4f52-afc9-8c00d1699de0.png">
+
 
 ### Creating your own listings
 Each listing is uploaded with a picture and appropriate details on the side. There are also buttons that allow users to `View seller` or `Make an offer`.
-<img width="1440" alt="Screen Shot 2021-12-17 at 4 14 43 PM" src="https://user-images.githubusercontent.com/47910950/146608939-4026380b-865c-4539-bbf7-00a4c6fdc5fd.png">
+
+<img width="1440" alt="Screen Shot 2021-12-17 at 6 28 17 PM" src="https://user-images.githubusercontent.com/47910950/146619720-1e498302-541f-40ba-8959-f645d303753e.png">
+
 
 ### Making trade offers & bartering
 Clicking the `Make an offer` button takes you to this modal window, where you may select any number of your current listings to offer up as a trade.
@@ -86,7 +105,6 @@ Unfortunately, if you haven't got any listings posted and the listing isn't free
 <img width="1440" alt="Screen Shot 2021-12-17 at 4 59 39 PM" src="https://user-images.githubusercontent.com/47910950/146617530-c53a02d1-dd5a-453b-a150-fcac5e61faf7.png">
 
 
-
 ## Workflow & key takeaways
 This project has taught us that constant and concise communication is the key to efficiently building something.
 In order to streamline this workflow, we chose to use **GitHub Projects** instead of Trello boards because we prefer its integrated features, such as linking code blocks to related tickets.
@@ -94,6 +112,19 @@ You can view our ticket board [here](https://github.com/roman-marxists/marxet/pr
 
 
 ## Future updates
+### Users may attach more than one photo to describe their listing.
+Why have one when you can have four? Or six? Or whatever is enough to get your listing out there.
+
+### Consumers may leave public reviews & ratings on listings 
+These reviews & ratings will be added to the individual listing page beneath the photos and listing information. This will greatly improve users' browsing experience and decision-making when it comes to trading.
+
+### Amping up the geolocation
+
+### Fine-tuning the search feature
+
+### Greater user customization across all of _Marxet_
+Dark mode soon, we promise!
 
 
-Fin
+# Fin
+### If you've read til here, we want to extend a very warm thank you for supporting _Marxet_. We hope that you continue to support us, and that you enjoy the updates and new features coming soon.
