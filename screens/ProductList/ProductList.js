@@ -9,7 +9,6 @@ import { useProducts } from "@context/product";
 
 const ProductList = () => {
   const { products, setProducts, searchedProducts } = useProducts();
-  console.log("🚀 ~ file: ProductList.js ~ line 13 ~ ProductList ~ products", products)
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -30,9 +29,9 @@ const ProductList = () => {
           display: "flex",
           flexDirection: "row",
           justifyContent: "center",
+          alignItems: "center",
           width: "90%",
           margin: "auto",
-          marginRight: "20%",
         }}
       >
         <Box
@@ -46,13 +45,11 @@ const ProductList = () => {
             marginLeft: "10vw",
           }}
         >
-          {console.log({searchedProducts})}
-          {console.log({products})}
           <Grid container spacing={8}>
             {searchedProducts.length > 0 &&
               searchedProducts.map(product => {
                 return (
-                  <Grid item xs={12} md={6} lg={3} style={{ background: 'inherit' }}>
+                  <Grid className='.display' item xs={12} md={6} lg={3} style={{ background: 'inherit' }}>
                     <ItemCard id={product._id}>
                       <HeaderWithIcons
                         product={product}

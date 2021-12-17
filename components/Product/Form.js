@@ -43,6 +43,7 @@ const style = {
 
 export default function ProductForm({ handleClose }) {
   const { user } = useAuth();
+  const { products, setProducts } = useProducts();
 
   const {
     register,
@@ -55,12 +56,11 @@ export default function ProductForm({ handleClose }) {
   const image = watch("photo");
 
   const onSubmit = async (data) => {
-    const newProduct = await doCreateProduct({ ...data, createdBy: user });
-    // const createdProduct = await doCreateProduct({
-    //   ...data,
-    //   createdBy: user._id,
-    // });
-    // setProducts([...products, createdProduct]);
+    const createdProduct = await doCreateProduct({
+      ...data,
+      createdBy: user._id,
+    });
+    setProducts([...products, createdProduct]);
     handleClose();
   };
 
@@ -109,7 +109,7 @@ export default function ProductForm({ handleClose }) {
           margin="normal"
           label="Zip Code"
           type="number"
-          {...register("zipCode", { required: true })}
+          {...register("zipCode", { required: true, min: 5, maxLength: 5 })}
         />
         <FormControl fullWidth margin="normal">
           <InputLabel id="category-label">Category</InputLabel>

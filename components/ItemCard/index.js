@@ -1,4 +1,4 @@
-import { Card, CardActions, CardActionArea } from "@mui/material";
+import { Stack, Card, CardActions, CardActionArea } from "@mui/material";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -8,20 +8,29 @@ import UsernameButton from "./UsernameButton.js";
 
 const ItemCard = ({ children, product }) => {
   return (
-    <Card raised>
+    <Card raised
+      sx={{
+        border: "#c7d6d5 2px solid",
+      }}
+    >
+      <Stack className='plain-text' sx={{alignItems: "center", fontSize: "20px"}}>
+        {product?.name}
         {children}
-        <Link href={`/products/${product?._id}`}>
+      </Stack>
+      <Link href={`/products/${product?._id}`}>
         <CardActionArea>
           <CardImage photos={product?.photos}/>
-          <CardDescription description={product?.description}/>
+          <CardDescription
+            description={product?.description?.length < 50 ? product?.description : product?.description?.substring(0,57) + "..."}
+          />
         </CardActionArea>
       </Link>
       {/* <Link href={`/products/${id}`}>link</Link>
-        {product?.createdBy?.email} */}
-        <CardActions>
-          <UsernameButton createdBy={product?.createdBy} />
-        </CardActions>
-      </Card>
+      {product?.createdBy?.email} */}
+      <CardActions>
+        <UsernameButton createdBy={product?.createdBy} />
+      </CardActions>
+    </Card>
   );
 };
 

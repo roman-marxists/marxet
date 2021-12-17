@@ -10,7 +10,7 @@ const HeaderWithIcons = ({ showFavoriteIcon, showWatchesIcon, clickable, product
     <>
       {user && (
         <CardHeader
-          sx={{ zIndex: 9999 }}
+          sx={{ zIndex: 5 }}
           action={
             <>
               {showWatchesIcon && (

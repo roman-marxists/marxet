@@ -16,6 +16,7 @@ import OfferModal from "@components/modals/Offer";
 
 const Product = () => {
   const { user } = useAuth();
+  const userLink = `/users/${user?._id}`;
   const router = useRouter();
   const { productId } = router.query;
   const listingID = `listing-${productId}`;
@@ -24,7 +25,6 @@ const Product = () => {
   const fetchProduct = async () => {
     try {
       const data = await doGetProductById(productId);
-      console.log('DATA: ', data);
       setListing(data);
     } catch (err) {
       console.error(err);
@@ -36,13 +36,14 @@ const Product = () => {
   }, []);
 
   return (
-    <Stack className="listing" direction="row" sx={{margin: "15px", height: "85vh"}} >
-      <ImageList
-        className="photos-container"
-        variant="quilted"
-        sx={{
-          height: "90vh",
-          width: "50vw",
+    <Stack className="listing" direction="row" sx={{margin: "15px", height: "85vh", alignItems: "center"}} >
+      <div
+        className="photo-container"
+        style={{
+          alignItems: "center",
+          topMargin: "100px",
+          width: "800px",
+          height: "500px",
           margin: "15px",
           border: "#c7d6d5 2px solid"
         }}
@@ -52,23 +53,24 @@ const Product = () => {
             <img src={photo} />
           </ImageListItem>
         )) : <ImageListItem>Lister has not uploaded any photos</ImageListItem>} */}
-        <img src={listing.photos[0]} />
-      </ImageList>
+        <img src={listing?.photos} style={{width: "800px", height: "500px"}}/>
+      </div>
       <br />
       <Stack className="listing-info-container"
         sx={{
           justifyContent: "space-evenly",
-          border: "#801f12 3px solid",
+          border: "#c7d6d5 3px solid",
           borderRadius: "20px",
           width: "40vw",
+          height: 500,
           margin: "15px"
         }}
       >
-        <Stack className="listing-text-container plain-text" sx={{justifyContent: "space-between", marginLeft: "35px"}}>
-          <div style={{fontSize: "50px"}}>{listing.name}</div>
-          <div style={{marginLeft: "2px"}}>Listed by {listing?.createdBy?.username} on {listing?.createdAt.substring(0,10)}</div>
-          { listing.createdAt !== listing.updatedAt ?
-            <div>Last updated on {listing.updatedAt.substring(0,10)}</div>
+        <Stack className="listing-text-container plain-text" sx={{justifyContent: "space-between", marginLeft: "25px", marginRight: "25px"}}>
+          <div style={{fontSize: "40px"}}><b>{listing.name}</b></div>
+          <div style={{marginLeft: "2px"}}>Listed by {listing?.createdBy?.username ? listing.createdBy.username : "an anonymous user"} on {listing?.createdAt?.substring(0,10)}</div>
+          { listing.createdAt !== listing?.updatedAt ?
+            <div>Last updated on {listing?.updatedAt?.substring(0,10)}</div>
             :
             null
           }
@@ -81,12 +83,14 @@ const Product = () => {
             <OfferModal />
             :
             <Link href="/login">
-              <Button variant="outlined" color="secondary" sx={{ width: "50%" }}>
+              <Button variant="outlined" color="primary" sx={{ width: "50%" }}>
                 Log in to make an offer
               </ Button>
             </Link>
           }
-          <Button variant="contained" color="secondary" sx={{width: "30%", marginTop: "5px"}}>View seller</Button>
+          <Link href={userLink}>
+            <Button variant="contained" color="primary" sx={{width: "30%", marginTop: "5px"}}>View seller</Button>
+          </Link>
         </ Stack>
       </ Stack>
     </ Stack>

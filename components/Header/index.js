@@ -104,7 +104,6 @@ const UserMenu = () => {
         }}
         onClose={() => setShowAccount(false)}
         open={showAccount}
-        sx={{ width: "30px" }}
       >
         <MenuItem onClick={doRouteToAccount}>Account</MenuItem>
         <MenuItem onClick={doSignOut}>Logout</MenuItem>

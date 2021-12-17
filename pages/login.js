@@ -209,9 +209,8 @@ const Login = () => {
           Go
         </Button>
       </InputContainer>
-      <div style={{ marginBottom: "15px", marginTop: "100px" }}>
+      <div style={{display: "flex", flexDirection: "column", alignItems: "center", marginBottom: "15px", marginTop: "100px" }}>
         Sign {signUpView ? "in" : "up"} with
-        <br />
         <Fab id="google-login" color="secondary" style={{ marginTop: "10px" }}>
           <Google />
         </Fab>

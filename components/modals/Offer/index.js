@@ -27,8 +27,9 @@ const AddListing = () => {
   const [offerSent, setOfferSent] = useState(false);
 
   useEffect(() => {
+    console.log('USER: ', user);
     const fetchProducts = async () => {
-      const products = await doGetUserProducts(user.uid);
+      const products = await doGetUserProducts(user?._id);
       setProducts(products ? products : []);
     };
     fetchProducts();
@@ -50,7 +51,7 @@ const AddListing = () => {
     <>
       <Button
         onClick={handleOpen}
-        color="secondary"
+        color="primary"
         variant="outlined"
         sx={{ width: "50%" }}
       >
@@ -88,6 +89,7 @@ const AddListing = () => {
               color="primary"
               sx={{ marginTop: "10px" }}
               onClick={handleSendOffer}
+              disabled={products.length ? false : true}
             >
               Send offer
             </Button>

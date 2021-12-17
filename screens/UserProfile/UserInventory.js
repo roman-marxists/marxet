@@ -47,7 +47,7 @@ export default UserInventory;
 
 const Header = () => {
   return (
-    <div>UserInventory</div>
+    <div className='display'>Listings</div>
   )
 }
 

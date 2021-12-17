@@ -15,7 +15,6 @@ const UserInfo = ({user}) => {
 
   const { user : dbUser} = useAuth();
   const isAuthenticated = (dbUser) ? true : false;
-  console.log("🚀 ~ file: UserInfo.js ~ line 15 ~ UserInfo ~ dbUser", dbUser)
   const isOwnerAndAuthenticated = isAuthenticated && user?.username === dbUser?.username;
 
   console.log({user})
@@ -24,8 +23,7 @@ const UserInfo = ({user}) => {
   // user is authenticated and is the owner of the page.
 
   return (
-    <Stack spacing={{ xs: 0, md: 1 }}>
-      <div>UserInfo</div>
+    <Stack className='.plain-text' spacing={{ xs: 0, md: 1 }} sx={{margin: "15px", alignItems: "center"}}>
       <div>
         <Image
           src={profilePic}
