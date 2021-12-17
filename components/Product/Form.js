@@ -52,7 +52,6 @@ export default function ProductForm({ handleClose }) {
   } = useForm();
 
   const [photo, setPhoto] = useState(null);
-
   const image = watch("photo");
 
   const onSubmit = async (data) => {
