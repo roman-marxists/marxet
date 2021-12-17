@@ -6,6 +6,8 @@ import { useSearchContext } from "@context/productSearch";
 import FavoriteHeader from "@components/ItemCard/FavoriteHeader";
 import HeaderWithIcons from "@components/ItemCard/HeaderWithIcons";
 import { useProducts } from "@context/product";
+import { ProductProvider } from "@context/product";
+
 
 const ProductList = () => {
   const {
@@ -31,7 +33,7 @@ const ProductList = () => {
   }, []);
 
   return (
-    <>
+    <ProductProvider >
       <Box
         className="Search"
         sx={{
@@ -91,7 +93,7 @@ const ProductList = () => {
           </Grid>
         </Box>
       </Box>
-    </>
+    </ProductProvider >
   );
 };
 

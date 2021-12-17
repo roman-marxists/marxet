@@ -13,14 +13,14 @@ import {
 import { doGetProductById } from "@api/product";
 import OfferModal from "@components/modals/Offer";
 
-/*
-TODO: (Done!)
+/* (Done!)
 ☑️ Divide component into two containers
 ☑️ DECIDE: Quilt or woven variant for ImageList
-☑️ Create ImageList and map listing's photos into ImageListItems
+☑️ Create ImageList and map listing"s photos into ImageListItems
 ☑️ IF there are no images, render the message "Lister has not uploaded any images"
-☑️ Create Stack container for listing's name, category, description, etc.
-☑️ IF the user is not logged in, replace the `Make Offer` button with a `Log in to make an offer` button that redirects user to login page
+☑️ Create Stack container for listing"s name, category, description, etc.
+☑️ IF the user is not logged in, replace the `Make an offer` button with a
+  `Log in to make an offer` button that redirects user to login page
 */
 
 const Product = () => {
@@ -44,57 +44,55 @@ const Product = () => {
   }, []);
 
   if (listing !== {}) {
-    console.log('LISTING: ', listing);
+    console.log("LISTING: ", listing);
     return (
-      <Stack className="listing" id={listingID} direction="row" sx={{margin: '15px', height: '85vh'}} >
+      <Stack className="listing" id={listingID} direction="row" sx={{margin: "15px", height: "85vh"}} >
         <ImageList
           className="photos-container"
           variant="quilted"
           sx={{
-            width: 'auto',
-            maxHeight: '90vh',
-            maxWidth: '50vw',
-            yOverflow: 'scroll',
-            margin: '15px',
-            border: '#c7d6d5 2px solid'
+            width: "auto",
+            maxHeight: "90vh",
+            maxWidth: "50vw",
+            yOverflow: "scroll",
+            margin: "15px",
+            border: "#c7d6d5 2px solid"
           }}
         >
           { listing.photos ? listing.photos.map( (photo, i) => (
             <ImageListItem key={i}>
-              <img src={'https://source.unsplash.com/random/?melons'} />
+              <img src={"https://source.unsplash.com/random/?melons"} />
             </ImageListItem>
           )) : <ImageListItem>Lister has not uploaded any photos</ImageListItem>}
         </ImageList>
         <br />
         <Stack className="listing-info-container"
           sx={{
-            justifyContent: 'space-evenly',
-            border: '#801f12 3px solid',
-            borderRadius: '20px',
-            width: '40vw',
-            margin: '15px'
+            justifyContent: "space-evenly",
+            border: "#801f12 3px solid",
+            borderRadius: "20px",
+            width: "40vw",
+            margin: "15px"
           }}
         >
-          <Stack className="listing-text-container" sx={{justifyContent: 'space-between', marginLeft: '10px'}}>
-            <div className='plain-text' style={{fontSize: '60px'}}>{listing.name}</div>
-            <div>Listed by {listing.createdBy ? listing.createdBy : 'an anonymous user'} on {listing.createdAt ? listing.createdAt.substring(0, 10) : 'an unknown date'}</div>
+          <Stack className="listing-text-container" sx={{justifyContent: "space-between", marginLeft: "10px"}}>
+            <div className="plain-text" style={{fontSize: "60px"}}>{listing.name}</div>
+            <div>Listed by {listing.createdBy ? listing.createdBy : "an anonymous user"} on {listing.createdAt ? listing.createdAt.substring(0, 10) : "an unknown date"}</div>
             { listing.createdAt !== listing.updatedAt ?
               <div>Last updated on {listing.updatedAt.substring(0,10)}</div>
               :
               null
             }
-            <div className='plain-text' style={{fontSize: '30px'}}>{listing.description}</div>
+            <div className="plain-text" style={{fontSize: "30px"}}>{listing.description}</div>
             {/* Waiting on Category, metadata */}
           </Stack>
-          <Divider sx={{alignSelf: 'center', width: '70%'}}/>
-          <Stack id='listing-button-container' sx={{alignItems: 'center', marginBottom: '10px'}}>
+          <Divider sx={{alignSelf: "center", width: "70%"}}/>
+          <Stack id="listing-button-container" sx={{alignItems: "center", marginBottom: "10px"}}>
             { user ?
-              <Button variant="outlined" color="secondary" sx={{width: '50%'}}>
-                Make an offer
-              </ Button>
+              <OfferModal />
               :
-              <Link href='/login'>
-                <Button variant="outlined" color="secondary" sx={{width: '50%'}}>
+              <Link href="/login">
+                <Button variant="outlined" color="secondary" sx={{ width: "50%" }}>
                   Log in to make an offer
                 </ Button>
               </Link>
@@ -104,8 +102,7 @@ const Product = () => {
               :
               null
             }
-            {/* <OfferModal /> */}
-            <Button variant='contained' color='secondary' sx={{width: '30%', marginTop: '5px'}}>View seller</Button>
+            <Button variant="contained" color="secondary" sx={{width: "30%", marginTop: "5px"}}>View seller</Button>
           </ Stack>
         </ Stack>
       </ Stack>
@@ -114,3 +111,9 @@ const Product = () => {
 };
 
 export default Product;
+
+/*
+<Button variant="outlined" color="secondary" sx={{ width: "50%" }}>
+  Make an offer
+</ Button>
+*/
