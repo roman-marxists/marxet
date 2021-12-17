@@ -24,3 +24,26 @@ export const doUpdateUserWatchList = async ({ userId, productId, action }) => {
     console.log("Unable to update watchlist of user.");
   }
 };
+
+export const doAddToWishlist = async () => {
+  try {
+    const data = await axiosClient.post("users/wishlist", {
+      listing_id,
+      user_id,
+    });
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const doDeleteFromWishlist = async (listing_id) => {
+  try {
+    const data = await axiosClient.delete(
+      `users/wishlist/${listing_id}/${user_id}`
+    );
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+};

@@ -4,16 +4,13 @@ import { useState, useContext } from "react";
 import { useProductsContext } from "@context/productSearch";
 import { doGetSearched } from "@api/product";
 import { doGetProducts } from "@api/product";
+import { useProducts } from "@context/product";
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const { setProducts, fetchAllProducts } = useProductsContext();
+  const { setProducts, searchedProducts, setSearchedProducts } = useProducts();
 
   const handleChange = async (e) => {
-    if (e.target.value.length === 0) {
-      const data = await doGetProducts();
-      setProducts(data);
-    }
     setSearchTerm(e.target.value);
   };
 
@@ -21,7 +18,7 @@ const Search = () => {
     e.preventDefault();
     try {
       const getSearchedProducts = await doGetSearched(searchTerm);
-      setProducts(getSearchedProducts);
+      setSearchedProducts(getSearchedProducts);
     } catch (err) {
       console.log(err);
     }
