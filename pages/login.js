@@ -160,7 +160,6 @@ const Login = () => {
           color="secondary"
           required
           onChange={handlePasswordChange}
-          value={password}
           sx={{ paddingBottom: "5px" }}
           InputProps={{
             endAdornment: (
@@ -185,7 +184,6 @@ const Login = () => {
             color="secondary"
             required
             onChange={handleConfirmPasswordChange}
-            value={confirmPassword}
             sx={{ paddingBottom: "5px" }}
             InputProps={{
               endAdornment: (

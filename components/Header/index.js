@@ -42,17 +42,16 @@ const Header = () => {
             </Box>
           </Link>
           <Search />
-          {/* <Dropdown /> */}
           {user && (
             <>
-              <Box mr={5}>
+              <Box mr={3}>
                 <ListingModal />
               </Box>
               <UserMenu />
             </>
           )}
           {!user && (
-            <Link href="/login">
+            <Link href="/login" passHref>
               <Button color="inherit" variant="outlined">
                 Login
               </Button>
@@ -74,7 +73,7 @@ const UserMenu = () => {
   };
 
   const doRouteToAccount = () => {
-    Router.push(`/users/${user.username}`);
+    Router.push(`/users/${user?._id}`);
     setShowAccount(false);
   };
   return (
@@ -87,7 +86,7 @@ const UserMenu = () => {
         onClick={(e) => setShowAccount(e.target)}
         color="inherit"
       >
-        <AccountCircle />
+        <AccountCircle fontSize="large" />
       </IconButton>
       <Menu
         id="menu-appbar"
