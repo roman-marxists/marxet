@@ -47,15 +47,21 @@ It was a very tedious process of accounting for varying future circumstances, an
 Here's an example of one such wireframe:
 <img width="1177" alt="Screen Shot 2021-12-17 at 4 13 01 PM" src="https://user-images.githubusercontent.com/47910950/146608698-27f42e86-9899-4294-9443-b750bbcb0810.png">
 
+### Free reign of design
+Designing our website's color scheme also took a while, but we ultimately decided on this:
+<img width="357" alt="Screen Shot 2021-12-17 at 4 26 23 PM" src="https://user-images.githubusercontent.com/47910950/146609943-fd956904-6394-4851-84b0-c7cf2453b469.png">
+
+### Learning how to use & design our API around Firebase
+Firebase might be simpler to pick up, but there's still a learning curve. We used this web sequence diagram to orient ourselves.
+<img width="727" alt="Screen Shot 2021-12-17 at 4 12 11 PM" src="https://user-images.githubusercontent.com/47910950/146610048-48f01bca-8e56-4658-bdea-a335e54883af.png">
+
 
 ## Demos: Application functionality
-_What happens behind the scenes when the user interacts with it?
-Where are all the places that the data travels?
-What happens to that data?
-How does the tech stack come together?_
-
 ### Secure log-in
 Thanks to Firebase, users can log in and sign up using their e-mail address or Google account. Once logged in, they'll immediately have access to all features that _Marxet_ has to offer.
+
+<img width="1440" alt="Screen Shot 2021-12-17 at 4 28 49 PM" src="https://user-images.githubusercontent.com/47910950/146610131-73d9d107-a353-42da-9478-6586a4ecf67e.png">
+
 
 ### A personalized user profile
 Each user has their own customizable user profile. They can create their biography, view their listings, add goods and services to their wishlist, and show off any reviews that other users have left for them.
@@ -63,7 +69,6 @@ Each user has their own customizable user profile. They can create their biograp
 ### A Search page for browsing local listings, filtered by location
 
 <img width="1421" alt="Screen Shot 2021-12-17 at 4 24 16 PM" src="https://user-images.githubusercontent.com/47910950/146609704-9e91a795-33f6-4c4f-b7a9-41f69ce88c72.png">
-
 
 ### Creating your own listings
 Each listing is uploaded with a picture and appropriate details on the side. There are also buttons that allow users to `View seller` or `Make an offer`.
