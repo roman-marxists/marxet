@@ -9,6 +9,7 @@ import { useProducts } from "@context/product";
 
 const ProductList = () => {
   const { products, setProducts, searchedProducts } = useProducts();
+  console.log("🚀 ~ file: ProductList.js ~ line 13 ~ ProductList ~ products", products)
 
   useEffect(() => {
     const fetchProducts = async () => {
