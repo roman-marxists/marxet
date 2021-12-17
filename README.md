@@ -62,11 +62,14 @@ Each user has their own customizable user profile. They can create their biograp
 
 ### A Search page for browsing local listings, filtered by location
 
+<img width="1421" alt="Screen Shot 2021-12-17 at 4 24 16 PM" src="https://user-images.githubusercontent.com/47910950/146609704-9e91a795-33f6-4c4f-b7a9-41f69ce88c72.png">
+
 
 ### Creating your own listings
 Each listing is uploaded with a picture and appropriate details on the side. There are also buttons that allow users to `View seller` or `Make an offer`.
 <img width="1440" alt="Screen Shot 2021-12-17 at 4 14 43 PM" src="https://user-images.githubusercontent.com/47910950/146608939-4026380b-865c-4539-bbf7-00a4c6fdc5fd.png">
 
+### Making trade offers & bartering
 Clicking the `Make an offer` button takes you to this modal window, where you may select any number of your current listings to offer up as a trade.
 
 <img width="1440" alt="Screen Shot 2021-12-17 at 1 42 07 AM" src="https://user-images.githubusercontent.com/47910950/146608953-ad3e0d4f-162b-468b-88cc-628da1631c80.png">
@@ -75,9 +78,6 @@ Clicking the `Make an offer` button takes you to this modal window, where you ma
 Once you send the offer, the button updates to alert the user that the offer was successfully sent.
 
 <img width="1440" alt="Screen Shot 2021-12-17 at 1 42 24 AM" src="https://user-images.githubusercontent.com/47910950/146609046-efc3e1da-70af-4363-a89f-9b11db1be054.png">
-
-
-### Making trade offers & bartering
 
 
 ## Workflow & key takeaways
