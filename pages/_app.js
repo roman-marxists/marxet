@@ -44,8 +44,13 @@ const App = ({ Component, pageProps }) => {
         <title>Marxet</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <AddListing />
-      
+      <ProvideAuth>
+        <ProvideSearch>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ProvideSearch>
+      </ProvideAuth>
     </ThemeProvider>
   );
 };
