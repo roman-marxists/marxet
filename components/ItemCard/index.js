@@ -11,16 +11,16 @@ const ItemCard = ({ children, product }) => {
   return (
     <Card raised>
         {children}
-        <Link href={`/products/${product._id}`}>
+        <Link href={`/products/${product?._id}`}>
         <CardActionArea>
-          <CardImage photos={product.photos}/>
-          <CardDescription description={product.description}/>
+          <CardImage photos={product?.photos}/>
+          <CardDescription description={product?.description}/>
         </CardActionArea>
         </Link>
         {/* <Link href={`/products/${id}`}>link</Link>
         {product?.createdBy?.email} */}
         <CardActions>
-          <UsernameButton createdBy={product.createdBy} />
+          <UsernameButton createdBy={product?.createdBy} />
         </CardActions>
       </Card>
   );

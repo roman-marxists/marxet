@@ -1,8 +1,13 @@
-import { CardActions, Button } from "@mui/material";
+import { Button } from '@mui/material';
+import Link from 'next/link';
 
-const UsernameButton = () => {
+const UsernameButton = ({ createdBy }) => {
   return (
-      <Button color="secondary" size="small">Username</Button>
+    <Link href={`/users/${createdBy?._id}`} passHref>
+      <Button color="secondary" size="small">
+        {createdBy?.username}
+      </Button>
+    </Link>
   );
 };
 
