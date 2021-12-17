@@ -48,7 +48,10 @@ const Header = () => {
             <Link href="/login">
               <Button
                 variant="outlined"
-                sx={{ color: "#ffffff", width: "30px" }}
+                sx={{
+                  color: "#ffffff",
+                  width: "30px"
+                }}
               >
                 Login
               </Button>
@@ -104,7 +107,6 @@ const UserMenu = () => {
         }}
         onClose={() => setShowAccount(false)}
         open={showAccount}
-        sx={{ width: "30px" }}
       >
         <MenuItem onClick={doRouteToAccount}>Account</MenuItem>
         <MenuItem onClick={doSignOut}>Logout</MenuItem>
