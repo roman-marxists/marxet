@@ -43,7 +43,7 @@ const style = {
 
 export default function ProductForm({ handleClose }) {
   const { user } = useAuth();
-  const { products, setProducts } = useProducts();
+
   const {
     register,
     handleSubmit,
@@ -55,11 +55,12 @@ export default function ProductForm({ handleClose }) {
   const image = watch("photo");
 
   const onSubmit = async (data) => {
-    const createdProduct = await doCreateProduct({
-      ...data,
-      createdBy: user._id,
-    });
-    setProducts([...products, createdProduct]);
+    const newProduct = await doCreateProduct({ ...data, createdBy: user });
+    // const createdProduct = await doCreateProduct({
+    //   ...data,
+    //   createdBy: user._id,
+    // });
+    // setProducts([...products, createdProduct]);
     handleClose();
   };
 

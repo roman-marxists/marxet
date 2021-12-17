@@ -8,7 +8,7 @@ export const doCreateUser = async (data) => {
       email: data.email,
       username: data.username, //TODO: change this username once implemented
     });
-    return res;
+    return res.data;
   } catch (e) {
     console.log(e);
     console.log("Unable to create user.", data);
@@ -17,9 +17,8 @@ export const doCreateUser = async (data) => {
 
 export const doGetUserData = async (userId) => {
   try {
-    console.log({ userId });
     const res = await axiosClient.get(`/users/${userId}`);
-    console.log({ res });
+    console.log("🚀 ~ file: user.js ~ line 21 ~ doGetUserData ~ res", res.data)
     return res.data;
   } catch (e) {
     console.log(e);
@@ -27,12 +26,12 @@ export const doGetUserData = async (userId) => {
   }
 };
 
-export const doUpdateUserWatchList = async ({ userId, product, action }) => {
+export const doUpdateUserWatchList = async ({ user, watchList }) => {
   try {
-    await axiosClient.put(`/users/${userId}`, {
-      product,
-      action,
+    const response = await axiosClient.put(`/users/${user._id}`, {
+      watchList
     });
+    return response.data;
   } catch (e) {
     console.log(e);
     console.log("Unable to update watchlist of user.");
@@ -42,11 +41,11 @@ export const doUpdateUserWatchList = async ({ userId, product, action }) => {
 /////////
 export const doAddToWishlist = async () => {
   try {
-    const data = await axiosClient.post("users/wishlist", {
+    const response = await axiosClient.post("users/wishlist", {
       listing_id,
       user_id,
     });
-    return data;
+    return response;
   } catch (err) {
     console.log(err);
   }
