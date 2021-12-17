@@ -47,50 +47,27 @@ const ProductList = () => {
           }}
         >
           <Grid container spacing={8}>
-            {/* {searchedProducts.length > 0 &&
-              searchedProducts.map((product) => {
-                return (
-                  <Grid
-                    key={product}
-                    item
-                    xs={12}
-                    md={6}
-                    lg={3}
-                    style={{ background: "inherit" }}
-                  >
-                    <ItemCard product={product}>
-                      <HeaderWithIcons
-                        product={product}
-                        showFavoriteIcon
-                        showWatchesIcon
-                        clickable={true}
-                      />
-                    </ItemCard>
-                  </Grid>
-                );
-              })} */}
-            {!searchedProducts.length &&
-              products.map((product, idx) => {
-                return (
-                  <Grid
-                    key={idx}
-                    item
-                    xs={12}
-                    md={6}
-                    lg={3}
-                    style={{ background: "inherit" }}
-                  >
-                    <ItemCard product={product}>
-                      <HeaderWithIcons
-                        product={product}
-                        showFavoriteIcon
-                        showWatchesIcon
-                        clickable={true}
-                      />
-                    </ItemCard>
-                  </Grid>
-                );
-              })}
+            {products.map((product, idx) => {
+              return (
+                <Grid
+                  key={idx}
+                  item
+                  xs={12}
+                  md={6}
+                  lg={3}
+                  style={{ background: "inherit" }}
+                >
+                  <ItemCard product={product}>
+                    <HeaderWithIcons
+                      product={product}
+                      showFavoriteIcon
+                      showWatchesIcon
+                      clickable={true}
+                    />
+                  </ItemCard>
+                </Grid>
+              );
+            })}
           </Grid>
         </Box>
       </Box>

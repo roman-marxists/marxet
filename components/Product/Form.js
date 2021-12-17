@@ -58,7 +58,7 @@ export default function ProductForm({ handleClose }) {
   const onSubmit = async (data) => {
     const createdProduct = await doCreateProduct({
       ...data,
-      createdBy: user.uid,
+      createdBy: user._id,
     });
     setProducts([...products, createdProduct]);
     handleClose();

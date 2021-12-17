@@ -21,14 +21,16 @@ export const doUploadBytes = (file) =>
   );
 
 export const doCreateProduct = async (data) => {
-  console.log("🚀 ~ file: product.js ~ line 15 ~ doCreateProduct ~ data", data);
   try {
-    const photoURL = await doUploadBytes(data?.photo[0]);
+    let photoURL;
+    if (data?.photo[0]) {
+      photoURL = await doUploadBytes(data?.photo[0]);
+    }
     const res = await axiosClient.post("/products", {
       image: photoURL,
       ...data,
     });
-    return res;
+    return res.data;
   } catch (err) {
     console.log(err);
   }
