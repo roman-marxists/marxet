@@ -34,7 +34,7 @@ const List = () => {
         </Typography>
         {categories.map((listItem, i) => {
           return (
-            <ListItem>
+            <ListItem key={i}>
               <ListItemButton>
                 <ListItemText primary={listItem} />
               </ListItemButton>

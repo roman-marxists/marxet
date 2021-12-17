@@ -1,11 +1,11 @@
-import { Box, Grid } from '@mui/material';
-import ItemCard from '@components/ItemCard';
-import { useState, useEffect } from 'react';
-import { doGetProducts } from '@api/product';
-import { useSearchContext } from '@context/productSearch';
-import FavoriteHeader from '@components/ItemCard/FavoriteHeader';
-import HeaderWithIcons from '@components/ItemCard/HeaderWithIcons';
-import { useProducts } from '@context/product';
+import { Box, Grid } from "@mui/material";
+import ItemCard from "@components/ItemCard";
+import { useState, useEffect } from "react";
+import { doGetProducts } from "@api/product";
+import { useSearchContext } from "@context/productSearch";
+import FavoriteHeader from "@components/ItemCard/FavoriteHeader";
+import HeaderWithIcons from "@components/ItemCard/HeaderWithIcons";
+import { useProducts } from "@context/product";
 
 const ProductList = () => {
   const { products, setProducts, searchedProducts } = useProducts();
@@ -23,27 +23,26 @@ const ProductList = () => {
   }, []);
 
   return (
-    <>
       <Box
         className="Search"
         sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'center',
-          width: '90%',
-          margin: 'auto',
-          marginRight: '20%',
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          width: "90%",
+          margin: "auto",
+          marginRight: "20%",
         }}
       >
         <Box
           className="Grid"
           sx={{
-            display: 'flex',
-            alignItems: 'flex-start',
-            justifyContent: 'center',
-            width: '100vw',
-            padding: '50px',
-            marginLeft: '10vw',
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "center",
+            width: "100vw",
+            padding: "50px",
+            marginLeft: "10vw",
           }}
         >
           {console.log({searchedProducts})}
@@ -82,7 +81,6 @@ const ProductList = () => {
           </Grid>
         </Box>
       </Box>
-    </>
   );
 };
 

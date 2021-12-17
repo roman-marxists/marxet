@@ -11,7 +11,7 @@ export function ProductProvider({ children }) {
     const fetchProducts = async () => {
       try {
         const data = await doGetProducts();
-        setProducts(data);
+        setProducts(data ? data : []);
       } catch (err) {
         console.error(err);
       }
@@ -23,7 +23,7 @@ export function ProductProvider({ children }) {
     products,
     searchedProducts,
     setProducts,
-    setSearchedProducts
+    setSearchedProducts,
   };
 
   return (

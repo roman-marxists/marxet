@@ -37,12 +37,12 @@ const HeaderMenu = () => {
         }}
         onClose={handleClose}
       >
-        <Link href="user">
+        <Link href="/user">
           <MenuItem key="profile" onClick={handleClose}>
             Profile
           </MenuItem>
         </Link>
-        <Link href="/login">
+        <Link href="/login" passHref>
           <MenuItem key="logout" onClick={handleClose}>
             Log in
           </MenuItem>

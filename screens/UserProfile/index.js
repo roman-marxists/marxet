@@ -1,14 +1,17 @@
-import { useEffect, useState } from 'react';
-import UserInfo from './UserInfo';
-import UserInventory from './UserInventory';
-import UserReviews from './UserReviews';
-import UserWishlist from './UserWishlist';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import { useAuth } from '@context/auth';
-import { doGetUserData } from '@api/user';
+import { useEffect, useState } from "react";
+import UserInfo from "./UserInfo";
+import UserInventory from "./UserInventory";
+import UserReviews from "./UserReviews";
+import UserWishlist from "./UserWishlist";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import { useAuth } from "@context/auth";
+import { doGetUserData } from "@api/user";
+import { useRouter } from "next/router";
 
-const UserProfile = ({ userId }) => {
+const UserProfile = () => {
+  const router = useRouter();
+  const { userId } = router.query;
   const [user, setUser] = useState(null);
   console.log("🚀 ~ file: index.js ~ line 13 ~ UserProfile ~ user", user)
 
@@ -22,11 +25,11 @@ const UserProfile = ({ userId }) => {
       setUser(null);
       console.error(e);
     }
-  }, [userId])
+  }, [userId]);
 
   return (
     <Container>
-      <Grid container direction='row' spacing={3}>
+      <Grid container direction="row" spacing={3}>
         <Grid item md={3}>
 
           <UserInfo user={user}
@@ -36,16 +39,21 @@ const UserProfile = ({ userId }) => {
             // }}
           />
         </Grid>
-        <Grid item container md={9} direction='column' spacing={3}>
+        <Grid item container md={9} direction="column" spacing={3}>
           <Grid item>
-            <UserInventory user={user} listings={user?.listings}/>
+            <UserInventory user={user} listings={user?.listings} />
           </Grid>
-          <Grid item container direction={{ xs:'column', md:'row'}} spacing={3}>
+          <Grid
+            item
+            container
+            direction={{ xs: "column", md: "row" }}
+            spacing={3}
+          >
             <Grid item md={6}>
-              <UserWishlist user={user}/>
+              <UserWishlist user={user} />
             </Grid>
             <Grid item md={6}>
-              <UserReviews user={user}/>
+              <UserReviews user={user} />
             </Grid>
           </Grid>
         </Grid>

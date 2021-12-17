@@ -2,9 +2,8 @@ import ProductList from "./ProductList";
 
 const Products = () => {
   return (
-      <ProductList />
-  )
-}
-
+    <ProductList />
+  );
+};
 
 export default Products;
