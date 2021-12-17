@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useAuth } from "@context/auth";
-import { Button } from "@mui/material";
 
 import OfferModal from "@components/modals/Offer";
 
