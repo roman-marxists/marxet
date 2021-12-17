@@ -17,6 +17,7 @@ import IconButton from "@mui/material/IconButton";
 import { useState } from "react";
 import { useAuth } from "@context/auth";
 import Router from "next/router";
+import { ProductProvider } from "@context/product";
 
 const Header = () => {
   const { user } = useAuth();
@@ -35,7 +36,10 @@ const Header = () => {
               Marxet
             </Box>
           </Link>
-          <Search />
+          <ProductProvider>
+            <Search />
+          </ProductProvider>
+
           {/* <Dropdown /> */}
           {user ? (
             <>

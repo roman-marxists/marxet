@@ -8,8 +8,14 @@ import HeaderWithIcons from "@components/ItemCard/HeaderWithIcons";
 import { useProducts } from "@context/product";
 
 const ProductList = () => {
-  const {products, setProducts} = useProducts();
-  const { searchedProducts, setSearchedProducts } = useSearchContext();
+  const {
+    products,
+    setProducts,
+    searchedProducts,
+    setSearchedProducts,
+  } = useProducts();
+
+  console.log("productList", searchedProducts);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -51,33 +57,37 @@ const ProductList = () => {
           <Grid container spacing={8}>
             {searchedProducts.length > 0 &&
               searchedProducts.map((d) => {
-                  return (
-                    <Grid
-                      item
-                      xs={12}
-                      md={6}
-                      lg={3}
-                      style={{ background: "inherit" }}
-                    >
-                      <ItemCard id={d._id} />
-                    </Grid>
-                  );
-                })}
-            {!searchedProducts.length && products.map((d) => {
-                  return (
-                    <Grid
-                      item
-                      xs={12}
-                      md={6}
-                      lg={3}
-                      style={{ background: "inherit" }}
-                    >
-                      <ItemCard id={d._id}>
-                        <HeaderWithIcons showFavoriteIcon={true} showWatchesIcon={true}/>
-                      </ItemCard>
-                    </Grid>
-                  );
-                })}
+                return (
+                  <Grid
+                    item
+                    xs={12}
+                    md={6}
+                    lg={3}
+                    style={{ background: "inherit" }}
+                  >
+                    <ItemCard id={d._id} />
+                  </Grid>
+                );
+              })}
+            {!searchedProducts.length &&
+              products.map((d) => {
+                return (
+                  <Grid
+                    item
+                    xs={12}
+                    md={6}
+                    lg={3}
+                    style={{ background: "inherit" }}
+                  >
+                    <ItemCard id={d._id}>
+                      <HeaderWithIcons
+                        showFavoriteIcon={true}
+                        showWatchesIcon={true}
+                      />
+                    </ItemCard>
+                  </Grid>
+                );
+              })}
           </Grid>
         </Box>
       </Box>

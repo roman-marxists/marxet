@@ -97,7 +97,6 @@ const Login = () => {
 
   const handleSignIn = (e) => {
     e.preventDefault();
-
     signin(email, password);
     setPassword("");
   };
