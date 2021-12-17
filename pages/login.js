@@ -104,7 +104,7 @@ const Login = () => {
   return (
     <LoginContainer
       className="login-container"
-      style={{ fontFamily: Fonts.heading }}
+      style={{ fontFamily: Fonts.heading, marginTop: "15px" }}
     >
       <div id="welcome-message" style={{ fontSize: "40px", marginTop: "30px" }}>
        Welcome {signUpView ? "back " : null}to
