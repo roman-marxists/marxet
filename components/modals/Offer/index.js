@@ -62,9 +62,9 @@ const AddListing = () => {
         <Stack sx={modalStyling}>
           <h3>Select which listings you'd like to offer</h3>
           <Grid >
-            {products.map( (product, i) => (
+            { products.length ? products.map( (product, i) => (
               <ListingOption key={i} id={product.id} name={product.name} />
-            ))}
+            )) : "You currently have no listings to offer" }
           </ Grid>
         </Stack>
       </Modal>
