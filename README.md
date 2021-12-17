@@ -121,6 +121,8 @@ These reviews & ratings will be added to the individual listing page beneath the
 ### Amping up the geolocation
 
 ### Fine-tuning the search feature
+Not only will the Search results render more responsively, but there will also be a discrete sticky button anchored on the left side of the screen.
+Users can click this button to be sent back to the top of the screen so they can more easily access the Search bar.
 
 ### Greater user customization across all of _Marxet_
 Dark mode soon, we promise!
