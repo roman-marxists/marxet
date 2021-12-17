@@ -3,6 +3,7 @@ import { Box, Grid } from '@mui/material';
 import ItemCard from '../../components/ItemCard/index';
 import styled from 'styled-components';
 import { useTheme } from '@mui/system';
+import WatchCountHeader from '@components/ItemCard/WatchCountHeader';
 // import { styled } from '@mui/material/styles';
 
 // const StyledBox = styled(Box)(({theme}) => {
@@ -12,7 +13,7 @@ import { useTheme } from '@mui/system';
 //   box-shadow: 0 3px 10px #888888,
 // })
 
-const UserInventory = () => {
+const UserInventory = ({ userId }) => {
   const [inventory, setInventory] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
   return (
@@ -21,10 +22,12 @@ const UserInventory = () => {
         <Header />
         <Grid container direction={{ md:'row'}} spacing={2}>
           {
-            inventory.map(listing => {
+            inventory.map((listing, idx) => {
               return (
-                <Grid item xs={12} sm={6} md={3}>
-                  <ItemCard />
+                <Grid item key={idx} xs={12} sm={6} md={3}>
+                  <ItemCard>
+                    <WatchCountHeader userId={userId} clickable={false}/>
+                  </ItemCard>
                 </Grid>
               )
             })

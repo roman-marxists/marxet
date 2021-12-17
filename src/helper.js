@@ -1,14 +1,17 @@
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import Link from 'next/link';
 import Router from 'next/router';
+import useProvideAuth from '@hooks/useAuth';
 
 const auth = getAuth();
 
 export const register = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
+      console.log({"userCredential in register": userCredential})
       const user = userCredential.user;
-      Router.push(`/`);
+      console.log({"user in register": user})
+      Router.push(`/users/${user.uid}`);
     })
     .catch((error) => {
       console.error(error.code);
