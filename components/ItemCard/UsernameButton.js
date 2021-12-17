@@ -2,9 +2,7 @@ import { CardActions, Button } from "@mui/material";
 
 const UsernameButton = () => {
   return (
-    <CardActions>
-      <Button size="small">Username</Button>
-    </CardActions>
+      <Button color="secondary" size="small">Username</Button>
   );
 };
 

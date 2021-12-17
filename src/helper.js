@@ -1,14 +1,17 @@
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import Link from 'next/link';
 import Router from 'next/router';
+import useProvideAuth from '@hooks/useAuth';
 
 const auth = getAuth();
 
 export const register = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
+      console.log({"userCredential in register": userCredential})
       const user = userCredential.user;
-      Router.push(`/user/${user}`);
+      console.log({"user in register": user})
+      Router.push(`/users/${user.uid}`);
     })
     .catch((error) => {
       console.error(error.code);
@@ -22,7 +25,7 @@ export const signIn = (email, password) => {
     .then((userCredential) => {
       // User successfully signed in
       const user = userCredential.user;
-      Router.push('/products/1');
+      Router.push('/products');
     })
     .catch((error) => {
       console.error(error.code);
@@ -49,6 +52,8 @@ export const signUserOut = () => {
   signOut(auth)
     .then(() => {
       // TODO: Redirect them to Search
+      // TODO: this doesn't work
+      Router.push('/search')
     }).catch((error) => {
       // TODO: Alert
       alert('Unable to sign you out - ', error.message)

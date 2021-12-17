@@ -1,69 +1,12 @@
-import { Box, Grid } from "@mui/material";
-import ItemCard from "@components/ItemCard";
-import { useState, useEffect } from "react";
-import { doGetProducts } from "@api/product";
-import { useProductsContext } from "@context/productSearch";
+import ProductList from "./ProductList";
+import { ProductProvider } from "@context/product";
 
-const ProductPage = () => {
-  // const [products, setProducts] = useState([]);
-  const { products, setProducts } = useProductsContext();
-
-  const fetchProducts = async () => {
-    try {
-      const data = await doGetProducts();
-      setProducts(data ? data : []);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-
+const Products = () => {
   return (
-    <>
-      <Box
-        className="Search"
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          width: "90%",
-          margin: "auto",
-          marginRight: "20%",
-        }}
-      >
-        <Box
-          className="Grid"
-          sx={{
-            display: "flex",
-            alignItems: "flex-start",
-            justifyContent: "center",
-            width: "100vw",
-            padding: "50px",
-            marginLeft: "10vw",
-          }}
-        >
-          <Grid container spacing={8}>
-            {products.map((p, i) => {
-              return (
-                <Grid
-                  key={i}
-                  item
-                  xs={12}
-                  md={6}
-                  lg={3}
-                  style={{ background: "inherit" }}
-                >
-                  <ItemCard product={p} />
-                </Grid>
-              );
-            })}
-          </Grid>
-        </Box>
-      </Box>
-    </>
+    <ProductProvider>
+      <ProductList />
+    </ProductProvider>
   );
 };
 
-export default ProductPage;
+export default Products;

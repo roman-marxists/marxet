@@ -1,48 +1,38 @@
 [
   {
-    "_id": 1,
+    "_id": "64hjkhgjvdxoouw",
     "username": "johnsmith",
-    "wishlist": [
-      {
-        "name": "item1",
-        "description": "test item 1"
-      },
-      {
-        "name": "item2",
-        "description": "test item 2"
-      },
-      {
-        "name": "item3",
-        "description": "test item 3"
-      }
-    ],
-    "watchlist": [
-      {
-        "21354": "item1"
-      }
-    ]
+    "email": "johnsmith@gmail.com",
+    "zipcode": 10003
   },
   {
-    "_id": 1,
-    "username": "justjohn",
-    "wishlist": [
-      {
-        "name": "item1",
-        "description": "test item 1"
-      },
-      {
-        "name": "item2",
-        "description": "test item 2"
-      },
-      {
-        "name": "item3",
-        "description": "test item 3"
-      }
-    ],
-    "watchlist": [
-      {
-        "21354": "item1"
-      }
-    ]
+    "_id": "64hjkhfuyixoouw",
+    "username": "jacksmith",
+    "email": "johnsmith@gmail.com",
+    "zipcode": 10003
+  },
+  {
+    "_id": "64hjkyutfdxoouw",
+    "username": "janesmith",
+    "email": "johnsmith@gmail.com",
+    "zipcode": 10003
+  },
+  {
+    "_id": "64hjkhxcvdxoouw",
+    "username": "alexsmith",
+    "email": "johnsmith@gmail.com",
+    "zipcode": 10003
+  },
+  {
+    "_id": "64hjkhfdfdsoouw",
+    "username": "kellytso",
+    "email": "kellytso@yahoo.com",
+    "zipcode": 11545
+  },
+  {
+    "_id": "yJK05LbN5eYJwm33PzvVbqeEC9c2",
+    "username": "test",
+    "email": "test@tester.org",
+    "zipcode": 10004
   }
 ]

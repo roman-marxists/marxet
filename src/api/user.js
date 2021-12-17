@@ -1,24 +1,26 @@
 import axiosClient from "./apiClient";
 
-export async function getPokemon() {
-  try {
-    const { data } = await axiosClient.get("/users");
-    return data;
-  } catch (err) {
-    console.log("🚀 ~ file: user.js ~ line 8 ~ getPokemon ~ err", err);
-  }
-}
-
 export const doCreateUser = async (data) => {
   console.log(data);
   try {
     const res = await axiosClient.post("/users", {
-      email: data.email,
       id: data.uid,
+      email: data.email,
     });
-    console.log(res);
-    // return res;
-  } catch (err) {
-    console.log(err);
+  } catch (e) {
+    console.log(e);
+    console.log("Unable to create user.");
+  }
+};
+
+export const doUpdateUserWatchList = async ({ userId, productId, action }) => {
+  try {
+    await axiosClient.put(`/users/${userId}`, {
+      productId,
+      action,
+    });
+  } catch (e) {
+    console.log(e);
+    console.log("Unable to update watchlist of user.");
   }
 };
