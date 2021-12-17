@@ -37,10 +37,6 @@ const AddListing = () => {
   };
 
 
-  // const handleListing = () => {
-
-  // }
-
   return (
     <>
       <Button onClick={handleOpen}>Open modal</Button>
