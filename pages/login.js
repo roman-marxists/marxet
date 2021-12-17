@@ -10,9 +10,8 @@ import {
   IconButton,
   Fab,
 } from "@mui/material";
-import { Google, Facebook, Visibility } from "@mui/icons-material";
+import { Google, Visibility } from "@mui/icons-material";
 import { Theme, Fonts } from "../components/Theme.js";
-import { register, signIn, getUserInfo } from "../src/helper.js";
 import Router from "next/router";
 
 import { useAuth } from "@context/auth";
@@ -56,7 +55,6 @@ const Login = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(true);
   const [signUpView, setSignUpView] = useState(true);
-  const { user, signin, signup } = useAuth();
 
   const handleSwitchChange = () => {
     setSignUpView(!signUpView);
@@ -82,24 +80,26 @@ const Login = () => {
     setConfirmPassword(e.target.value);
   };
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
       alert("Your passwords do not match. Please try again.");
       setPassword("");
       setConfirmPassword("");
     } else {
-      signup(email, password);
-      setPassword("");
-      setConfirmPassword("");
-      handleSwitchChange();
+      await signup(email, password, username);
+      Router.push("/");
+      // setPassword("");
+      // setConfirmPassword("");
+      // handleSwitchChange();
     }
   };
 
-  const handleSignIn = (e) => {
+  const handleSignIn = async (e) => {
     e.preventDefault();
-    signin(email, password);
-    setPassword("");
+    await signin(email, password);
+    Router.push("/");
+    // setPassword("");
   };
 
   return (
