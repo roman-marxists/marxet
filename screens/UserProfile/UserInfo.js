@@ -7,13 +7,14 @@ import EditIcon from "@mui/icons-material/Edit";
 import { useAuth } from "@context/auth";
 
 const UserInfo = ({user}) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
   const [username, setUsername] = useState("username");
   const [bio, setBio] = useState("");
   const [isEditing, setIsEditing] = useState(false);
-  const { user } = useAuth();
+  const { user : dbUser} = useAuth();
+  const isAuthenticated = (dbUser) ? true : false;
+  const isOwnerAndAuthenticated = isAuthenticated && user?.username === dbUser.username;
 
-  const isOwnerAndAuthenticated = isAuthenticated && username === "username";
+  console.log({user})
 
   // useEffect hook to fetch the user profile info. only fetch transaction history if
   // user is authenticated and is the owner of the page.
@@ -30,13 +31,13 @@ const UserInfo = ({user}) => {
         />
       </div>
       <Typography>Name: {user?.username}</Typography>
-      <Typography>Location: {}</Typography>
+      <Typography>Location: {user?.zipcode}</Typography>
       <Typography>Rating:</Typography>
-      <Typography>Bio:</Typography>
+      <Typography>Bio: {user?.bio}</Typography>
       <Typography variant='body1' align='center'>
         {bio ||
           "Hi, my name is " +
-            username +
+            user?.username +
             " and I love redistributing my wealth."}
       </Typography>
       {isOwnerAndAuthenticated && <Typography>Transactions</Typography>}
