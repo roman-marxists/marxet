@@ -45,14 +45,17 @@ As a result, the team had to consider a lot of UI/UX principles, and we often ha
 It was a very tedious process of accounting for varying future circumstances, and the only way we could manage it was by creating several very-detailed wireframes. Even so, after all that planning, there were a few instances where a team member would bring up an important feature that we hadn't even considered, and we'd be back at the drawing board figuring out where that would fit into the website we had so far.
 
 Here's an example of one such wireframe:
+
 <img width="1177" alt="Screen Shot 2021-12-17 at 4 13 01 PM" src="https://user-images.githubusercontent.com/47910950/146608698-27f42e86-9899-4294-9443-b750bbcb0810.png">
 
 ### Free reign of design
 Designing our website's color scheme also took a while, but we ultimately decided on this:
+
 <img width="357" alt="Screen Shot 2021-12-17 at 4 26 23 PM" src="https://user-images.githubusercontent.com/47910950/146609943-fd956904-6394-4851-84b0-c7cf2453b469.png">
 
 ### Learning how to use & design our API around Firebase
 Firebase might be simpler to pick up, but there's still a learning curve. We used this web sequence diagram to orient ourselves.
+
 <img width="727" alt="Screen Shot 2021-12-17 at 4 12 11 PM" src="https://user-images.githubusercontent.com/47910950/146610048-48f01bca-8e56-4658-bdea-a335e54883af.png">
 
 
@@ -76,13 +79,12 @@ Each listing is uploaded with a picture and appropriate details on the side. The
 
 ### Making trade offers & bartering
 Clicking the `Make an offer` button takes you to this modal window, where you may select any number of your current listings to offer up as a trade.
-
-<img width="1440" alt="Screen Shot 2021-12-17 at 1 42 07 AM" src="https://user-images.githubusercontent.com/47910950/146608953-ad3e0d4f-162b-468b-88cc-628da1631c80.png">
-
-
 Once you send the offer, the button updates to alert the user that the offer was successfully sent.
 
-<img width="1440" alt="Screen Shot 2021-12-17 at 1 42 24 AM" src="https://user-images.githubusercontent.com/47910950/146609046-efc3e1da-70af-4363-a89f-9b11db1be054.png">
+Unfortunately, if you haven't got any listings posted and the listing isn't free, you won't be able to send an offer.
+
+<img width="1440" alt="Screen Shot 2021-12-17 at 4 59 39 PM" src="https://user-images.githubusercontent.com/47910950/146617530-c53a02d1-dd5a-453b-a150-fcac5e61faf7.png">
+
 
 
 ## Workflow & key takeaways
