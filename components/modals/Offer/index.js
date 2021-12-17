@@ -1,14 +1,20 @@
 import { useEffect, useState } from "react";
-import { Button, Modal, Box } from "@mui/material";
+import { Button, Modal, Box, Stack, Grid } from "@mui/material";
+import ListingOption from './ListingOption.js'
+import {ItemCard} from '../../ItemCard/index.js';
 import { doGetUserProducts } from "@api/product";
 import { useAuth } from "@context/auth";
 
-const style = {
+const modalStyling = {
   position: "absolute",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-evenly",
+  alignItems: "center",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
+  width: '500px',
   bgcolor: "background.paper",
   boxShadow: 24,
   p: 4,
@@ -53,14 +59,14 @@ const AddListing = () => {
         aria-labelledby="product-form"
         aria-describedby="product-form-description"
       >
-        <Box sx={style}>
-          <h3>my listing</h3>
-          <ul>
+        <Stack sx={modalStyling}>
+          <h3>Select which listings you'd like to offer</h3>
+          <Grid >
             {products.map( (product, i) => (
-              <li key={i}>{product.name}</li>
+              <ListingOption key={i} id={product.id} name={product.name} />
             ))}
-          </ul>
-        </Box>
+          </ Grid>
+        </Stack>
       </Modal>
     </>
   );
