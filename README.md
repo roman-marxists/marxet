@@ -44,6 +44,9 @@ As a result, the team had to consider a lot of UI/UX principles, and we often ha
 
 It was a very tedious process of accounting for varying future circumstances, and the only way we could manage it was by creating several very-detailed wireframes. Even so, after all that planning, there were a few instances where a team member would bring up an important feature that we hadn't even considered, and we'd be back at the drawing board figuring out where that would fit into the website we had so far.
 
+Here's an example of one such wireframe:
+<img width="1177" alt="Screen Shot 2021-12-17 at 4 13 01 PM" src="https://user-images.githubusercontent.com/47910950/146608698-27f42e86-9899-4294-9443-b750bbcb0810.png">
+
 
 ## Demos: Application functionality
 _What happens behind the scenes when the user interacts with it?
@@ -61,6 +64,17 @@ Each user has their own customizable user profile. They can create their biograp
 
 
 ### Creating your own listings
+Each listing is uploaded with a picture and appropriate details on the side. There are also buttons that allow users to `View seller` or `Make an offer`.
+<img width="1440" alt="Screen Shot 2021-12-17 at 4 14 43 PM" src="https://user-images.githubusercontent.com/47910950/146608939-4026380b-865c-4539-bbf7-00a4c6fdc5fd.png">
+
+Clicking the `Make an offer` button takes you to this modal window, where you may select any number of your current listings to offer up as a trade.
+
+<img width="1440" alt="Screen Shot 2021-12-17 at 1 42 07 AM" src="https://user-images.githubusercontent.com/47910950/146608953-ad3e0d4f-162b-468b-88cc-628da1631c80.png">
+
+
+Once you send the offer, the button updates to alert the user that the offer was successfully sent.
+
+<img width="1440" alt="Screen Shot 2021-12-17 at 1 42 24 AM" src="https://user-images.githubusercontent.com/47910950/146609046-efc3e1da-70af-4363-a89f-9b11db1be054.png">
 
 
 ### Making trade offers & bartering
