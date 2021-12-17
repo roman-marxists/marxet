@@ -13,15 +13,6 @@ import {
 import { doGetProductById } from "@api/product";
 import OfferModal from "@components/modals/Offer";
 
-/* (Done!)
-☑️ Divide component into two containers
-☑️ DECIDE: Quilt or woven variant for ImageList
-☑️ Create ImageList and map listing"s photos into ImageListItems
-☑️ IF there are no images, render the message "Lister has not uploaded any images"
-☑️ Create Stack container for listing"s name, category, description, etc.
-☑️ IF the user is not logged in, replace the `Make an offer` button with a
-  `Log in to make an offer` button that redirects user to login page
-*/
 
 const Product = () => {
   const { user } = useAuth();
@@ -74,9 +65,9 @@ const Product = () => {
             margin: "15px"
           }}
         >
-          <Stack className="listing-text-container" sx={{justifyContent: "space-between", marginLeft: "10px"}}>
-            <div className="plain-text" style={{fontSize: "60px"}}>{listing.name}</div>
-            <div>Listed by {listing.createdBy ? listing.createdBy : "an anonymous user"} on {listing.createdAt ? listing.createdAt.substring(0, 10) : "an unknown date"}</div>
+          <Stack className="listing-text-container plain-text" sx={{justifyContent: "space-between", marginLeft: "35px"}}>
+            <div style={{fontSize: "60px"}}>{listing.name}</div>
+            <div style={{marginLeft: "2px"}}>Listed by {listing.createdBy ? listing.createdBy : "an anonymous user"} on {listing.createdAt ? listing.createdAt.substring(0, 10) : "an unknown date"}</div>
             { listing.createdAt !== listing.updatedAt ?
               <div>Last updated on {listing.updatedAt.substring(0,10)}</div>
               :
@@ -105,9 +96,3 @@ const Product = () => {
 };
 
 export default Product;
-
-/*
-<Button variant="outlined" color="secondary" sx={{ width: "50%" }}>
-  Make an offer
-</ Button>
-*/
