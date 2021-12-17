@@ -4,6 +4,7 @@ import { IconButton } from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { Typography } from '@mui/material';
 import { doUpdateUserWatchList } from '@api/user';
+import { useAuth } from '@context/auth';
 
 /**
  * Product ID for checking the watch count
@@ -15,6 +16,7 @@ import { doUpdateUserWatchList } from '@api/user';
 const WatchCountHeader = ({product, clickable}) => {
   const [watchCount, setWatchCount] = useState(0);
   const [isWatched, setIsWatched] = useState(false);
+  const { user } = useAuth();
 
   useEffect(() => {
     // TODO: populate using product info
@@ -29,11 +31,11 @@ const WatchCountHeader = ({product, clickable}) => {
       setWatchCount(prev => prev + 1);
       setIsWatched(prev => !prev);
       // PUT user
-      doUpdateUserWatchList({
-        userId,
-        product, //TODO: add userContext
-        action: "add"
-      });
+      // doUpdateUserWatchList({
+      //   id: user.username,
+      //   product, //TODO: add userContext
+      //   action: "add"
+      // });
 
       // PUT Product
     } else if (clickable && isWatched) {

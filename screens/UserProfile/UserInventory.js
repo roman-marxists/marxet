@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import { useTheme } from '@mui/system';
 import WatchCountHeader from '@components/ItemCard/WatchCountHeader';
 import HeaderWithIcons from '@components/ItemCard/HeaderWithIcons';
+import { useAuth } from "@context/auth";
+
 // import { styled } from '@mui/material/styles';
 
 // const StyledBox = styled(Box)(({theme}) => {
@@ -14,8 +16,10 @@ import HeaderWithIcons from '@components/ItemCard/HeaderWithIcons';
 //   box-shadow: 0 3px 10px #888888,
 // })
 
-const UserInventory = ({ listings }) => {
+const UserInventory = ({ user }) => {
   const [inventory, setInventory] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  const { user : dbUser} = useAuth();
+  const isOwner = (dbUser?.username === user?.username);
 
   return (
     <Box>
@@ -27,7 +31,7 @@ const UserInventory = ({ listings }) => {
               return (
                 <Grid item key={idx} xs={12} sm={6} md={3}>
                   <ItemCard>
-                    <HeaderWithIcons product={listing} showWatchesIcon clickable={false} product/>
+                    <HeaderWithIcons product={listing} showWatchesIcon clickable={!isOwner} product/>
                   </ItemCard>
                 </Grid>
               )
