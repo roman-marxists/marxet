@@ -1,6 +1,4 @@
-import { Card, CardHeader, CardActions, CardActionArea, IconButton } from '@mui/material';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import { Card, CardHeader, CardActions, CardActionArea } from '@mui/material';
 import { useState } from 'react';
 import Link from 'next/link';
 
@@ -10,20 +8,20 @@ import UsernameButton from './UsernameButton.js';
 
 const ItemCard = ({ children, id, product }) => {
   return (
-    <Link href={`/products/${id}`}>
-      <Card raised>
+    <Card raised>
         {children}
+        <Link href={`/products/${id}`}>
         <CardActionArea>
           <CardImage />
           <CardDescription />
         </CardActionArea>
+        </Link>
         {/* <Link href={`/products/${id}`}>link</Link>
         {product?.createdBy?.email} */}
         <CardActions>
           <UsernameButton />
         </CardActions>
       </Card>
-    </Link>
   );
 };
 

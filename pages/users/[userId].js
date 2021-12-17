@@ -5,7 +5,7 @@ const User = () => {
   const router = useRouter();
   const { userId } = router.query;
 
-  return <div><UserProfile/></div>;
+  return <div><UserProfile userId={userId}/></div>;
 };
 
 export default User;
