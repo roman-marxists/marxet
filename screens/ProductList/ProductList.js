@@ -55,8 +55,9 @@ const ProductList = () => {
                     <ItemCard id={product._id}>
                       <HeaderWithIcons
                         product={product}
-                        showFavoriteIcon={true}
-                        showWatchesIcon={true}
+                        showFavoriteIcon
+                        showWatchesIcon
+                        clickable={true}
                       />
                     </ItemCard>
                   </Grid>
@@ -69,8 +70,9 @@ const ProductList = () => {
                     <ItemCard id={product._id}>
                       <HeaderWithIcons
                         product={product}
-                        showFavoriteIcon={true}
-                        showWatchesIcon={true}
+                        showFavoriteIcon
+                        showWatchesIcon
+                        clickable={true}
                       />
                     </ItemCard>
                   </Grid>

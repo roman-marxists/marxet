@@ -4,12 +4,14 @@ import profilePic from "@images/placeholder-propic.png";
 import { Stack, Divider, Typography, Box, Button } from "@mui/material";
 import SaveIcon from "@mui/icons-material/Save";
 import EditIcon from "@mui/icons-material/Edit";
+import { useAuth } from "@context/auth";
 
-const UserInfo = () => {
+const UserInfo = ({user}) => {
   const [isAuthenticated, setIsAuthenticated] = useState(true);
   const [username, setUsername] = useState("username");
   const [bio, setBio] = useState("");
   const [isEditing, setIsEditing] = useState(false);
+  const { user } = useAuth();
 
   const isOwnerAndAuthenticated = isAuthenticated && username === "username";
 
@@ -27,8 +29,8 @@ const UserInfo = () => {
           alt='profile picture'
         />
       </div>
-      <Typography>Name: {username}</Typography>
-      <Typography>Location:</Typography>
+      <Typography>Name: {user?.username}</Typography>
+      <Typography>Location: {}</Typography>
       <Typography>Rating:</Typography>
       <Typography>Bio:</Typography>
       <Typography variant='body1' align='center'>

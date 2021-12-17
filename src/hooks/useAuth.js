@@ -58,9 +58,11 @@ export default function useProvideAuth() {
   };
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
+    // Any time user log in or out, this fires
+    const unsubscribe = auth.onAuthStateChanged(async (user) => {
       if (user) {
-        setUser(user);
+        const dbUser = await doGetUserData(user.uid);
+        setUser(dbUser);
       } else {
         setUser(false);
       }

@@ -4,18 +4,16 @@ import UserReviews from './UserReviews';
 import UserWishlist from './UserWishlist';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import useProvideAuth from '@hooks/useAuth';
+import { useAuth } from '@context/auth';
 
 const UserProfile = ({ userId }) => {
-  const { user } = useProvideAuth();
-  console.log({user: user});
-  console.log({userId})
+  const { user } = useAuth();
 
   return (
     <Container>
       <Grid container direction='row' spacing={3}>
         <Grid item md={3}>
-          <UserInfo
+          <UserInfo user={user}
             // sx={{
             //   minHeight: 500,
             //   minWidth: 300,
@@ -24,7 +22,7 @@ const UserProfile = ({ userId }) => {
         </Grid>
         <Grid item container md={9} direction='column' spacing={3}>
           <Grid item>
-            <UserInventory userId={userId}/>
+            <UserInventory listings={user?.listings}/>
           </Grid>
           <Grid item container direction={{ xs:'column', md:'row'}} spacing={3}>
             <Grid item md={6}>

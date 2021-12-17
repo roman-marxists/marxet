@@ -14,7 +14,7 @@ const HeaderWithIcons = ({ showFavoriteIcon, showWatchesIcon, clickable, product
           action={
             <>
               {showWatchesIcon && (
-                <WatchCountHeader product={product} clickable={true} /> //TODO: populate watchesCount
+                <WatchCountHeader product={product} clickable={clickable} /> //TODO: populate watchesCount
               )}
               {showFavoriteIcon && <FavoriteHeader product={product} />}
             </>
