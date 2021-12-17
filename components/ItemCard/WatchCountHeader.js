@@ -12,7 +12,7 @@ import { doUpdateUserWatchList } from '@api/user';
  * @param {*} param0
  * @returns
  */
-const WatchCountHeader = ({productId, clickable}) => {
+const WatchCountHeader = ({product, clickable}) => {
   const [watchCount, setWatchCount] = useState(0);
   const [isWatched, setIsWatched] = useState(false);
 
@@ -29,11 +29,11 @@ const WatchCountHeader = ({productId, clickable}) => {
       setWatchCount(prev => prev + 1);
       setIsWatched(prev => !prev);
       // PUT user
-      // doUpdateUserWatchList({
-      //   userId,
-      //   productId,
-      //   action: "add"
-      // });
+      doUpdateUserWatchList({
+        userId,
+        product, //TODO: add userContext
+        action: "add"
+      });
 
       // PUT Product
     } else if (clickable && isWatched) {
@@ -51,12 +51,10 @@ const WatchCountHeader = ({productId, clickable}) => {
   }
 
   return (
-    <>
         <IconButton aria-label="add-to-favorites" onClick={handleWatchCount}>
           <Typography>{watchCount}</Typography>
           {!isWatched ? <VisibilityIcon /> : <VisibilityIcon sx={{ color: 'red' }} />}
         </IconButton>
-    </>
   );
 };
 
