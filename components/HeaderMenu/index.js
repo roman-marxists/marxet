@@ -37,7 +37,7 @@ const HeaderMenu = () => {
         }}
         onClose={handleClose}
       >
-        <Link href="user">
+        <Link href="/user">
           <MenuItem key="profile" onClick={handleClose}>
             Profile
           </MenuItem>
