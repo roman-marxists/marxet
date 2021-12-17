@@ -77,6 +77,7 @@ const UserMenu = () => {
     Router.push(`/users/${user._id}`);
     setShowAccount(false);
   };
+
   return (
     <>
       <IconButton

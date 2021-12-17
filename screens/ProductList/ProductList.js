@@ -47,7 +47,6 @@ const ProductList = () => {
           }}
         >
           <Grid container spacing={8}>
-            {console.log({ searchedProducts })}
             {searchedProducts.length > 0 &&
               searchedProducts.map(product => {
                 return (
@@ -67,7 +66,7 @@ const ProductList = () => {
               products.map((product, idx) => {
                 return (
                   <Grid key={idx} item xs={12} md={6} lg={3} style={{ background: 'inherit' }}>
-                    <ItemCard id={product._id}>
+                    <ItemCard product={product}>
                       <HeaderWithIcons
                         product={product}
                         showFavoriteIcon
