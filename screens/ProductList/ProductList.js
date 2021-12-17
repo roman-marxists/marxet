@@ -52,7 +52,13 @@ const ProductList = () => {
               searchedProducts.map(product => {
                 return (
                   <Grid item xs={12} md={6} lg={3} style={{ background: 'inherit' }}>
-                    <ItemCard id={product._id} />
+                    <ItemCard id={product._id}>
+                      <HeaderWithIcons
+                        product={product}
+                        showFavoriteIcon={true}
+                        showWatchesIcon={true}
+                      />
+                    </ItemCard>
                   </Grid>
                 );
               })}
