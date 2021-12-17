@@ -8,9 +8,11 @@ const storageRef = ref(storage, "images");
 export const doGetSearched = async (searchTerm) => {
   try {
     const { data } = await axiosClient.get(`/products/search/${searchTerm}`);
+    console.log({data});
     return data;
   } catch (err) {
     console.log(err);
+    return [];
   }
 };
 

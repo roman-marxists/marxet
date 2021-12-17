@@ -17,6 +17,7 @@ import IconButton from "@mui/material/IconButton";
 import { useState } from "react";
 import { useAuth } from "@context/auth";
 import Router from "next/router";
+import { ProductProvider } from "@context/product";
 
 const Header = () => {
   const { user } = useAuth();
@@ -42,14 +43,15 @@ const Header = () => {
           </Link>
           <Search />
           {/* <Dropdown /> */}
-          {user ? (
+          {user && (
             <>
               <Box mr={5}>
                 <ListingModal />
               </Box>
               <UserMenu />
             </>
-          ) : (
+          )}
+          {!user && (
             <Link href="/login">
               <Button color="inherit" variant="outlined">
                 Login
