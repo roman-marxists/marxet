@@ -8,9 +8,7 @@ const auth = getAuth();
 export const register = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      console.log({"userCredential in register": userCredential})
       const user = userCredential.user;
-      console.log({"user in register": user})
       Router.push(`/users/${user.uid}`);
     })
     .catch((error) => {

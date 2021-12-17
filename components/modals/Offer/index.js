@@ -27,9 +27,10 @@ const AddListing = () => {
   const [offerSent, setOfferSent] = useState(false);
 
   useEffect(() => {
-    console.log('USER: ', user);
     const fetchProducts = async () => {
+      console.log('USER: ', user);
       const products = await doGetUserProducts(user?._id);
+      console.log('PRODUCTS: ', products);
       setProducts(products ? products : []);
     };
     fetchProducts();

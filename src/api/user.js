@@ -1,7 +1,6 @@
 import axiosClient from "./apiClient";
 
 export const doCreateUser = async (data) => {
-  console.log(data);
   try {
     const res = await axiosClient.post("/users", {
       id: data.uid,
@@ -10,19 +9,17 @@ export const doCreateUser = async (data) => {
     });
     return res.data;
   } catch (e) {
-    console.log(e);
-    console.log("Unable to create user.", data);
+    console.error(e);
   }
 };
 
 export const doGetUserData = async (userId) => {
   try {
     const res = await axiosClient.get(`/users/${userId}`);
-    console.log("🚀 ~ file: user.js ~ line 21 ~ doGetUserData ~ res", res.data)
     return res.data;
   } catch (e) {
-    console.log(e);
-    console.log("Unable to get user.");
+    console.error(e);
+    console.error("Unable to get user.");
   }
 };
 
@@ -33,8 +30,8 @@ export const doUpdateUserWatchList = async ({ user, watchList }) => {
     });
     return response.data;
   } catch (e) {
-    console.log(e);
-    console.log("Unable to update watchlist of user.");
+    console.error(e);
+    console.error("Unable to update watchlist of user.");
   }
 };
 
@@ -47,7 +44,7 @@ export const doAddToWishlist = async () => {
     });
     return response;
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -58,6 +55,6 @@ export const doDeleteFromWishlist = async (listing_id) => {
     );
     return data;
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };

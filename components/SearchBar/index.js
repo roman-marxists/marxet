@@ -32,7 +32,7 @@ const Search = () => {
       const getSearchedProducts = await doGetSearched(searchTerm);
       setProducts(getSearchedProducts);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     } finally {
       setSearchTerm("");
     }

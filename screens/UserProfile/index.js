@@ -13,13 +13,10 @@ const UserProfile = () => {
   const router = useRouter();
   const { userId } = router.query;
   const [user, setUser] = useState(null);
-  console.log("🚀 ~ file: index.js ~ line 13 ~ UserProfile ~ user", user)
 
   useEffect(async () => {
     try {
-      console.log("🚀 ~ file: index.js ~ line 17 ~ UserProfile ~ user", user)
       const data = await doGetUserData(userId);
-      console.log({data})
       setUser(data);
     } catch (e) {
       setUser(null);

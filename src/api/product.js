@@ -7,7 +7,7 @@ export const doGetSearched = async (searchTerm) => {
     const { data } = await axiosClient.get(`/products/search/${searchTerm}`);
     return data;
   } catch (err) {
-    console.log(err);
+    console.error(err);
     return [];
   }
 };
@@ -32,7 +32,7 @@ export const doCreateProduct = async (data) => {
     });
     return res.data;
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -41,7 +41,7 @@ export const doGetProducts = async () => {
     const { data } = await axiosClient.get("/products");
     return data;
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -50,16 +50,16 @@ export const doGetProductById = async (id) => {
     const { data } = await axiosClient.get(`/products/${id}`);
     return data;
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
 export const doGetUserProducts = async (id) => {
   try {
-    const { data } = await axiosClient.get(`/products/user/${id}`);
+    const data = await axiosClient.get(`/products/user/${id}`);
     return data;
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -70,6 +70,6 @@ export const doUpdateProductWatchCount = async({ product, watchCount }) => {
     })
     return data;
   } catch (e) {
-    console.log(e);
+    console.error(e);
   }
 }
