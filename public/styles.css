@@ -12,6 +12,10 @@ h1, .display {
   font-family: 'Source Sans Pro', serif;
 }
 
+.verdana {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .logo {
   font-family: 'Beth Ellen', cursive;
   color: '#801f12';

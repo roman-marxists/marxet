@@ -13,7 +13,7 @@ const ItemCard = ({ children, product }) => {
         border: "#c7d6d5 2px solid",
       }}
     >
-      <Stack className='plain-text' sx={{alignItems: "center", fontSize: "20px"}}>
+      <Stack sx={{alignItems: "center", fontSize: "20px", margin: "5px", textAlign: "center"}}>
         {product?.name}
         {children}
       </Stack>
