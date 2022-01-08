@@ -27,7 +27,7 @@ Alongside these, our new technologies are:
 ## Repository setup
 ### Firebase environment
 1. Create file `.env.local` in root directory. You can copy and rename from the `.env.local.example` file
-2. Add the following variables to the `.env.local` file
+2. Add the following variables to the `.env.local` file by copying and pasting the following lines:
 
    `NEXT_PUBLIC_FIREBASE_API_KEY=<your api key>`
    
